@@ -1,2 +1,2 @@
-# automation-webdriverio
-WebDriver I/O from scratch
+# WebDriver I/O from scratch
+
