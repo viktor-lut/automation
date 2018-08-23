@@ -6,6 +6,16 @@ https://nodejs.org/en/
 #### 1.2. Git:
 Install the latest Git from 
 https://git-scm.com/
+===
+for Windows:
+#### 1.3. Node Version Manager (nvm-windows):
+Install the nvm-windows from
+https://github.com/coreybutler/nvm-windows/releases
+#### 1.4. Install all the required tools and configurations using Microsoft's windows-build-tools:
+Open Command Prompt and run the following script:
+````
+npm install --global --production windows-build-tools
+````
 
 ## 2. Creating project
 #### 2.1. Create project folder:
