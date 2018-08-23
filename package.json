@@ -18,6 +18,7 @@
   "homepage": "https://github.com/artsenius/automation-webdriverio#readme",
   "devDependencies": {
     "selenium-standalone": "^6.15.1",
+    "wdio-mocha-framework": "^0.6.2",
     "webdriverio": "^4.13.2"
   }
 }
