@@ -6,7 +6,9 @@ https://nodejs.org/en/
 #### 1.2. Git:
 Install the latest Git from 
 https://git-scm.com/
+
 ===
+
 for Windows:
 #### 1.3. Node Version Manager (nvm-windows):
 Install the nvm-windows from
@@ -51,7 +53,7 @@ This action creates `package.json` file.
 ````
  ./node_modules/.bin/wdio config
 ````
-Click 'Enter' for the following items:
+Click `Enter` for the following items:
 ````
 Where do you want to execute your tests?:
 On my local machine
@@ -60,17 +62,17 @@ On my local machine
 Which framework do you want to use?:
 mocha 
 ````
-Type 'Y' and click 'Enter' for the following:
+Type `Y` and click 'Enter' for the following:
 ````
 Shall I install the framework adapter for you? (Y/n):
 Y
 ````
-Type './test**/*.js' and click 'Enter' for the following:
+Type `./test/**/*.js` and click `Enter` for the following:
 ````
 Where are your test specs located?
-./test**/*.js
+./test/**/*.js
 ````
-Just click 'Enter' for the following items:
+Just click `Enter` for the following items:
 ````
 Which reporter do you want to use?
 ````
@@ -86,13 +88,47 @@ Level of logging verbosity
 ````
 In which directory should screenshots gets saved if a command fails? (./errorShots/)
 ````
-Type 'https://artsenius.github.io/Bug-Tracker/' and click 'Enter' for the following:
+Type `https://artsenius.github.io/Bug-Tracker/` and click 'Enter' for the following:
 ````
 What is the base url?
 https://artsenius.github.io/Bug-Tracker/
 ````
 Wait till the end of the installation process.
 
+## 4. Creating the first test
+#### 4.1. Create `test` folder and open it:
+````
+mkdir test
+cd test
+````
+#### 4.2. Create `test.js` file and open it:
+````
+touch test.js
+open test.js
+````
+#### 4.3. Add the first test:
+````
+describe('Page opening', function () {
+  it('get title', function(){
+    browser.url('/Bug-Tracker/');
+    let title = browser.getTitle();
+    browser.pause(5000);
+    console.log(title);
+  })
+});
+````
+
+## 5. Selenium Server initial configuration
+#### 4.1. Initial installation:
+````
+./node_modules/.bin/selenium-standalone install
+````
+Wait till the end of the installation process.
+#### 4.1. Add a script for starting Selenium Server:
+Open package.json and add new entry to the `scripts` object:
+````
+"start": "selenium-standalone start"
+````
 
 
 TODO:
