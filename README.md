@@ -62,7 +62,7 @@ On my local machine
 Which framework do you want to use?:
 mocha 
 ````
-Type `Y` and click 'Enter' for the following:
+Type `Y` and click `Enter` for the following:
 ````
 Shall I install the framework adapter for you? (Y/n):
 Y
@@ -88,7 +88,7 @@ Level of logging verbosity
 ````
 In which directory should screenshots gets saved if a command fails? (./errorShots/)
 ````
-Type `https://artsenius.github.io/Bug-Tracker/` and click 'Enter' for the following:
+Type `https://artsenius.github.io/Bug-Tracker/` and click `Enter` for the following:
 ````
 What is the base url?
 https://artsenius.github.io/Bug-Tracker/
@@ -125,11 +125,14 @@ describe('Page opening', function () {
 ````
 Wait till the end of the installation process.
 #### 4.1. Add a script for starting Selenium Server:
-Open package.json and add new entry to the `scripts` object:
+Open `package.json` and add new entry to the `scripts` object:
 ````
 "start": "selenium-standalone start"
 ````
+Now you can start selenium server using `npm start` script.
+
+## 6.
 
 
-TODO:
+## TODO:
 .gitignore
