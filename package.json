@@ -4,8 +4,8 @@
   "description": "Install the latest Node.js from https://nodejs.org/en/ ### 1.2. Git: Install the latest Git from  https://git-scm.com/ ## 2. Creating project ### 2.1. Create project folder: Open terminal and navigate to desired folder where you're going to store all of your projects. For example `projects` folder: ```` cd projects/ ```` Create a folder for automation project. For example, `automation-webdriverio`: ```` mkdir automation-webdriverio ```` And navigate to the created folder: ```` cd automation-webdriverio ```` ### 2.2. Install webDriver I/O and Selenium: ````  npm i --save-dev webdriverio selenium-standalone ````",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "selenium-standalone start"
+    "test": "wdio wdio.conf.js",
+    "start": "selenium-standalone start -silent && npm test"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,9 @@
   "homepage": "https://github.com/artsenius/automation-webdriverio#readme",
   "devDependencies": {
     "selenium-standalone": "^6.15.1",
+    "wdio-allure-reporter": "^0.6.3",
     "wdio-mocha-framework": "^0.6.2",
+    "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.2"
   }
 }

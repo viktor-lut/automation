@@ -118,20 +118,63 @@ describe('Page opening', function () {
 });
 ````
 
-## 5. Selenium Server initial configuration
-#### 4.1. Initial installation:
+## 5. Selenium Server and WebDriver I/O initial configuration
+#### 5.1. Initial installation:
 ````
 ./node_modules/.bin/selenium-standalone install
 ````
 Wait till the end of the installation process.
-#### 4.1. Add a script for starting Selenium Server:
+#### 5.2. Add a script for starting Selenium Server:
 Open `package.json` and add new entry to the `scripts` object:
 ````
 "start": "selenium-standalone start"
 ````
 Now you can start selenium server using `npm start` script.
+#### 5.3. Add a script for running WebDriver I/O tests:
+Open `package.json` and modify `test` script:
+````
+"test": "wdio wdio.conf.js",
+````
+Now you can start Selenium Server using `npm start` script and run tests using `npm test`.
 
-## 6.
+## 6. Running the first test
+#### 6.1. Start Selenium Server:
+````
+npm start
+````
+#### 6.2. Open new tab in Terminal and run the first test:
+````
+npm test
+````
+Wait until test is finished. 
+You should see the message that 1 test passed.
+
+## 7. Install additional reporters
+#### 7.1. Spec reporter:
+````
+npm install wdio-spec-reporter --save-dev
+````
+#### 7.2. Allure reporter:
+````
+npm install wdio-allure-reporter --save-dev
+````
+
+## 8. `wdio.conf.js` configuration
+#### 8.1. Turn on sync mode:
+`sync: false` => `sync: true`
+#### 8.2. Configure browser:
+`browserName: 'firefox'` => `browserName: 'chrome'`
+#### 8.3. Configure reporters:
+uncomment `// reporters: ['dot'],`
+and then:
+````
+reporters: ['dot', 'spec', 'allure'],
+  reporterOptions: {
+    allure: {
+      outputDir: 'allure-results'
+    }
+  },
+````
 
 
 ## TODO:

@@ -5,6 +5,7 @@ describe('Page opening', function () {
     browser.url('/Bug-Tracker/');
     let title = browser.getTitle();
     browser.pause(5000);
+    console.log(title);
     assert.equal(title, 'Bug Tracker', 'Title is incorrect');
   })
 });
