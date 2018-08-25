@@ -47,7 +47,7 @@ This action creates `package.json` file.
 ````
 #### 3.3. Install Selenium:
 ````
- npm i --save-dev selenium-standalone
+ npm i --save-dev wdio-selenium-standalone-service
 ````
 #### 3.3. Create WebDriver I/O configuration:
 ````
@@ -60,7 +60,7 @@ On my local machine
 ````
 ````
 Which framework do you want to use?:
-mocha 
+mocha
 ````
 Type `Y` and click `Enter` for the following:
 ````
@@ -75,23 +75,23 @@ Where are your test specs located?
 Just click `Enter` for the following items:
 ````
 Which reporter do you want to use?
+dot
 ````
 ````
 Do you want to add a service to your test setup?
-````
-````
-Do you want to add a service to your test setup?
+selenium-standalone
 ````
 ````
 Level of logging verbosity
+silent
 ````
 ````
 In which directory should screenshots gets saved if a command fails? (./errorShots/)
 ````
-Type `https://artsenius.github.io/Bug-Tracker/` and click `Enter` for the following:
+Type `https://artsenius.github.io` and click `Enter` for the following:
 ````
 What is the base url?
-https://artsenius.github.io/Bug-Tracker/
+https://artsenius.github.io
 ````
 Wait till the end of the installation process.
 
@@ -108,63 +108,49 @@ open test.js
 ````
 #### 4.3. Add the first test:
 ````
+const assert = require('assert');
+
 describe('Page opening', function () {
   it('get title', function(){
-    browser.url('/Bug-Tracker/');
-    let title = browser.getTitle();
-    browser.pause(5000);
-    console.log(title);
+    browser.url('/Bug-Tracker'); //open baseUrl + string passed in .url() function
+    let title = browser.getTitle(); //get page title and assign it to the "title" variable
+    browser.pause(5000); //just pause to visually see that something is happening on the page
+    console.log(title); //log "title" variable
+    assert.equal(title, 'Bug Tracker', 'Title is incorrect'); //compare that "title" variable equals to "Bug Tracker" and error-message if not
   })
 });
 ````
 
-## 5. Selenium Server and WebDriver I/O initial configuration
-#### 5.1. Initial installation:
-````
-./node_modules/.bin/selenium-standalone install
-````
-Wait till the end of the installation process.
-#### 5.2. Add a script for starting Selenium Server:
-Open `package.json` and add new entry to the `scripts` object:
-````
-"start": "selenium-standalone start"
-````
-Now you can start selenium server using `npm start` script.
-#### 5.3. Add a script for running WebDriver I/O tests:
+## 5. WebDriver I/O initial configuration
+#### 5.1. Add a script for running WebDriver I/O tests:
 Open `package.json` and modify `test` script:
 ````
-"test": "wdio wdio.conf.js",
+"test": "wdio wdio.conf.js"
 ````
-Now you can start Selenium Server using `npm start` script and run tests using `npm test`.
+Now you can start your tests using `npm test` script.
 
-## 6. Running the first test
-#### 6.1. Start Selenium Server:
-````
-npm start
-````
-#### 6.2. Open new tab in Terminal and run the first test:
-````
-npm test
-````
-Wait until test is finished. 
-You should see the message that 1 test passed.
-
-## 7. Install additional reporters
-#### 7.1. Spec reporter:
+## 6. Install additional reporters
+#### 6.1. Spec reporter:
 ````
 npm install wdio-spec-reporter --save-dev
 ````
-#### 7.2. Allure reporter:
+#### 6.2. Allure reporter:
 ````
 npm install wdio-allure-reporter --save-dev
 ````
 
-## 8. `wdio.conf.js` configuration
-#### 8.1. Turn on sync mode:
+## 7. `wdio.conf.js` configuration
+#### 7.1. Turn on sync mode:
 `sync: false` => `sync: true`
-#### 8.2. Configure browser:
+#### 7.2. Configure browser:
 `browserName: 'firefox'` => `browserName: 'chrome'`
-#### 8.3. Configure reporters:
+#### 7.3. Configure reporters:
+uncomment `// services: [],`
+and then:
+````
+services: ['selenium-standalone'],
+````
+#### 7.4. Configure services:
 uncomment `// reporters: ['dot'],`
 and then:
 ````
@@ -176,6 +162,16 @@ reporters: ['dot', 'spec', 'allure'],
   },
 ````
 
+## 8. Running the first test
+#### 8.1. Run the first test:
+````
+npm test
+````
+Wait until test is finished. 
+You should see the message that 1 test passed.
+
 
 ## TODO:
+GIT
+
 .gitignore
