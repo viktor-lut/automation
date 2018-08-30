@@ -18,6 +18,8 @@ Open Command Prompt and run the following script:
 ````
 npm install --global --production windows-build-tools
 ````
+#### 1.5. Install Java:
+https://www.java.com/en/download/
 
 ## 2. Creating project
 #### 2.1. Create project folder:
