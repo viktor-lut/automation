@@ -151,13 +151,13 @@ npm install wdio-allure-reporter --save-dev
 `browserName: 'firefox'` => `browserName: 'chrome'`
 #### 7.2. Configure reporters:
 uncomment `// services: [],`
-and then:
+and then replace by:
 ````
 services: ['selenium-standalone'],
 ````
 #### 7.3. Configure services:
 uncomment `// reporters: ['dot'],`
-and then:
+and then replace by:
 ````
 reporters: ['dot', 'spec', 'allure'],
   reporterOptions: {
