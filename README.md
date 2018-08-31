@@ -25,7 +25,7 @@ https://www.java.com/en/download/
 #### 2.1. Create project folder:
 Open terminal and navigate to desired folder where you're going to store all of your projects. For example `projects` folder:
 ````
-cd projects/
+cd projects
 ````
 Create a folder for automation project. For example, `automation-webdriverio`:
 ````
@@ -47,13 +47,18 @@ This action creates `package.json` file.
 ````
  npm i --save-dev webdriverio
 ````
-#### 3.3. Install Selenium:
+#### 3.2. Install Selenium:
 ````
  npm i --save-dev wdio-selenium-standalone-service
 ````
 #### 3.3. Create WebDriver I/O configuration:
+MacOS:
 ````
  ./node_modules/.bin/wdio config
+````
+Windows:
+````
+ .\node_modules\.bin\wdio config
 ````
 Click `Enter` for the following items:
 ````
@@ -69,7 +74,7 @@ Type `Y` and click `Enter` for the following:
 Shall I install the framework adapter for you? (Y/n):
 Y
 ````
-Type `./test/**/*.js` and click `Enter` for the following:
+Type `./test/**/*.js`(MacOS) or `.\test\**\*.js`(Windows) and click `Enter` for the following:
 ````
 Where are your test specs located?
 ./test/**/*.js
@@ -142,17 +147,15 @@ npm install wdio-allure-reporter --save-dev
 ````
 
 ## 7. `wdio.conf.js` configuration
-#### 7.1. Turn on sync mode:
-`sync: false` => `sync: true`
-#### 7.2. Configure browser:
+#### 7.1. Configure browser:
 `browserName: 'firefox'` => `browserName: 'chrome'`
-#### 7.3. Configure reporters:
+#### 7.2. Configure reporters:
 uncomment `// services: [],`
 and then:
 ````
 services: ['selenium-standalone'],
 ````
-#### 7.4. Configure services:
+#### 7.3. Configure services:
 uncomment `// reporters: ['dot'],`
 and then:
 ````
@@ -175,5 +178,4 @@ You should see the message that 1 test passed.
 
 ## TODO:
 GIT
-
 .gitignore
