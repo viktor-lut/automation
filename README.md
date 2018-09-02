@@ -1,7 +1,7 @@
 # WebDriver I/O from scratch
 ## 1. Prerequisites
 #### 1.1. Node.js:
-Install the latest Node.js from
+Install the latest Node.js *Recommended For Most Users* from
 https://nodejs.org/en/
 #### 1.2. Git:
 Install the latest Git from 
