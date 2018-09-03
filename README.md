@@ -74,7 +74,7 @@ Type `Y` and click `Enter` for the following:
 Shall I install the framework adapter for you? (Y/n):
 Y
 ````
-Type `./test/**/*.js`(MacOS) or `.\test\**\*.js`(Windows) and click `Enter` for the following:
+Type `./test/**/*.js` and click `Enter` for the following:
 ````
 Where are your test specs located?
 ./test/**/*.js
@@ -108,10 +108,17 @@ Wait till the end of the installation process.
 mkdir test
 cd test
 ````
+
 #### 4.2. Create `test.js` file and open it:
+MacOS:
 ````
 touch test.js
 open test.js
+````
+Windows:
+````
+copy NUL test.js
+test.js
 ````
 #### 4.3. Add the first test:
 ````
@@ -148,7 +155,10 @@ npm install wdio-allure-reporter --save-dev
 
 ## 7. `wdio.conf.js` configuration
 #### 7.1. Configure browser:
-`browserName: 'firefox'` => `browserName: 'chrome'`
+````
+maxInstances: 1,
+browserName: 'chrome'
+````
 #### 7.2. Configure reporters:
 uncomment `// services: [],`
 and then replace by:
