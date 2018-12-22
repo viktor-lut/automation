@@ -1,7 +1,8 @@
 exports.config = {
 
   specs: [
-    './test/test1.js'
+    './test/test1.js',
+    './test/global-header.js'
   ],
   exclude: [
     './test/test.js'
