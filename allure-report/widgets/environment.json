@@ -1,7 +1,0 @@
-[ {
-  "values" : [ "{\"maxInstances\":5,\"browserName\":\"chrome\"}" ],
-  "name" : "capabilities"
-}, {
-  "values" : [ "[\"/Users/asenko/projects/automation-webdriverio/test/test1.js\"]" ],
-  "name" : "spec files"
-} ]
