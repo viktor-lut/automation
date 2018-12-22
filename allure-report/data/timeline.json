@@ -1,0 +1,17 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "get title",
+    "uid" : "3babada8475c5b6c",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1545449762802,
+      "stop" : 1545449768788,
+      "duration" : 5986
+    },
+    "flaky" : false,
+    "parameters" : [ "chrome" ]
+  } ]
+}

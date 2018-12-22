@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/artsenius/automation-webdriverio.git"
+    "url": "git+https://github.com/artsenius/automation.git"
   },
   "author": "Arthur Senko",
   "license": "ISC",

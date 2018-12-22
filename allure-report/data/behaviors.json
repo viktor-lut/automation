@@ -1,0 +1,17 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "get title",
+    "uid" : "3babada8475c5b6c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1545449762802,
+      "stop" : 1545449768788,
+      "duration" : 5986
+    },
+    "flaky" : false,
+    "parameters" : [ "chrome" ]
+  } ]
+}
