@@ -109,16 +109,16 @@ mkdir test
 cd test
 ````
 
-#### 4.2. Create `test.js` file and open it:
+#### 4.2. Create `client.js` file and open it:
 MacOS:
 ````
-touch test.js
-open test.js
+touch client.js
+open client.js
 ````
 Windows:
 ````
-copy NUL test.js
-test.js
+copy NUL client.js
+client.js
 ````
 #### 4.3. Add the first test:
 ````

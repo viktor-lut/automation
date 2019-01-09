@@ -5,7 +5,7 @@ exports.config = {
     './test/global-header.js'
   ],
   exclude: [
-    './test/test.js'
+    './test/client.js'
   ],
   //
   // ============
