@@ -1,7 +1,7 @@
 exports.config = {
 
   specs: [
-    './test/test.js'
+    './test/registration-design.js'
   ],
 
   exclude: [
