@@ -41,6 +41,8 @@ describe('First Name field', function () {
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
         assert.equal(maxlength, '20', 'maxlength is incorrect');
+        let font_color = elem.getCssProperty('color')['parsed']['hex'];
+        assert.equal(font_color, '#495057', 'font-color is incorrect');
         //let placeholder_color = elem.getCssProperty('::placeholder'); //['style'];
         //console.log(placeholder_color);
         //assert.equal(placeholder_color, '#6c757d', 'placeholder color is incorrect');
@@ -63,6 +65,8 @@ describe('Last Name field', function () {
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
         assert.equal(maxlength, '20', 'maxlength is incorrect');
+        let font_color = elem.getCssProperty('color')['parsed']['hex'];
+        assert.equal(font_color, '#495057', 'font-color is incorrect');
     })
 
 });
@@ -82,6 +86,8 @@ describe('Email field', function () {
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
         assert.equal(maxlength, '45', 'maxlength is incorrect');
+        let font_color = elem.getCssProperty('color')['parsed']['hex'];
+        assert.equal(font_color, '#495057', 'font-color is incorrect');
     })
 
 });
@@ -101,6 +107,8 @@ describe('Password field', function () {
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
         assert.equal(maxlength, '45', 'maxlength is incorrect');
+        let font_color = elem.getCssProperty('color')['parsed']['hex'];
+        assert.equal(font_color, '#495057', 'font-color is incorrect');
     })
 
 });
