@@ -1,4 +1,4 @@
-exports.config = {
+gitexports.config = {
 
   specs: [
     './test/test.js'
