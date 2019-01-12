@@ -28,14 +28,11 @@ describe('Registration page components', function () {
 
 describe('First Name field', function () {
 
-    it('placeholder name', function(){
-        let placeholder = browser.getAttribute('#fname', 'placeholder');
-        assert.equal(placeholder, 'First Name *', 'placeholder name is incorrect');
-    })
-
-    it('input design', function(){
+    it('placeholder name and input design', function(){
         const sel = '#fname';
         const elem = $(sel);
+        let placeholder = browser.getAttribute(sel, 'placeholder');
+        assert.equal(placeholder, 'First Name *', 'placeholder name is incorrect');
         let size = elem.getCssProperty('font-size')['value'];
         assert.equal(size, '16px', 'font-size is incorrect');
         let weight = elem.getCssProperty('font-weight')['value'];
@@ -53,14 +50,30 @@ describe('First Name field', function () {
 
 describe('Last Name field', function () {
 
-    it('placeholder name', function(){
-        let placeholder = browser.getAttribute('#lname', 'placeholder');
-        assert.equal(placeholder, 'Last Name *', 'placeholder name is incorrect');
-    })
-
-    it('input design', function(){
+    it('placeholder name and input design', function(){
         const sel = '#lname';
         const elem = $(sel);
+        let placeholder = browser.getAttribute(sel, 'placeholder');
+        assert.equal(placeholder, 'Last Name *', 'placeholder name is incorrect');
+        let size = elem.getCssProperty('font-size')['value'];
+        assert.equal(size, '16px', 'font-size is incorrect');
+        let weight = elem.getCssProperty('font-weight')['value'];
+        assert.equal(weight, '400', 'font-weight is incorrect');
+        let font_family = elem.getCssProperty('font-family')['value'];
+        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
+        let maxlength = browser.getAttribute(sel, 'maxlength');
+        assert.equal(maxlength, '20', 'maxlength is incorrect');
+    })
+
+});
+
+describe('Email field', function () {
+
+    it('placeholder name and input design', function(){
+        const sel = '#email';
+        const elem = $(sel);
+        let placeholder = browser.getAttribute(sel, 'placeholder');
+        assert.equal(placeholder, 'Email *', 'placeholder name is incorrect');
         let size = elem.getCssProperty('font-size')['value'];
         assert.equal(size, '16px', 'font-size is incorrect');
         let weight = elem.getCssProperty('font-weight')['value'];
@@ -69,7 +82,27 @@ describe('Last Name field', function () {
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
         console.log(maxlength);
-        assert.equal(maxlength, '20', 'maxlength is incorrect');
+        assert.equal(maxlength, '45', 'maxlength is incorrect');
+    })
+
+});
+
+describe('Password field', function () {
+
+    it('placeholder name and input design', function(){
+        const sel = '#pass';
+        const elem = $(sel);
+        let placeholder = browser.getAttribute(sel, 'placeholder');
+        assert.equal(placeholder, 'Password *', 'placeholder name is incorrect');
+        let size = elem.getCssProperty('font-size')['value'];
+        assert.equal(size, '16px', 'font-size is incorrect');
+        let weight = elem.getCssProperty('font-weight')['value'];
+        assert.equal(weight, '400', 'font-weight is incorrect');
+        let font_family = elem.getCssProperty('font-family')['value'];
+        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
+        let maxlength = browser.getAttribute(sel, 'maxlength');
+        console.log(maxlength);
+        assert.equal(maxlength, '45', 'maxlength is incorrect');
     })
 
 });
