@@ -1,7 +1,7 @@
 gitexports.config = {
 
   specs: [
-    './test/test.js'
+    './test/client.js'
   ],
 
   exclude: [
