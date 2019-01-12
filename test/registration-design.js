@@ -11,13 +11,13 @@ describe('Registration page components', function () {
         assert.equal(registerButtonExists, true, 'Registration page does not contain Register button');
         let backButtonExists = browser.isVisible('button=< Back');
         assert.equal(backButtonExists, true, 'Back button is not found');
-    })
+    });
 
     it('text fields (first name, last name, email, confirm email, password, confirm password) exist', function(){
         let allInputs = $$('.input-group input')
         let allInputsArr = allInputs.map(function(el) { return el.getAttribute('aria-label'); })
         assert.equal(allInputsArr.join(', '), 'First name, Last name, Email, Confirm Email, Password, Confirm Password', 'At least one text field does not exist');
-    })
+    });
 
     it('“* Required field” text exist', function(){
         let text = browser.getText('p=* Required field');
@@ -81,7 +81,6 @@ describe('Email field', function () {
         let font_family = elem.getCssProperty('font-family')['value'];
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
-        console.log(maxlength);
         assert.equal(maxlength, '45', 'maxlength is incorrect');
     })
 
@@ -101,8 +100,24 @@ describe('Password field', function () {
         let font_family = elem.getCssProperty('font-family')['value'];
         assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
         let maxlength = browser.getAttribute(sel, 'maxlength');
-        console.log(maxlength);
         assert.equal(maxlength, '45', 'maxlength is incorrect');
+    })
+
+});
+
+describe('Design of the text: * Required field', function () {
+
+    it('Design of the text: * Required field', function(){
+        const sel = 'p=* Required field';
+        const elem = $(sel);
+        let size = elem.getCssProperty('font-size')['value'];
+        assert.equal(size, '16px', 'font-size is incorrect');
+        let weight = elem.getCssProperty('font-weight')['value'];
+        assert.equal(weight, '400', 'font-weight is incorrect');
+        let font_family = elem.getCssProperty('font-family')['value'];
+        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
+        let font_color = elem.getCssProperty('color')['parsed']['hex'];
+        assert.equal(font_color, '#212529', 'font-color is incorrect');
     })
 
 });
