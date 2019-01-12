@@ -1,6 +1,7 @@
 const assert = require('assert');
 
-describe('client', function () {
+
+describe('Client', function () {
 
   it('Page level title', function(){
     browser.url('/');
@@ -12,5 +13,8 @@ describe('client', function () {
   })
 
 
+  it('Global Header exists', function(){
+    assert.equal($(".custom-header").isVisible(), true);
+  })
 
 });
