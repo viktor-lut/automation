@@ -1,7 +1,9 @@
 exports.config = {
 
   specs: [
-    './test/client.js'
+      './test/client.js',
+      './test/global-footer.js',
+      './test/test.js'
   ],
 
   exclude: [
