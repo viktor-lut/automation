@@ -1,7 +1,8 @@
 exports.config = {
 
   specs: [
-    './test/test.js'
+   // './test/test.js',
+    './test/bug-form-page-validation.js'
   ],
 
   exclude: [
@@ -13,6 +14,7 @@ exports.config = {
   capabilities: [
     {
       maxInstances: 1,
+
 
       browserName: 'chrome'
     }
@@ -32,7 +34,8 @@ exports.config = {
 
   baseUrl: 'https://reactbugtracker.com/',
 
-  waitforTimeout: 10000,
+
+  waitforTimeout: 500*10000,
 
   connectionRetryTimeout: 90000,
 
@@ -50,7 +53,8 @@ exports.config = {
   },
 
   mochaOpts: {
-    ui: 'bdd'
+   ui: 'bdd',
+
   },
 
 }
