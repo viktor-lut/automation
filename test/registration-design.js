@@ -13,102 +13,30 @@ describe('Registration page components', function () {
         assert.equal(backButtonExists, true, 'Back button is not found');
     });
 
-    it('text fields (first name, last name, email, confirm email, password, confirm password) exist', function(){
+    it('all text fields are exist and their design matches spec', function(){
         let allInputs = $$('.input-group input')
-        let allInputsArr = allInputs.map(function(el) { return el.getAttribute('aria-label'); })
-        assert.equal(allInputsArr.join(', '), 'First name, Last name, Email, Confirm Email, Password, Confirm Password', 'At least one text field does not exist');
+        let PlholdersAndMaxL = allInputs.map(function(el) { return [el.getAttribute('placeholder'), el.getAttribute('maxlength')]; });
+        const selectors = ['#fname', '#lname', '#email', '#email_confirm', '#pass', '#pass_confirm'];
+        const expCssProp = [['font-size', '16px'], ['font-weight', '400'],
+                            ['font-family', 'segoe ui'], ['color', '#495057']];
+        const expPlholdersAndMaxL = [['First Name *', '20'], ['Last Name *', '20'],
+                                ['Email *', '45'], ['Confirm Email *', '45'],
+                                ['Password *', '45'], ['Confirm Password *', '45']];
+        let cssPropVal = '';
+        for (let i = 0; i < selectors.length; i++) {
+            assert.equal(PlholdersAndMaxL[i][0], expPlholdersAndMaxL[i][0], expPlholdersAndMaxL[i][0] + 'placeholder is incorrect');
+            assert.equal(PlholdersAndMaxL[i][1], expPlholdersAndMaxL[i][1], 'max length of ' + expPlholdersAndMaxL[i][0] + ' field is incorrect');
+            for (let j = 0; j < expCssProp.length; j++) {
+                cssPropVal = $(selectors[i]).getCssProperty(expCssProp[j][0]);
+                cssPropVal = expCssProp[j][0] === 'color'? cssPropVal['parsed']['hex'] : cssPropVal['value'];
+                assert.equal(cssPropVal, expCssProp[j][1], expCssProp[j][0] + ' is incorrect');
+            }
+        }
     });
 
     it('“* Required field” text exist', function(){
         let text = browser.getText('p=* Required field');
         assert.equal(text, '* Required field', 'Text does not exist');
-    })
-
-});
-
-describe('First Name field', function () {
-
-    it('placeholder name and input design', function(){
-        const sel = '#fname';
-        const elem = $(sel);
-        let placeholder = browser.getAttribute(sel, 'placeholder');
-        assert.equal(placeholder, 'First Name *', 'placeholder name is incorrect');
-        let size = elem.getCssProperty('font-size')['value'];
-        assert.equal(size, '16px', 'font-size is incorrect');
-        let weight = elem.getCssProperty('font-weight')['value'];
-        assert.equal(weight, '400', 'font-weight is incorrect');
-        let font_family = elem.getCssProperty('font-family')['value'];
-        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
-        let maxlength = browser.getAttribute(sel, 'maxlength');
-        assert.equal(maxlength, '20', 'maxlength is incorrect');
-        let font_color = elem.getCssProperty('color')['parsed']['hex'];
-        assert.equal(font_color, '#495057', 'font-color is incorrect');
-        //let placeholder_color = elem.getCssProperty('::placeholder'); //['style'];
-        //console.log(placeholder_color);
-        //assert.equal(placeholder_color, '#6c757d', 'placeholder color is incorrect');
-    })
-
-});
-
-describe('Last Name field', function () {
-
-    it('placeholder name and input design', function(){
-        const sel = '#lname';
-        const elem = $(sel);
-        let placeholder = browser.getAttribute(sel, 'placeholder');
-        assert.equal(placeholder, 'Last Name *', 'placeholder name is incorrect');
-        let size = elem.getCssProperty('font-size')['value'];
-        assert.equal(size, '16px', 'font-size is incorrect');
-        let weight = elem.getCssProperty('font-weight')['value'];
-        assert.equal(weight, '400', 'font-weight is incorrect');
-        let font_family = elem.getCssProperty('font-family')['value'];
-        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
-        let maxlength = browser.getAttribute(sel, 'maxlength');
-        assert.equal(maxlength, '20', 'maxlength is incorrect');
-        let font_color = elem.getCssProperty('color')['parsed']['hex'];
-        assert.equal(font_color, '#495057', 'font-color is incorrect');
-    })
-
-});
-
-describe('Email field', function () {
-
-    it('placeholder name and input design', function(){
-        const sel = '#email';
-        const elem = $(sel);
-        let placeholder = browser.getAttribute(sel, 'placeholder');
-        assert.equal(placeholder, 'Email *', 'placeholder name is incorrect');
-        let size = elem.getCssProperty('font-size')['value'];
-        assert.equal(size, '16px', 'font-size is incorrect');
-        let weight = elem.getCssProperty('font-weight')['value'];
-        assert.equal(weight, '400', 'font-weight is incorrect');
-        let font_family = elem.getCssProperty('font-family')['value'];
-        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
-        let maxlength = browser.getAttribute(sel, 'maxlength');
-        assert.equal(maxlength, '45', 'maxlength is incorrect');
-        let font_color = elem.getCssProperty('color')['parsed']['hex'];
-        assert.equal(font_color, '#495057', 'font-color is incorrect');
-    })
-
-});
-
-describe('Password field', function () {
-
-    it('placeholder name and input design', function(){
-        const sel = '#pass';
-        const elem = $(sel);
-        let placeholder = browser.getAttribute(sel, 'placeholder');
-        assert.equal(placeholder, 'Password *', 'placeholder name is incorrect');
-        let size = elem.getCssProperty('font-size')['value'];
-        assert.equal(size, '16px', 'font-size is incorrect');
-        let weight = elem.getCssProperty('font-weight')['value'];
-        assert.equal(weight, '400', 'font-weight is incorrect');
-        let font_family = elem.getCssProperty('font-family')['value'];
-        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
-        let maxlength = browser.getAttribute(sel, 'maxlength');
-        assert.equal(maxlength, '45', 'maxlength is incorrect');
-        let font_color = elem.getCssProperty('color')['parsed']['hex'];
-        assert.equal(font_color, '#495057', 'font-color is incorrect');
     })
 
 });

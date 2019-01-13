@@ -5,7 +5,7 @@ exports.config = {
   ],
 
   exclude: [
-
+    './test/client.js'
   ],
 
   maxInstances: 10,
