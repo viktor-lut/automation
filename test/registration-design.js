@@ -1,10 +1,18 @@
 function getCssPropValue(cssProp, selector) {
+    const keys = Object.keys(cssProp);
+    let state = '';
     let value = '';
-    for (let i = 0; i < cssProp.length; i++) {
-        value = $(selector).getCssProperty(cssProp[i][0]);
-        console.log(value);
-        value = cssProp[i][0].includes('color') ? value['parsed']['hex'] : value['value'];
-        assert.equal(value, cssProp[i][1], 'expected ' + cssProp[i][0] + ' is ' + cssProp[i][1] + ', got ' + value);
+    for (let key of keys) {
+        if (key === 'hover') {
+            state = key + ' ';
+            browser.moveToObject(selector);
+            browser.pause();
+            cssProp = cssProp[key];
+            key = Object.keys(cssProp)[0];
+        }
+        value = $(selector).getCssProperty(key);
+        value = key.includes('color') ? value['parsed']['hex'] : value['value'];
+        assert.equal(value, cssProp[key], 'expected ' + state + key + ' is ' + cssProp[key] + ', got ' + value);
     }
 }
 
@@ -16,28 +24,30 @@ describe('Registration page components', function () {
         browser.url('/');
         browser.waitForVisible('#registration', 10000);
         browser.click('#registration');
-        /*let registerButtonExists = browser.waitForVisible('button=Register', 10000);
-        assert.equal(registerButtonExists, true, 'Registration page does not contain Register button');
-        let backButtonExists = browser.isVisible('button=< Back');
-        assert.equal(backButtonExists, true, 'Back button is not found');
-        browser.waitForVisible('button=Register', 10000);*/
         let allButtons = $$('.input-group-append button');
         const btnNames = allButtons.map(function(el) { return el.getText(); });
         const expBtnNames = ['< Back', 'Register'];
-        const cssProp = [['font-size', '16px'], ['font-weight', '400'],
-                            ['font-family', 'segoe ui'], ['color', '#ffffff'], ['background-color', '#17a2b8']];
+        const cssProp = {'font-size': '16px',
+                        'font-weight': '400',
+                        'font-family': 'segoe ui',
+                        'color': '#ffffff',
+                        'background-color': '#17a2b8',
+                        'hover': {'background-color': '#138496'}};
         for (let i = 0; i < btnNames.length; i++) {
             assert.equal(btnNames[i], expBtnNames[i], 'expected button name is ' + expBtnNames[i] + ', got ' + btnNames[i]);
             getCssPropValue(cssProp, 'button=' + btnNames[i]);
         }
+
     });
 
     it('all required text fields are exist and their design matches spec', function(){
         const allFields = $$('.input-group input');
         const fieldSelectors = allFields.map(function(el) { return '#' + el.getAttribute('id'); });
         const plholderProp = allFields.map(function(el) { return [el.getAttribute('placeholder'), el.getAttribute('maxlength')]; });
-        const cssProp = [['font-size', '16px'], ['font-weight', '400'],
-                            ['font-family', 'segoe ui'], ['color', '#495057']];
+        const cssProp = {'font-size': '16px',
+                        'font-weight': '400',
+                        'font-family': 'segoe ui',
+                        'color': '#495057'};
         const expPlholderProp = [['First Name *', '20'], ['Last Name *', '20'],
                                 ['Email *', '45'], ['Confirm Email *', '45'],
                                 ['Password *', '45'], ['Confirm Password *', '45']];
