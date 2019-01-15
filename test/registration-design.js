@@ -3,12 +3,17 @@ function getCssPropValue(cssProp, selector) {
     let state = '';
     let value = '';
     for (let key of keys) {
-        if (key === 'hover') {
-            state = key + ' ';
-            browser.moveToObject(selector);
-            browser.pause();
-            cssProp = cssProp[key];
-            key = Object.keys(cssProp)[0];
+        switch (key) {
+            case 'hover':
+                state = key + ' ';
+                browser.moveToObject(selector);
+                browser.pause();
+                cssProp = cssProp[key];
+                key = Object.keys(cssProp)[0];
+                break;
+            case 'box-shadow':
+                browser.click(selector);
+                browser.pause();
         }
         value = $(selector).getCssProperty(key);
         value = key.includes('color') ? value['parsed']['hex'] : value['value'];
@@ -47,7 +52,8 @@ describe('Registration page components', function () {
         const cssProp = {'font-size': '16px',
                         'font-weight': '400',
                         'font-family': 'segoe ui',
-                        'color': '#495057'};
+                        'color': '#495057',
+                        'box-shadow': 'rgba(0,123,255,0.25)0px0px0px3.2px'};
         const expPlholderProp = [['First Name *', '20'], ['Last Name *', '20'],
                                 ['Email *', '45'], ['Confirm Email *', '45'],
                                 ['Password *', '45'], ['Confirm Password *', '45']];
