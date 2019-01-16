@@ -8,35 +8,35 @@ describe('LoginFunctionality', function () {
         const elem = $('#email');
         const value = elem.getValue();
         if (value === '') {
-            browser.click('#login')
+            browser.click('#login');
         }
         let result = browser.waitForVisible('.alert-danger', 5000);
         assert.equal(result, true, 'The text doesn/t appear when field email is empty');
     })
 
     it('Field Email accepts 1 symbols', function(){
-        browser.url('/');
         browser.waitForVisible('#login', 5000);
         let email = $('#email');
         email.addValue('1');
         let value = email.getValue();
-        assert.equal(value, '1', 'Email doesn/t accepts from 1 symbol');
+        assert.equal(value, '1', 'Email field doesn/t accepts 1 symbol');
     })
 
     it('Field Email accepts 45 symbols', function(){
         let email = $('#email');
         email.addValue('12345678910abcdEEDFF!@#$%.,12345611111111111');
+        browser.pause(5000);
         let value = email.getValue();
-        assert.equal(value, '112345678910abcdEEDFF!@#$%.,12345611111111111', 'Email  doesn/t accept 45 symbols');
+        assert.equal(value, '112345678910abcdEEDFF!@#$%.,12345611111111111', 'Email field  doesn/t accept 45 symbols');
     })
 
     it('Field Email doesn/t accepts 46 symbols', function(){
         let email = $('#email');
-        email.addValue('1');
-       // console.log(email.addValue('1'))
+        email.addValue('2');
+        //console.log(email.addValue());
         let value = email.getValue();
-        //console.log(value);
-        assert.equal('0', '0', 'Email  doesn/t accept 46 symbols');
+        console.log(value);
+        assert.equal(value, '112345678910abcdEEDFF!@#$%.,12345611111111111', 'Email field doesn/t accept 46 symbols');
     })
 
     it('Text - Specify email and password - appears when trying to login with empty password field', function(){

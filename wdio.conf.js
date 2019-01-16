@@ -1,12 +1,11 @@
 exports.config = {
 
   specs: [
-    './test/client.js',
-    './test/login-functionality.js'
+   './test/login-functionality.js'
   ],
 
   exclude: [
-
+    './test/client.js'
   ],
 
   maxInstances: 10,
