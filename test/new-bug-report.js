@@ -10,7 +10,7 @@ describe('General', function () {
         browser.waitForVisible('#login');
 
         browser.setValue('#email', userName);
-        browser.pause(2000);
+        // browser.pause(2000);
         browser.setValue('#pass', password);
         browser.click('#login');
 
@@ -44,113 +44,203 @@ describe('Design', function () {
 describe('Text Field Requirements', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('.input-group mb-2').getCssProperty('font-family');
-        console.log(fontFam);
-        assert.equal(fontFam,'Segoe UI", sans-serif', 'Font family is incorrect');
+        let fontFam = $('.form-control').getCssProperty('font-family');
+        // console.log(fontFam);
+        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('.input-group mb-2').getCssProperty('font-size');
-        console.log(fontSize);
-        assert.equal(fontSize,'16px', 'Font size is incorrect');
+        let fontSize = $('.form-control').getCssProperty('font-size');
+        // console.log(fontSize);
+        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('.input-group mb-2').getCssProperty('font-weight');
-        console.log(fontWeight);
-        assert.equal(fontWeight,'400', 'Font weight is incorrect');
+        let fontWeight = $('.form-control').getCssProperty('font-weight');
+        // console.log(fontWeight);
+        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $('.form-control').getCssProperty('color');
-        console.log(fontColor);
-        assert.equal(fontColor,'rgba(73,80,87,1)', 'Font color is incorrect');
+        // console.log(fontColor);
+        assert.equal(fontColor.value,'rgba(73,80,87,1)', 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
         let txtAlign = $('.form-control').getCssProperty('text-align');
-        console.log(txtAlign);
-        assert.equal(txtAlign,'start', 'Text align is incorrect');
+        // console.log(txtAlign);
+        assert.equal(txtAlign.value,'start', 'Text align is incorrect');
     })
 
-    it('Verify placeholder font color', function(){
-        let plFontColor = $('.form-control').getCssProperty('font color');
-        console.log(plFontColor);
-        assert.equal(plFontColor,'#left', 'Text align is incorrect');
+    // it('Verify placeholder font color', function(){
+    //     //     let plFontColor = $('.form-control').getCssProperty('font-color');
+    //     //     console.log(plFontColor);
+    //     //     assert.equal(plFontColor.value,'#left', 'Text align is incorrect');
+    //     // })
+
+})
+
+describe('Drop-down lists requirements', function () {
+
+    it('Verify font family', function(){
+        let fontFam = $('.Dropdown-placeholder').getCssProperty('font-family');
+        // console.log(fontFam);
+        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+    })
+
+    it('Verify font size', function(){
+        let fontSize = $('.Dropdown-placeholder').getCssProperty('font-size');
+        // console.log(fontSize);
+        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+    })
+
+    it('Verify font weight', function(){
+        let fontWeight = $('.Dropdown-placeholder').getCssProperty('font-weight');
+        // console.log(fontWeight);
+        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+    })
+
+    it('Verify color', function(){
+        let fontColor = $('.Dropdown-placeholder').getCssProperty('color');
+        // console.log(fontColor);
+        assert.equal(fontColor.value,'rgba(51,51,51,1)', 'Font color is incorrect');
+    })
+
+    it('Verify text align: left', function(){
+        let txtAlign = $('.form-control').getCssProperty('text-align');
+        // console.log(txtAlign);
+        assert.equal(txtAlign.value,'start', 'Text align is incorrect');
     })
 
 })
 
-// it('Verify font size', function(){
-//     let title = browser.getTitle();
-//     assert.equal(title, 'Bug Tracker', 'Title is incorrect');
-// })
-//
-// it('Verify font weight', function(){
-//     let title = browser.getText('.custom-header span');
-//     assert.equal(title, 'BugTracker', 'Title is incorrect');
-// })
-//
-// it('Verify color', function(){
-//     let title = browser.getText('.custom-header span');
-//     assert.equal(title, 'BugTracker', 'Title is incorrect');
-// })
-//
-// it('Verify that text align: center', function(){
-//     let title = browser.getText('.custom-header span');
-//     assert.equal(title, 'BugTracker', 'Title is incorrect');
-// })
+describe('* Required field text requirements', function () {
 
-// describe('Submit button', function () {
-//
-//     it('verify background color', function(){
-//         let elem = $('#todo_cancel');
-//         let bColor = elem.getCssProperty('.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle');
-//         console.log(bColor);
-//         assert.equal(bColor, '#17a2b8', 'Background color is incorrect');
-//     })
-//
-//     it('verify hover background color', function(){
-//         let elem = $('#todo_cancel');
-//         let hBColor = elem.getCssProperty('.btn-info:hover');
-//         console.log(hBColor);
-//         assert.equal(hBColor, '#138496', 'Hover background color is incorrect');
-//     })
-//
-//     describe('Clear form button', function () {
-//
-//         it('verify hover background color', function(){
-//             browser.url('/Bug-Tracker');
-//             // let elem = $('#root > div > div.site-content > div > div > table > tbody > tr > td.text-sm-left.mt-3.border-top-0');
-//             let font = $('#root > div > div.card-footer.text-center.custom-header').getCssProperty('background-color');
-//             console.log(font);
-//             assert.equal(font,'rgba(0,0,0,0.125)', 'Hover background color is incorrect');
-//         })
-//
-//     });
-//
-// describe('Clear form button', function () {
-//
-//     it('verify background color', function(){
-//         let elem = $('#todo_cancel');
-//         let bColor = elem.getCssProperty('.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle');
-//         console.log(bColor);
-//         assert.equal(bColor, '#17a2b8', 'Background color is incorrect');
-//     })
-//
-//     it('verify hover background color', function(){
-//         let elem = $('#todo_cancel');
-//         let hBColor = elem.getCssProperty('.btn-info:hover');
-//         console.log(hBColor);
-//         assert.equal(hBColor, '#138496', 'Hover background color is incorrect');
-//     })
-//
-//     it('verify hover background color', function(){
-//         browser.url('/Bug-Tracker');
-//         // let elem = $('#root > div > div.site-content > div > div > table > tbody > tr > td.text-sm-left.mt-3.border-top-0');
-//         let font = $('#root > div > div.card-footer.text-center.custom-header').getCssProperty('background-color');
-//         console.log(font);
-//         assert.equal(font,'rgba(0,0,0,0.125)', 'Hover background color is incorrect');
-//     })
-//
-// });
+    it('Verify font family', function(){
+        let fontFam = $('.text-sm-left').getCssProperty('font-family');
+        // console.log(fontFam);
+        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+    })
+
+    it('Verify font size', function(){
+        let fontSize = $('.text-sm-left').getCssProperty('font-size');
+        // console.log(fontSize);
+        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+    })
+
+    it('Verify font weight', function(){
+        let fontWeight = $('.text-sm-left').getCssProperty('font-weight');
+        // console.log(fontWeight);
+        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+    })
+
+    it('Verify color', function(){
+        let fontColor = $('.text-sm-left').getCssProperty('color');
+        // console.log(fontColor);
+        assert.equal(fontColor.value,'rgba(33,37,41,1)', 'Font color is incorrect');
+    })
+
+    it('Verify text align: left', function(){
+        let txtAlign = $('.text-sm-left').getCssProperty('text-align');
+        // console.log(txtAlign);
+        assert.equal(txtAlign.value,'left', 'Text align is incorrect');
+    })
+
+})
+
+describe('Submit button', function () {
+
+    it('Verify font family', function(){
+        let fontFam = $('#todo_add').getCssProperty('font-family');
+        // console.log(fontFam);
+        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+    })
+
+    it('Verify font size', function(){
+        let fontSize = $('#todo_add').getCssProperty('font-size');
+        // console.log(fontSize);
+        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+    })
+
+    it('Verify font weight', function(){
+        let fontWeight = $('#todo_add').getCssProperty('font-weight');
+        // console.log(fontWeight);
+        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+    })
+
+    it('Verify color', function(){
+        let fontColor = $('#todo_add').getCssProperty('color');
+        // console.log(fontColor);
+        assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
+    })
+
+    it('Verify text align: center', function(){
+        let txtAlign = $('#todo_add').getCssProperty('text-align');
+        // console.log(txtAlign);
+        assert.equal(txtAlign.value,'center', 'Text align is incorrect');
+    })
+
+    it('verify background color', function(){
+        let elem = $('#todo_add');
+        let bColor = elem.getCssProperty('background-color');
+        // console.log(bColor);
+        assert.equal(bColor.value, 'rgba(0,123,255,1)', 'Background color is incorrect');
+    })
+
+    // it('verify hover background color', function(){
+    //     let elem = $('.btn-primary:hover');
+    //     let hBColor = elem.getCssProperty('background-color');
+    //     console.log(hBColor);
+    //     assert.equal(hBColor.value, '#0069d9', 'Hover background color is incorrect');
+    // })
+
+})
+
+describe('Clear Form button', function () {
+
+    it('Verify font family', function(){
+        let fontFam = $('#todo_cancel').getCssProperty('font-family');
+        // console.log(fontFam);
+        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+    })
+
+    it('Verify font size', function(){
+        let fontSize = $('#todo_cancel').getCssProperty('font-size');
+        // console.log(fontSize);
+        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+    })
+
+    it('Verify font weight', function(){
+        let fontWeight = $('#todo_cancel').getCssProperty('font-weight');
+        // console.log(fontWeight);
+        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+    })
+
+    it('Verify color', function(){
+        let fontColor = $('#todo_cancel').getCssProperty('color');
+        // console.log(fontColor);
+        assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
+    })
+
+    it('Verify text align: center', function(){
+        let txtAlign = $('#todo_cancel').getCssProperty('text-align');
+        // console.log(txtAlign);
+        assert.equal(txtAlign.value,'center', 'Text align is incorrect');
+    })
+
+    it('verify background color', function(){
+        let elem = $('#todo_cancel');
+        let bColor = elem.getCssProperty('background-color');
+        // console.log(bColor);
+        assert.equal(bColor.value, 'rgba(23,162,184,1)', 'Background color is incorrect');
+    })
+
+    // it('verify hover background color', function(){
+    //     let elem = $('#todo_cancel');
+    //     let hBColor = elem.getCssProperty('.btn-info:hover');
+    //     // console.log(hBColor);
+    //     assert.equal(hBColor.value, '#138496', 'Hover background color is incorrect');
+    // })
+
+})
