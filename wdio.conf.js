@@ -1,7 +1,7 @@
 exports.config = {
 
   specs: [
-    './test/login-functionality.js'
+    './test/client.js'
   ],
 
   exclude: [
