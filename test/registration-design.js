@@ -1,91 +1,164 @@
-function getCssPropValue(cssProp, selector) {
+const assert = require('assert');
+const buttonsSel = '.input-group-append button';
+const inputsSel = '.input-group input';
+const textSel = '.text-center p';
+const expBtnNames = ['< Back', 'Register'];
+const expPlaceholders = ['First Name *', 'Last Name *', 'Email *', 'Confirm Email *', 'Password *', 'Confirm Password *'];
+const expText = ['* Required field'];
+const expMaxLength = [20, 45];
+const inputCssProp = {'font-size': '16px', 'font-weight': '400',
+    'font-family': 'segoe ui', 'color': '#495057',
+    'focus': {'box-shadow': 'rgba(0,123,255,0.25)0px0px0px3.2px'}};
+const btnCssProp = {'font-size': '16px', 'font-weight': '400',
+    'font-family': 'segoe ui', 'color': '#ffffff',
+    'background-color': '#17a2b8', 'hover': {'background-color': '#138496'}};
+const txtCssProp = {'font-size': '16px', 'font-weight': '400',
+    'font-family': 'segoe ui', 'color': '#212529'};
+let btnNames = [];
+let placeholders = [];
+let text = [];
+
+function verificationCssValue(selector, cssProp) {
     const keys = Object.keys(cssProp);
     let state = '';
-    let value = '';
+    let value;
     for (let key of keys) {
-        switch (key) {
-            case 'hover':
-                state = key + ' ';
-                browser.moveToObject(selector);
-                browser.pause();
-                cssProp = cssProp[key];
-                key = Object.keys(cssProp)[0];
-                break;
-            case 'box-shadow':
-                browser.click(selector);
-                browser.pause();
-        }
-        value = $(selector).getCssProperty(key);
-        value = key.includes('color') ? value['parsed']['hex'] : value['value'];
-        assert.equal(value, cssProp[key], 'expected ' + state + key + ' is ' + cssProp[key] + ', got ' + value);
+        it(state + key, function(){
+            switch (key) {
+                case 'hover':
+                    state = key + ' ';
+                    browser.moveToObject(selector);
+                    browser.pause(200);
+                    cssProp = cssProp[key];
+                    key = Object.keys(cssProp)[0];
+                    break;
+                case 'focus':
+                    browser.click(selector);
+                    browser.pause(200);
+                    cssProp = cssProp[key];
+                    key = Object.keys(cssProp)[0];
+                    break;
+            }
+            value = $(selector).getCssProperty(key);
+            value = key.includes('color') ? value['parsed']['hex'] : value['value'];
+            assert.equal(value, cssProp[key], 'expected ' + state + key + ' is ' + cssProp[key] + ', got ' + value);
+        })
     }
 }
 
-const assert = require('assert');
+function verificationMaxLength(selector, expMaxLength) {
+    it('max length', function(){
+        const actualMaxLength = $(selector).getAttribute('maxlength');
+        assert.equal(actualMaxLength, expMaxLength, 'expected ' + expMaxLength + ', got ' + actualMaxLength);
+    })
+}
+
+function verificationPlaceholder(selector, expPlaceholder) {
+    it('placeholder', function(){
+        const actuaPlaceholder = $(selector).getAttribute('placeholder');
+        assert.equal(actuaPlaceholder, expPlaceholder, 'expected ' + expPlaceholder + ', got ' + actuaPlaceholder);
+    })
+}
 
 describe('Registration page components', function () {
 
-    it('all required buttons are exist and their design matches spec', function(){
+    it('page opening', function(){
         browser.url('/');
         browser.waitForVisible('#registration', 10000);
         browser.click('#registration');
-        let allButtons = $$('.input-group-append button');
-        const btnNames = allButtons.map(function(el) { return el.getText(); });
-        const expBtnNames = ['< Back', 'Register'];
-        const cssProp = {'font-size': '16px',
-                        'font-weight': '400',
-                        'font-family': 'segoe ui',
-                        'color': '#ffffff',
-                        'background-color': '#17a2b8',
-                        'hover': {'background-color': '#138496'}};
-        for (let i = 0; i < btnNames.length; i++) {
-            assert.equal(btnNames[i], expBtnNames[i], 'expected button name is ' + expBtnNames[i] + ', got ' + btnNames[i]);
-            getCssPropValue(cssProp, 'button=' + btnNames[i]);
-        }
-
+        const registrationPageExist = browser.waitForVisible('button=< Back', 10000);
+        btnNames = $$(buttonsSel).map(function (el) {return el.getText(); });
+        placeholders = $$(inputsSel).map(function (el) {return el.getAttribute('placeholder'); });
+        text = $$(textSel).map(function (el) {return el.getText(); });
+        assert.equal(registrationPageExist, true, 'Registration page not found');
     });
 
-    it('all required text fields are exist and their design matches spec', function(){
-        const allFields = $$('.input-group input');
-        const fieldSelectors = allFields.map(function(el) { return '#' + el.getAttribute('id'); });
-        const plholderProp = allFields.map(function(el) { return [el.getAttribute('placeholder'), el.getAttribute('maxlength')]; });
-        const cssProp = {'font-size': '16px',
-                        'font-weight': '400',
-                        'font-family': 'segoe ui',
-                        'color': '#495057',
-                        'box-shadow': 'rgba(0,123,255,0.25)0px0px0px3.2px'};
-        const expPlholderProp = [['First Name *', '20'], ['Last Name *', '20'],
-                                ['Email *', '45'], ['Confirm Email *', '45'],
-                                ['Password *', '45'], ['Confirm Password *', '45']];
-        for (let i = 0; i < fieldSelectors.length; i++) {
-            assert.equal(plholderProp[i][0], expPlholderProp[i][0], expPlholderProp[i][0] + 'placeholder is incorrect');
-            assert.equal(plholderProp[i][1], expPlholderProp[i][1], 'expected max length of ' + expPlholderProp[i][0] +
-                                                                    'field is ' + expPlholderProp[i][1] +
-                                                                    ', got ' + plholderProp[i][1]);
-            getCssPropValue(cssProp, fieldSelectors[i]);
-        }
-    });
+    for (let i = 0; i < expBtnNames.length; i ++) {
+        it('button ' + expBtnNames[i], function() {
+            assert.equal(btnNames.includes(expBtnNames[i]), true, expBtnNames[i] + ' button not found, got ' + btnNames[i]);
+        })
+    }
 
-    it('“* Required field” text exist', function(){
-        let text = browser.getText('p=* Required field');
-        assert.equal(text, '* Required field', 'Text does not exist');
-    })
+    for (let i = 0; i < expPlaceholders.length; i ++) {
+        it('text field with placeholder ' + expPlaceholders[i], function() {
+            assert.equal(placeholders.includes(expPlaceholders[i]), true, expPlaceholders[i] + ' placeholder not found, got ' + placeholders[i]);
+        })
+    }
+
+    for (let i = 0; i < expText.length; i ++) {
+        it('text ' + expText[i], function() {
+            assert.equal(text.includes(expText[i]), true, expText[i] + ' text not found, got ' + text[i]);
+        })
+    }
 
 });
 
-describe('Design of the text: * Required field', function () {
+describe('First name field', function () {
 
-    it('Design of the text: * Required field', function(){
-        const sel = 'p=* Required field';
-        const elem = $(sel);
-        let size = elem.getCssProperty('font-size')['value'];
-        assert.equal(size, '16px', 'font-size is incorrect');
-        let weight = elem.getCssProperty('font-weight')['value'];
-        assert.equal(weight, '400', 'font-weight is incorrect');
-        let font_family = elem.getCssProperty('font-family')['value'];
-        assert.equal(font_family, 'segoe ui', 'font-family is incorrect');
-        let font_color = elem.getCssProperty('color')['parsed']['hex'];
-        assert.equal(font_color, '#212529', 'font-color is incorrect');
-    })
+    const id = '#fname';
+    verificationMaxLength(id, expMaxLength[0]);
+    verificationCssValue(id, inputCssProp);
 
 });
+
+describe('Last name field', function () {
+
+    const id = '#lname';
+    verificationMaxLength(id, expMaxLength[0]);
+    verificationCssValue(id, inputCssProp);
+
+});
+
+describe('Email field', function () {
+
+    const id = '#email';
+    verificationMaxLength(id, expMaxLength[1]);
+    verificationCssValue(id, inputCssProp);
+
+});
+
+describe('Confirm Email field', function () {
+
+    const id = '#email_confirm';
+    verificationMaxLength(id, expMaxLength[1]);
+    verificationCssValue(id, inputCssProp);
+
+});
+
+describe('Password field', function () {
+
+    const id = '#pass';
+    verificationMaxLength(id, expMaxLength[1]);
+    verificationCssValue(id, inputCssProp);
+
+});
+
+describe('Confirm Password field', function () {
+
+    const id = '#pass_confirm';
+    verificationMaxLength(id, expMaxLength[1]);
+    verificationCssValue(id, inputCssProp);
+
+});
+
+describe('Back button', function () {
+
+    const id = 'button=< Back';
+    verificationCssValue(id, btnCssProp);
+
+});
+
+describe('Register button', function () {
+
+    const id = 'button=Register';
+    verificationCssValue(id, btnCssProp);
+
+});
+
+describe('"' + expText[0] + '" text', function () {
+
+    const id = 'p=* Required field';
+    verificationCssValue(id, txtCssProp);
+
+});
+
