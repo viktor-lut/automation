@@ -73,12 +73,6 @@ describe('Text Field Requirements', function () {
         assert.equal(txtAlign.value,'start', 'Text align is incorrect');
     })
 
-    // it('Verify placeholder font color', function(){
-    //     //     let plFontColor = $('.form-control').getCssProperty('font-color');
-    //     //     console.log(plFontColor);
-    //     //     assert.equal(plFontColor.value,'#left', 'Text align is incorrect');
-    //     // })
-
 })
 
 describe('Drop-down lists requirements', function () {

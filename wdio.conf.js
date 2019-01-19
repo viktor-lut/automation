@@ -2,10 +2,11 @@ exports.config = {
 
   specs: [
     './test/new-bug-report.js'
+    './test/client.js'
   ],
 
   exclude: [
-    './test/client.js'
+
   ],
 
   maxInstances: 10,
