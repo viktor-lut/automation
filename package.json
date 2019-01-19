@@ -21,7 +21,7 @@
     "allure-commandline": "^2.8.1",
     "chai": "^4.2.0",
     "wdio-allure-reporter": "^0.6.3",
-    "wdio-mocha-framework": "^0.6.2",
+    "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "0.0.10",
     "wdio-spec-reporter": "^0.1.5",
     "webdriverio": "^4.13.2"
