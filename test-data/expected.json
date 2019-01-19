@@ -1,0 +1,11 @@
+{
+  "client": {
+    "suite": "Client",
+    "pageTitle": "Bug Tracker"
+  },
+
+  "loginFunctionality": {
+    "suite": "Login Functionality"
+  }
+
+}
