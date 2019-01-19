@@ -1,11 +1,13 @@
 exports.config = {
 
   specs: [
-    './test/test.js'
+    './test/global-header.js',
+
   ],
 
   exclude: [
-
+    './test/test.js',
+    './test/client.js'
   ],
 
   maxInstances: 10,
