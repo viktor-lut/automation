@@ -6,6 +6,11 @@
 
   "loginFunctionality": {
     "suite": "Login Functionality"
+  },
+
+  "fPasswordFunc": {
+    "suite": "f-password-func",
+    "alert": "Please specify an email registered in the system"
   }
 
 }
