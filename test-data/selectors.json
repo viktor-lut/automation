@@ -1,0 +1,18 @@
+{
+  "client": {
+    "header": ".custom-header",
+    "footer": ".custom-footer",
+    "app": ".site-content"
+  },
+
+  "loginFunctionality": {
+    "email": "#email",
+    "pass": "#pass",
+    "loginBtn": "#login"
+  },
+
+  "bugList": {
+    "newBug": "#new_bug"
+  }
+
+}
