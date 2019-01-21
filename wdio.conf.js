@@ -1,7 +1,8 @@
 exports.config = {
 
   specs: [
-    './test/client.js'
+    './test/client.js',
+    './test/f-password-func.js'
   ],
 
   exclude: [
