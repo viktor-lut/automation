@@ -2,9 +2,13 @@ exports.config = {
 
   specs: [
 
-      './test/client.js',
+
+      //'./test/client.js',
       './test/global-footer.js',
-      './test/test.js'
+      './test/test.js',
+     // './test/login-functionality.js',
+      //'./test/new-bug-report.js'
+
 
   ],
 
@@ -17,7 +21,6 @@ exports.config = {
   capabilities: [
     {
       maxInstances: 1,
-
       browserName: 'chrome'
     }
   ],

@@ -1,10 +1,10 @@
-const assert = require('assert');
+const { assert } = require('chai');
 
 describe('General', function () {
 
     it('Global Footer component is always displayed on the bottom of a page.', function(){
         browser.url('/');
-        assert.equal($(".custom-footer").isVisible(), true);
+        assert.isTrue($(".custom-footer").isVisible());
     })
 
 });
