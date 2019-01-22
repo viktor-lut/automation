@@ -48,9 +48,22 @@ describe('LoginFunctionality', function () {
         let result = browser.waitForVisible('.alert-danger', 5000);
         assert.equal(result, true, 'The text doesn/t appear when field password is empty');
     })
+});
 
+describe('Password field', function () {
+    it('------', function(){
+        assert.equal();
+    })
+});
 
-    it('error design font-family login-page', function(){
+describe('Correct credentials', function () {
+    it('------', function(){
+        assert.equal();
+    })
+});
+
+describe('Error design', function () {
+   it('error design font-family login-page', function(){
         browser.url('/');
         browser.waitForVisible('#login', 5000);
         browser.click('#login');
@@ -97,6 +110,10 @@ describe('LoginFunctionality', function () {
         let textAlign = elem.getCssProperty('text-align');
         assert.equal(textAlign.value, 'center', 'Button has incorrect text-align');
     })
+});
+
+
+describe('Registration', function () {
 
     it('click registration button', function(){
         browser.url('/');
