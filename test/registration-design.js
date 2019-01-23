@@ -2,21 +2,6 @@ const { assert } = require("chai");
 const exd = require("./../test-data/expected").registrationDesign;
 const sel = require("./../test-data/selectors").registrationDesign;
 
-//const sel.buttonsSel = ".input-group-append button";
-//const sel.inputsSel = ".input-group input";
-//const sel.textSel = ".text-center p";
-//const exd.expBtnNames = ["< Back", "Register"];
-//const exd.expPlaceholders = ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"];
-//const exd.expText = ["* Required field"];
-//const exd.expMaxLength = [20, 45];
-//const exd.inputCssProp = {"font-size": "16px", "font-weight": "400",
-//    "font-family": "segoe ui", "color": "#495057",
-//    "focus": {"box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"}};
-//const exd.btnCssProp = {"font-size": "16px", "font-weight": "400",
-  //  "font-family": "segoe ui", "color": "#ffffff",
-   // "background-color": "#17a2b8", "hover": {"background-color": "#138496"}};
-//const exd.txtCssProp = {"font-size": "16px", "font-weight": "400",
-  //  "font-family": "segoe ui", "color": "#212529"};
 let btnNames = [];
 let placeholders = [];
 let text = [];
@@ -56,12 +41,12 @@ function verificationMaxLength(selector, expMaxLen) {
     })
 }
 
-function verificationPlaceholder(selector, expPlaceholder) {
+/*function verificationPlaceholder(selector, expPlaceholder) {
     it("placeholder", function(){
         const actualPlaceholder = $(selector).getAttribute("placeholder");
         assert.equal(actualPlaceholder, expPlaceholder, "expected " + expPlaceholder + ", got " + actualPlaceholder);
     })
-}
+}*/
 
 function verificationHorizontalAligned(elementSel, wholePageSel, expAligned) {
     it("aligned", function(){
@@ -160,7 +145,7 @@ describe("Back button", function () {
 describe("Register button", function () {
 
     verificationCssValue(sel.btnRegister, exd.btnCssProp);
-    //verificationHorizontalAligned(sel.btnRegister, sel.page, exd.btnRegisterAligned);
+    verificationHorizontalAligned(sel.btnRegister, sel.page, exd.btnRegisterAligned);
 
 });
 

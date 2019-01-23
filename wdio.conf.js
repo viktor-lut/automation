@@ -5,7 +5,6 @@ exports.config = {
     './test/registration-design.js',
     './test/login-functionality.js',
     './test/new-bug-report.js'
-
   ],
 
   exclude: [
