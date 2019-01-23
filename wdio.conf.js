@@ -2,7 +2,9 @@ gitexports.config = {
 
   specs: [
     './test/client.js',
-    './test/login-functionality.js'
+    './test/login-functionality.js',
+    './test/new-bug-report.js'
+
   ],
 
   exclude: [
