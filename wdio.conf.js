@@ -35,7 +35,7 @@ exports.config = {
   baseUrl: 'https://reactbugtracker.com/',
 
 
-  waitforTimeout: 500*10000,
+  waitforTimeout: 10000,
 
   connectionRetryTimeout: 90000,
 

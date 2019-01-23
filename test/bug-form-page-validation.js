@@ -10,15 +10,48 @@ describe('Bug-form-page-validation', function () {
         browser.click('#login');
         browser.waitForVisible('//*[@id="root"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span');
         browser.click('//*[@id="root"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span');
-        //  assert.equal(title, 'Bug Tracker', 'Title is incorrect');
+        browser.waitForVisible('#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > button');
+        browser.click('#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > button');
+        browser.waitForVisible('//*[@id="root"]/div/div[2]/div/div[2]/div[2]/input[1]');
+        let id='#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(2) > input:nth-child(4)';
+        browser.clearElement(id);
+        $(id).setValue([' ', '\uE003']);
+
+        browser.pause(2000);
+        browser.click('#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(2) > button:nth-child(1)');
+        let error='//*[@id="root"]/div/div[2]/div/div[2]/div[2]/div[1]/div';
+        browser.waitForVisible(error);
+        var title=$(error).getText();
+        assert.equal(title, 'Please fill all the required fields');
 
     })
+    browser.waitForVisible('//*[@id="root"]/div/div[2]/div/div[2]/div[2]/div[2]/div');
+    const MessageLocator = '//*[@id="root"]/div/div[2]/div/div[2]/div[2]/div[2]/div';
     it('Verify that  Border color: #f5c6cb', function(){
-        browser.pause(3000);
-        let MessageLocator = '#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(21) > div';
         let border = $(MessageLocator).getCssProperty('border-bottom-color');
-        //  assert.equal(title, 'Bug Tracker', 'Title is incorrect');
-
+        assert.equal(border.parsed.hex, '#f5c6cb');
     })
+    it('Verify that  Font family: Segoe UI', function(){
+        let prop = $(MessageLocator).getCssProperty('font-family');
+        assert.equal(prop.value, 'segoe ui');
+    })
+    it('VVerify that  Font size: 16px', function(){
+        let prop = $(MessageLocator).getCssProperty('font-size');
+        assert.equal(prop.value, '16px');
+    })
+    it('Verify that  Font weight: 400', function(){
+        let prop = $(MessageLocator).getCssProperty('font-weight');
+        assert.equal(prop.value, '400');
+    })
+    it('Verify that  Font color: #721c24', function(){
+        let prop = $(MessageLocator).getCssProperty('color');
+        assert.equal(prop.parsed.hex, '#721c24');
+    })
+    it('Verify that  Text is center aligned.', function(){
+        let prop = $(MessageLocator).getCssProperty('text-align');
+        assert.equal(prop.value, 'center');
+    })
+
+
 
 });
