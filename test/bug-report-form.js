@@ -1,18 +1,21 @@
 const { assert } = require('chai');
 const exd = require('./../test-data/expected').bugReportForm;
-const sel = require('./../test-data/selectors').bugReportForm;
-let value = 'test';
+const gSel = require('./../test-data/selectors');
+const loginSel = gSel.loginFunctionality;
+const bugSel = gSel.bugReportForm;
+const user = require('./../test-data/users');
+const value = 'test';
 
 describe('Bug report form', function () {
 
     it('Verify that when submitting new bug report, Bug Report Form for just created bug will open automatically.', function(){
 
         browser.url('/');
-        browser.waitForVisible('#email');
+        browser.waitForVisible(sel.email);
         browser.setValue(sel.email, user.email);
         // browser.pause(2000);
-        browser.setValue('#pass', value);
-        browser.click('#login');
+        browser.setValue(sel.pass, user.pass);
+        browser.click(sel.loginBtn);
         // browser.pause(3000);
         browser.waitForVisible('#new_bug');
         browser.click('#new_bug');

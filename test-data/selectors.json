@@ -13,6 +13,11 @@
 
   "bugList": {
     "newBug": "#new_bug"
+  },
+
+  "bugReportForm": {
+    "summary": "#summary",
+
   }
 
 }
