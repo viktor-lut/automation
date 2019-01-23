@@ -1,7 +1,7 @@
 const { assert } = require("chai");
 const exd = require("./../test-data/expected").registrationDesign;
 const sel = require("./../test-data/selectors").registrationDesign;
-
+const selLoginPage = require("./../test-data/selectors").loginFunctionality;
 let btnNames = [];
 let placeholders = [];
 let text = [];
@@ -64,9 +64,9 @@ describe("Registration page components", function () {
 
     it("page opening", function(){
         browser.url("/");
-        browser.waitForVisible("#registration", 10000);
-        browser.click("#registration");
-        const registrationPageExist = browser.waitForVisible("button=< Back", 10000);
+        browser.waitForVisible(selLoginPage.registrationBtn, 10000);
+        browser.click(selLoginPage.registrationBtn);
+        const registrationPageExist = browser.waitForVisible(sel.btnBack, 10000);
         btnNames = $$(sel.buttonsSel).map(function (el) {return el.getText(); });
         placeholders = $$(sel.inputsSel).map(function (el) {return el.getAttribute("placeholder"); });
         text = $$(sel.textSel).map(function (el) {return el.getText(); });

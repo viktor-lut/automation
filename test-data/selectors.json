@@ -8,7 +8,8 @@
   "loginFunctionality": {
     "email": "#email",
     "pass": "#pass",
-    "loginBtn": "#login"
+    "loginBtn": "#login",
+    "registrationBtn": "#registration"
   },
 
   "bugList": {
@@ -26,7 +27,6 @@
     "pass": "#pass",
     "confPass": "#pass_confirm",
     "page": "#root",
-    "registration": "#registration",
     "btnBack": "button=< Back",
     "btnRegister": "button=Register",
     "txtRequired": "p=* Required field"
