@@ -1,38 +1,41 @@
-const assert = require('assert');
-const buttonsSel = '.input-group-append button';
-const inputsSel = '.input-group input';
-const textSel = '.text-center p';
-const expBtnNames = ['< Back', 'Register'];
-const expPlaceholders = ['First Name *', 'Last Name *', 'Email *', 'Confirm Email *', 'Password *', 'Confirm Password *'];
-const expText = ['* Required field'];
-const expMaxLength = [20, 45];
-const inputCssProp = {'font-size': '16px', 'font-weight': '400',
-    'font-family': 'segoe ui', 'color': '#495057',
-    'focus': {'box-shadow': 'rgba(0,123,255,0.25)0px0px0px3.2px'}};
-const btnCssProp = {'font-size': '16px', 'font-weight': '400',
-    'font-family': 'segoe ui', 'color': '#ffffff',
-    'background-color': '#17a2b8', 'hover': {'background-color': '#138496'}};
-const txtCssProp = {'font-size': '16px', 'font-weight': '400',
-    'font-family': 'segoe ui', 'color': '#212529'};
+const { assert } = require("chai");
+const exd = require("./../test-data/expected").registrationDesign;
+const sel = require("./../test-data/selectors").registrationDesign;
+
+//const sel.buttonsSel = ".input-group-append button";
+//const sel.inputsSel = ".input-group input";
+//const sel.textSel = ".text-center p";
+//const exd.expBtnNames = ["< Back", "Register"];
+//const exd.expPlaceholders = ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"];
+//const exd.expText = ["* Required field"];
+//const exd.expMaxLength = [20, 45];
+//const exd.inputCssProp = {"font-size": "16px", "font-weight": "400",
+//    "font-family": "segoe ui", "color": "#495057",
+//    "focus": {"box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"}};
+//const exd.btnCssProp = {"font-size": "16px", "font-weight": "400",
+  //  "font-family": "segoe ui", "color": "#ffffff",
+   // "background-color": "#17a2b8", "hover": {"background-color": "#138496"}};
+//const exd.txtCssProp = {"font-size": "16px", "font-weight": "400",
+  //  "font-family": "segoe ui", "color": "#212529"};
 let btnNames = [];
 let placeholders = [];
 let text = [];
 
 function verificationCssValue(selector, cssProp) {
     const keys = Object.keys(cssProp);
-    let state = '';
+    let state = "";
     let value;
     for (let key of keys) {
-        it(state + key, function(){
+        it(key, function(){
             switch (key) {
-                case 'hover':
-                    state = key + ' ';
+                case "hover":
+                    state = key + " ";
                     browser.moveToObject(selector);
                     browser.pause(200);
                     cssProp = cssProp[key];
                     key = Object.keys(cssProp)[0];
                     break;
-                case 'focus':
+                case "focus":
                     browser.click(selector);
                     browser.pause(200);
                     cssProp = cssProp[key];
@@ -40,125 +43,130 @@ function verificationCssValue(selector, cssProp) {
                     break;
             }
             value = $(selector).getCssProperty(key);
-            value = key.includes('color') ? value['parsed']['hex'] : value['value'];
-            assert.equal(value, cssProp[key], 'expected ' + state + key + ' is ' + cssProp[key] + ', got ' + value);
+            value = key.includes("color") ? value["parsed"]["hex"] : value["value"];
+            assert.equal(value, cssProp[key], "expected " + state + key + " is " + cssProp[key] + ", got " + value);
         })
     }
 }
 
-function verificationMaxLength(selector, expMaxLength) {
-    it('max length', function(){
-        const actualMaxLength = $(selector).getAttribute('maxlength');
-        assert.equal(actualMaxLength, expMaxLength, 'expected ' + expMaxLength + ', got ' + actualMaxLength);
+function verificationMaxLength(selector, expMaxLen) {
+    it("max length", function(){
+        const actualMaxLength = $(selector).getAttribute("maxlength");
+        assert.equal(actualMaxLength, expMaxLen, "expected " + expMaxLen + ", got " + actualMaxLength);
     })
 }
 
 function verificationPlaceholder(selector, expPlaceholder) {
-    it('placeholder', function(){
-        const actuaPlaceholder = $(selector).getAttribute('placeholder');
-        assert.equal(actuaPlaceholder, expPlaceholder, 'expected ' + expPlaceholder + ', got ' + actuaPlaceholder);
+    it("placeholder", function(){
+        const actualPlaceholder = $(selector).getAttribute("placeholder");
+        assert.equal(actualPlaceholder, expPlaceholder, "expected " + expPlaceholder + ", got " + actualPlaceholder);
     })
 }
 
-describe('Registration page components', function () {
+function verificationHorizontalAligned(elementSel, wholePageSel, expAligned) {
+    it("aligned", function(){
+        const pageWidth = browser.getElementSize(wholePageSel,"width");
+        const elementWidth = browser.getElementSize(elementSel,"width");
+        const leftMargin = browser.getLocation(elementSel, "x");
+        const rightMargin = pageWidth - elementWidth - leftMargin;
+        const aligned = leftMargin === rightMargin? "middle" : leftMargin < rightMargin? "left" : "right";
+        assert.equal(aligned, expAligned, "expected " + expAligned + "-aligned, got " + aligned + "-aligned;"
+            + " left margin = " + leftMargin + " right margin = " + rightMargin);
+    });
+}
 
-    it('page opening', function(){
-        browser.url('/');
-        browser.waitForVisible('#registration', 10000);
-        browser.click('#registration');
-        const registrationPageExist = browser.waitForVisible('button=< Back', 10000);
-        btnNames = $$(buttonsSel).map(function (el) {return el.getText(); });
-        placeholders = $$(inputsSel).map(function (el) {return el.getAttribute('placeholder'); });
-        text = $$(textSel).map(function (el) {return el.getText(); });
-        assert.equal(registrationPageExist, true, 'Registration page not found');
+describe("Registration page components", function () {
+
+    it("page opening", function(){
+        browser.url("/");
+        browser.waitForVisible("#registration", 10000);
+        browser.click("#registration");
+        const registrationPageExist = browser.waitForVisible("button=< Back", 10000);
+        btnNames = $$(sel.buttonsSel).map(function (el) {return el.getText(); });
+        placeholders = $$(sel.inputsSel).map(function (el) {return el.getAttribute("placeholder"); });
+        text = $$(sel.textSel).map(function (el) {return el.getText(); });
+        assert.isTrue(registrationPageExist, "Registration page not found");
     });
 
-    for (let i = 0; i < expBtnNames.length; i ++) {
-        it('button ' + expBtnNames[i], function() {
-            assert.equal(btnNames.includes(expBtnNames[i]), true, expBtnNames[i] + ' button not found, got ' + btnNames[i]);
+    for (let i = 0; i < exd.expBtnNames.length; i ++) {
+        it("button " + exd.expBtnNames[i], function() {
+            assert.isTrue(btnNames.includes(exd.expBtnNames[i]), exd.expBtnNames[i] + " button not found, got " + btnNames[i]);
         })
     }
 
-    for (let i = 0; i < expPlaceholders.length; i ++) {
-        it('text field with placeholder ' + expPlaceholders[i], function() {
-            assert.equal(placeholders.includes(expPlaceholders[i]), true, expPlaceholders[i] + ' placeholder not found, got ' + placeholders[i]);
+    for (let i = 0; i < exd.expPlaceholders.length; i ++) {
+        it("text field with placeholder " + exd.expPlaceholders[i], function() {
+            assert.isTrue(placeholders.includes(exd.expPlaceholders[i]), exd.expPlaceholders[i] + " placeholder not found, got " + placeholders[i]);
         })
     }
 
-    for (let i = 0; i < expText.length; i ++) {
-        it('text ' + expText[i], function() {
-            assert.equal(text.includes(expText[i]), true, expText[i] + ' text not found, got ' + text[i]);
+    for (let i = 0; i < exd.expText.length; i ++) {
+        it("text " + exd.expText[i], function() {
+            assert.isTrue(text.includes(exd.expText[i]), exd.expText[i] + " text not found, got " + text[i]);
         })
     }
 
 });
 
-describe('First name field', function () {
+describe("First name field", function () {
 
-    const id = '#fname';
-    verificationMaxLength(id, expMaxLength[0]);
-    verificationCssValue(id, inputCssProp);
-
-});
-
-describe('Last name field', function () {
-
-    const id = '#lname';
-    verificationMaxLength(id, expMaxLength[0]);
-    verificationCssValue(id, inputCssProp);
+    verificationMaxLength(sel.firstName, exd.expMaxLength[0]);
+    verificationCssValue(sel.firstName, exd.inputCssProp);
 
 });
 
-describe('Email field', function () {
+describe("Last name field", function () {
 
-    const id = '#email';
-    verificationMaxLength(id, expMaxLength[1]);
-    verificationCssValue(id, inputCssProp);
-
-});
-
-describe('Confirm Email field', function () {
-
-    const id = '#email_confirm';
-    verificationMaxLength(id, expMaxLength[1]);
-    verificationCssValue(id, inputCssProp);
+    verificationMaxLength(sel.lastName, exd.expMaxLength[0]);
+    verificationCssValue(sel.lastName, exd.inputCssProp);
 
 });
 
-describe('Password field', function () {
+describe("Email field", function () {
 
-    const id = '#pass';
-    verificationMaxLength(id, expMaxLength[1]);
-    verificationCssValue(id, inputCssProp);
-
-});
-
-describe('Confirm Password field', function () {
-
-    const id = '#pass_confirm';
-    verificationMaxLength(id, expMaxLength[1]);
-    verificationCssValue(id, inputCssProp);
+    verificationMaxLength(sel.email, exd.expMaxLength[1]);
+    verificationCssValue(sel.email, exd.inputCssProp);
 
 });
 
-describe('Back button', function () {
+describe("Confirm Email field", function () {
 
-    const id = 'button=< Back';
-    verificationCssValue(id, btnCssProp);
-
-});
-
-describe('Register button', function () {
-
-    const id = 'button=Register';
-    verificationCssValue(id, btnCssProp);
+    verificationMaxLength(sel.confEmail, exd.expMaxLength[1]);
+    verificationCssValue(sel.confEmail, exd.inputCssProp);
 
 });
 
-describe('"' + expText[0] + '" text', function () {
+describe("Password field", function () {
 
-    const id = 'p=* Required field';
-    verificationCssValue(id, txtCssProp);
+    verificationMaxLength(sel.pass, exd.expMaxLength[1]);
+    verificationCssValue(sel.pass, exd.inputCssProp);
+
+});
+
+describe("Confirm Password field", function () {
+
+    verificationMaxLength(sel.confPass, exd.expMaxLength[1]);
+    verificationCssValue(sel.confPass, exd.inputCssProp);
+
+});
+
+describe("Back button", function () {
+
+    verificationCssValue(sel.btnBack, exd.btnCssProp);
+    verificationHorizontalAligned(sel.btnBack, sel.page, exd.btnBackAligned);
+
+});
+
+describe("Register button", function () {
+
+    verificationCssValue(sel.btnRegister, exd.btnCssProp);
+    //verificationHorizontalAligned(sel.btnRegister, sel.page, exd.btnRegisterAligned);
+
+});
+
+describe(  exd.expText[0] + " text", function () {
+
+    verificationCssValue(sel.txtRequired, exd.txtCssProp);
 
 });
 

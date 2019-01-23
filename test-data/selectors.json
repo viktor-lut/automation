@@ -13,6 +13,26 @@
 
   "bugList": {
     "newBug": "#new_bug"
+  },
+
+  "registrationDesign": {
+    "buttonsSel": ".input-group-append button",
+    "inputsSel": ".input-group input",
+    "textSel": ".text-center p",
+    "firstName": "#fname",
+    "lastName": "#lname",
+    "email": "#email",
+    "confEmail": "#email_confirm",
+    "pass": "#pass",
+    "confPass": "#pass_confirm",
+    "page": "#root",
+    "registration": "#registration",
+    "btnBack": "button=< Back",
+    "btnRegister": "button=Register",
+    "txtRequired": "p=* Required field"
+
+
+
   }
 
 }

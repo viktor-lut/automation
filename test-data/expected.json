@@ -6,6 +6,36 @@
 
   "loginFunctionality": {
     "suite": "Login Functionality"
+  },
+
+  "registrationDesign": {
+    "expBtnNames": ["< Back", "Register"],
+    "expPlaceholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
+    "expText": ["* Required field"],
+    "expMaxLength": [20, 45],
+    "inputCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#495057",
+      "focus": {
+        "box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"}},
+    "btnCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#ffffff",
+      "background-color": "#17a2b8",
+      "hover": {
+        "background-color": "#138496"}},
+    "txtCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#212529"},
+    "btnBackAligned": "left",
+    "btnRegisterAligned": "middle"
+
   }
 
 }
