@@ -13,6 +13,13 @@
 
   "bugList": {
     "newBug": "#new_bug"
+  },
+
+  "globalFooter": {
+    "globFooter": ".custom-footer",
+    "mainFooter": ".custom-footer div",
+    "smallFooter": ".small-text"
+
   }
 
 }
