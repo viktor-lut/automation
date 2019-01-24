@@ -6,6 +6,10 @@
 
   "loginFunctionality": {
     "suite": "Login Functionality"
+  },
+  "bugReportForm": {
+    "suite": "Bug Report Form"
+
   }
 
 }

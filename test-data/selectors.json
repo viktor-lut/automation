@@ -17,6 +17,17 @@
 
   "bugReportForm": {
     "summary": "#summary",
+    "str": "#str",
+    "actual": "#actual",
+    "expected": "#expected",
+    "assignee": "#assignee",
+    "priority": "#priority",
+    "severity": "#severity",
+    "repro": "#repro",
+    "version": "#version",
+    "submit": "#submit"
+
+
 
   }
 
