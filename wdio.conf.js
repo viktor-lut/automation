@@ -1,15 +1,11 @@
 exports.config = {
 
   specs: [
-
-
-      //'./test/client.js',
+    //'./test/client.js',
+    //'./test/registration-design.js',
+    //'./test/login-functionality.js',
+    //'./test/new-bug-report.js',
       './test/global-footer.js',
-      //'./test/test.js',
-      //'./test/login-functionality.js',
-      //'./test/new-bug-report.js'
-
-
   ],
 
   exclude: [
@@ -21,6 +17,7 @@ exports.config = {
   capabilities: [
     {
       maxInstances: 1,
+
       browserName: 'chrome'
     }
   ],
@@ -39,7 +36,7 @@ exports.config = {
 
   baseUrl: 'https://reactbugtracker.com/',
 
-  waitforTimeout: 20000,
+  waitforTimeout: 10000,
 
   connectionRetryTimeout: 90000,
 
