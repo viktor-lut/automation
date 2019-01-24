@@ -5,7 +5,7 @@ exports.config = {
 
       //'./test/client.js',
       './test/global-footer.js',
-      './test/test.js',
+      //'./test/test.js',
      // './test/login-functionality.js',
       //'./test/new-bug-report.js'
 
