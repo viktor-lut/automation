@@ -17,9 +17,9 @@
   },
 
   "registrationDesign": {
-    "buttonsSel": ".input-group-append button",
-    "inputsSel": ".input-group input",
-    "textSel": ".text-center p",
+    "buttonsSel": "button",
+    "inputsSel": "input",
+    "textSel": "p",
     "firstName": "#fname",
     "lastName": "#lname",
     "email": "#email",
@@ -30,9 +30,6 @@
     "btnBack": "button=< Back",
     "btnRegister": "button=Register",
     "txtRequired": "p=* Required field"
-
-
-
   }
 
 }
