@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { assert } = require('chai');
 
 describe('Bug-form-page-validation', function () {
 
@@ -14,7 +14,6 @@ describe('Bug-form-page-validation', function () {
         browser.click('#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(1) > table > tbody > tr > td:nth-child(2) > button');
         browser.waitForVisible('//*[@id="root"]/div/div[2]/div/div[2]/div[2]/input[1]');
         let id='#root > div > div.site-content > div > div:nth-child(2) > div:nth-child(2) > input:nth-child(4)';
-        browser.clearElement(id);
         $(id).setValue([' ', '\uE003']);
 
         browser.pause(2000);
@@ -52,6 +51,19 @@ describe('Bug-form-page-validation', function () {
         assert.equal(prop.value, 'center');
     })
 
-
+    function random(n) {
+        const digitsLetters = [
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+            'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ];
+        let res = '';
+        while (n > 0) {
+            res += digitsLetters[Math.floor(Math.random() * 35)];
+            n--;
+        }
+        return res;
+    };
 
 });
