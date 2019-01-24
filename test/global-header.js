@@ -1,17 +1,12 @@
 
-const assert = require('assert');
+const { assert } = require('chai');
 
 describe('General', function () {
 
-    it('Global Header exist', function(){
+    it('Global Header exists', function(){
         browser.url('/Bug Tracker');
         assert.equal($(".custom-header").isVisible(), true);
     })
-
- //   it('Global Header title', function(){
-   //   console.log($(".custom-header span style"));
-    //   assert.equal($(".custom-header span style").isVisible(), true);
-   // })
 
 });
 
