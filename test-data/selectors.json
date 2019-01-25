@@ -1,4 +1,4 @@
-{
+ {
   "client": {
     "header": ".custom-header",
     "footer": ".custom-footer",
@@ -13,6 +13,14 @@
 
   "bugList": {
     "newBug": "#new_bug"
-  }
+  },
+
+   "bfpValid": {
+     "firstBug": "//*[@id=\"root\"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span",
+     "editBtn": "#edit",
+     "submitBtn": "#submit_top",
+     "summary": "#summary",
+     "errorMsg": "//*[@id=\"root\"]/div/div[2]/div/div[2]/div[2]/div[2]/div"
+   }
 
 }
