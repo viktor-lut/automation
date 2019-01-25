@@ -51,6 +51,7 @@
       "font-family": "segoe ui",
       "color": "#212529"
     },
+    "btnAligned": ["left", "middle"],
     "btnBackAligned": "left",
     "btnRegisterAligned": "middle"
   }
