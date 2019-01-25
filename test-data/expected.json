@@ -28,7 +28,7 @@
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
-      "fontFamily": "segoe ui",
+      "font-family": "segoe ui",
       "color": "#495057",
       "focus": {
         "box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"
@@ -37,17 +37,17 @@
     "btnCssProp": {
       "font-size": "16px",
       "font-weight": "400",
-      "fontFamily": "segoe ui",
+      "font-family": "segoe ui",
       "color": "#ffffff",
-      "backgroundColor": "#17a2b8",
+      "background-color": "#17a2b8",
       "hover": {
-        "backgroundColor": "#138496"
+        "background-color": "#138496"
       }
     },
     "txtCssProp": {
       "font-size": "16px",
       "font-weight": "400",
-      "fontFamily": "segoe ui",
+      "font-family": "segoe ui",
       "color": "#212529"
     },
     "btnBackAligned": "left",

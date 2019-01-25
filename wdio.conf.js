@@ -4,7 +4,7 @@ exports.config = {
     './test/login-functionality.js',
     './test/client.js',
     './test/registration-design.js',
-    './test/new-bug-report.js'
+    //'./test/new-bug-report.js'
   ],
 
   exclude: [
@@ -56,4 +56,4 @@ exports.config = {
     ui: 'bdd'
   },
 
-}
+};
