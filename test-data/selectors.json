@@ -10,7 +10,12 @@
     "pass": "#pass",
     "loginBtn": "#login",
     "registrationBtn": "#registration",
-    "alertSE": ".alert-danger"
+    "alertSps": ".alert-danger=Specify email and password",
+    "minS": 1,
+    "maxS": 45,
+    "alertDntEx": ".alert-danger=User with this email does not exist",
+    "alertPassIncrt": ".alert-danger=Password is incorrect",
+    "alert": ".alert-danger"
   },
 
   "bugList": {
