@@ -43,6 +43,8 @@
   },
 
   "globalFooter": {
+    "suite": ["Global Footer","General", "Design Main Footer text","Design Small Footer text"],
+    "glFooterBottom": "on the bottom",
     "mainFooterText": "© 2019 Bug Tracker by React Web Development",
     "smallFooterText": "Version: 0.2",
     "smallTextLocat": "below",
