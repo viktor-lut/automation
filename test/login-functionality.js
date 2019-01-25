@@ -4,6 +4,7 @@ const sel = require('./../test-data/selectors').loginFunctionality;
 const login = require('./../helpers/login');
 const randomString = require('./../helpers/randomString');
 const selB = require('./../test-data/selectors').bugList;
+const selR = require('./../test-data/selectors').registrationDesign;
 const user = require('./../test-data/users');
 
 describe(exd.suite, function () {
@@ -154,11 +155,11 @@ describe('Correct credentials', function () {
 });
 
 describe('Registration page exists', function () {
-    it('click registration button', function(){
+    it('Registration button Clickable and redirects to the right page', function(){
         browser.url('/');
         browser.pause(5000);
         browser.click(sel.registrationBtn);
-        assert.equal(browser.waitForVisible('button=< Back', 3000), true, 'Button Registration is not clicked');
+        assert.equal(browser.waitForVisible(selR.btnBack, 1500), true, 'Button Registration is not clicked');
     })
  });
 
