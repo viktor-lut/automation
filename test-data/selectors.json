@@ -38,13 +38,17 @@
     "actual": "#actual",
     "expected": "#expected",
     "assignee": "#assignee",
+    "testUser": "div=Anastasia Shibanova",
     "priority": "#priority",
+    "low": "div=Low",
     "severity": "#severity",
+    "minor": "div=Minor",
     "repro": "#repro",
+    "always": "div=Always",
     "version": "#version",
-    "submit": "#submit"
-
-
+    "sprint": "div=0.2",
+    "submit": "#submit",
+    "edit": "#edit"
 
   }
 

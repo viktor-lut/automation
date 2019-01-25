@@ -1,44 +1,57 @@
 const { assert } = require('chai');
+const login = require('./../helpers/login');
+const randomString = require('./../helpers/randomString');
+const fillForm= require('./../helpers/pre-filled-new-bug-report-form');
 const exd = require('./../test-data/expected').bugReportForm;
 const gSel = require('./../test-data/selectors');
-const loginSel = gSel.loginFunctionality;
 const bugSel = gSel.bugList;
 const formSel = gSel.bugReportForm;
-const user = require('./../test-data/users');
-const value = 'test';
+let a = [formSel.summary, formSel.str, formSel.actual, formSel.expected, formSel.assignee,
+            formSel.priority, formSel.severity, formSel.repro, formSel.version, formSel.submit];
 
 describe(exd.suite, function () {
 
+    login();
+
+    it('Verify that all Bug form page elements are visible', function() {
+
+        browser.click(bugSel.newBug);
+        browser.waitForVisible(formSel.summary);
+        for(let i = 0; i < x.length; i++){
+            browser.isVisible(a[i]);
+        }
+    })
     it('Verify that when submitting new bug report, Bug Report Form for just created bug will open automatically.', function(){
 
-        browser.url('/');
-        browser.waitForVisible(loginSel.email);
-        browser.setValue(loginSel.email, user.email);
-        // browser.pause(2000);
-        browser.setValue(loginSel.pass, user.pass);
-        browser.click(loginSel.loginBtn);
-        // browser.pause(3000);
-        browser.waitForVisible(bugSel.newBug);
-        browser.click(bugSel.newBug);
-        // browser.pause(2000);
-        browser.waitForVisible(formSel.summary);
-        browser.setValue(formSel.summary, value);
-        browser.setValue(formSel.str, value);
-        browser.setValue(formSel.actual, value);
-        browser.setValue(formSel.expected, value);
+        fillForm();
+        /*for(let i = 0; i < 4; i++){ // because x[3] is the last elem with input.
+            browser.setValue(x[i], randomString(150));
+        }
 
-        browser.selectByValue(formSel.assignee, 'Anastasia Shibanova');
+        browser.click(formSel.assignee);
+        browser.waitForVisible(formSel.testUser, 200);
+        browser.click(formSel.testUser);
 
-        /*browser.selectByValue(formSel.assignee, 'Anastasia Shibanova');
-        browser.selectByValue(formSel.priority, 'Low');
-        browser.selectByValue(formSel.severity, 'Minor');
-        browser.selectByValue(formSel.repro, 'Always');
-        browser.selectByValue(formSel.version, '0.2');
-        // browser.click(formSel.submit);
-        browser.pause(5000);*/
-        let edit = browser.isVisible('=Edit');
+        browser.click(formSel.priority);
+        browser.waitForVisible(formSel.low, 200);
+        browser.click(formSel.low);
 
-        assert.equal(browser.isVisible('=Edit'), true, 'You are not on Bug report form');
+        browser.click(formSel.severity);
+        browser.waitForVisible(formSel.minor, 200);
+        browser.click(formSel.minor);
+
+        browser.click(formSel.repro);
+        browser.waitForVisible(formSel.always, 200);
+        browser.click(formSel.always);
+
+        browser.click(formSel.version);
+        browser.waitForVisible(formSel.sprint, 200);
+        browser.click(formSel.sprint);*/
+
+        browser.click(formSel.submit);
+        browser.waitForVisible(formSel.edit);
+
+        assert.equal(browser.isVisible(formSel.edit), true, 'You are not on Bug report form');
     })
 
     // it('Global Header exists', function(){
