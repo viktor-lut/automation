@@ -1,9 +1,9 @@
 exports.config = {
 
   specs: [
+    './test/login-functionality.js',
     './test/client.js',
     './test/registration-design.js',
-    './test/login-functionality.js',
     './test/new-bug-report.js'
   ],
 
