@@ -163,4 +163,3 @@ describe('Registration page exists', function () {
     })
  });
 
-
