@@ -23,21 +23,13 @@
   },
 
   "registrationDesign": {
-    "buttonsSel": "button",
-    "inputsSel": "input",
-    "textSel": "p",
+    "page": "#root",
+    "buttonGroupSel": "button",
+    "inputGroupSel": "input",
+    "textGroupSel": "p",
     "buttonIds": ["#back", "#registration"],
     "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
-    "firstName": "#fname",
-    "lastName": "#lname",
-    "email": "#email",
-    "confEmail": "#email_confirm",
-    "pass": "#pass",
-    "confPass": "#pass_confirm",
-    "page": "#root",
-    "btnBack": "button=< Back",
-    "btnRegister": "button=Register",
-    "txtRequired": "p=* Required field"
+    "textSel": ["p=* Required field"]
   }
 
 }
