@@ -2,11 +2,14 @@ const { assert } = require("chai");
 const exd = require("./../test-data/expected").registrationDesign;
 const sel = require("./../test-data/selectors").registrationDesign;
 const selLoginPage = require("./../test-data/selectors").loginFunctionality;
+const verificationCssValue = require("./../helpers/verificationCssValue");
+const verificationMaxLength = require("./../helpers/verificationMaxLength");
+const verificationHorizontalAligned = require("./../helpers/verificationHorizontalAligned");
 let btnNames = [];
 let placeholders = [];
 let text = [];
 
-function verificationCssValue(selector, cssProp) {
+/*function verificationCssValue(selector, cssProp) {
     const keys = Object.keys(cssProp);
     let state = "";
     let value;
@@ -32,14 +35,14 @@ function verificationCssValue(selector, cssProp) {
             assert.equal(value, cssProp[key], "expected " + state + key + " is " + cssProp[key] + ", got " + value);
         })
     }
-}
+}*/
 
-function verificationMaxLength(selector, expMaxLen) {
+/*function verificationMaxLength(selector, expMaxLen) {
     it("max length", function(){
         const actualMaxLength = $(selector).getAttribute("maxlength");
         assert.equal(actualMaxLength, expMaxLen, "expected " + expMaxLen + ", got " + actualMaxLength);
     })
-}
+}*/
 
 /*function verificationPlaceholder(selector, expPlaceholder) {
     it("placeholder", function(){
@@ -48,7 +51,7 @@ function verificationMaxLength(selector, expMaxLen) {
     })
 }*/
 
-function verificationHorizontalAligned(elementSel, wholePageSel, expAligned) {
+/*function verificationHorizontalAligned(elementSel, wholePageSel, expAligned) {
     it("aligned", function(){
         const pageWidth = browser.getElementSize(wholePageSel,"width");
         const elementWidth = browser.getElementSize(elementSel,"width");
@@ -58,7 +61,7 @@ function verificationHorizontalAligned(elementSel, wholePageSel, expAligned) {
         assert.equal(aligned, expAligned, "expected " + expAligned + "-aligned, got " + aligned + "-aligned;"
             + " left margin = " + leftMargin + " right margin = " + rightMargin);
     });
-}
+}*/
 
 describe("Registration page components", function () {
 
