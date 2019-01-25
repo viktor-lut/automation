@@ -20,6 +20,7 @@
     "buttonsSel": "button",
     "inputsSel": "input",
     "textSel": "p",
+    "inputId": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
     "firstName": "#fname",
     "lastName": "#lname",
     "email": "#email",

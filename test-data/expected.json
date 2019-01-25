@@ -10,6 +10,7 @@
 
   "registrationDesign": {
     "expBtnNames": ["< Back", "Register"],
+    "expInputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
     "expPlaceholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
     "expText": ["* Required field"],
     "expMaxLength": [20, 45],
