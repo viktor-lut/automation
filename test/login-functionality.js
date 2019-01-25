@@ -106,12 +106,12 @@ describe('Error design', function () {
         browser.click(sel.loginBtn);
         browser.waitForVisible(sel.alert, 3000);
         let font = $(sel.alert).getCssProperty('font-family');
-        assert.equal(font.value, exd.errorCss.fontFamily, 'Button has incorrect font-family');
+        assert.equal(font.value, exd.errorCss["font-family"], 'Button has incorrect font-family');
     });
 
     it('error background-color login-page', function(){
         let background =  $(sel.alert).getCssProperty('background-color');
-        assert.equal(background.parsed.hex, exd.errorCss.backgroundColor, 'Button has incorrect background color');
+        assert.equal(background.parsed.hex, exd.errorCss["background-color"], 'Button has incorrect background color');
     });
 
     it('error border color login-page', function (){
@@ -128,7 +128,7 @@ describe('Error design', function () {
 
     it('error  font-weight login-page', function(){
         let fontWeight = $(sel.alert).getCssProperty('font-weight');
-        assert.equal(fontWeight.value, exd.errorCss.fontWeight, 'Button has incorrect font-weight');
+        assert.equal(fontWeight.value, exd.errorCss["font-weight"], 'Button has incorrect font-weight');
     });
 
     it('error design color login-page', function(){
