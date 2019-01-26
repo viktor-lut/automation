@@ -15,7 +15,8 @@
     "maxS": 45,
     "alertDntEx": ".alert-danger=User with this email does not exist",
     "alertPassIncrt": ".alert-danger=Password is incorrect",
-    "alert": ".alert-danger"
+    "alert": ".alert-danger",
+    "btnBack": "#back"
   },
 
   "bugList": {

@@ -153,7 +153,7 @@ describe('Registration page exists', function () {
         browser.url('/');
         browser.waitForVisible(sel.registrationBtn, 3000);
         browser.click(sel.registrationBtn);
-        assert.equal(browser.waitForVisible(selR.btnBack, 1500), true, 'Button Registration is not clicked');
+        assert.equal(browser.waitForVisible(sel.btnBack, 1500), true, 'Button Registration is not clicked');
     })
 });
 
