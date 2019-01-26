@@ -21,10 +21,11 @@
   },
 
   "registrationDesign": {
-    "expBtnNames": ["< Back", "Register"],
-    "expPlaceholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
-    "expText": ["* Required field"],
-    "expMaxLength": [20, 45],
+    "btnNames": ["< Back", "Register"],
+    "inputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
+    "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
+    "texts": ["* Required field"],
+    "maxLength": [20, 45],
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
@@ -50,8 +51,7 @@
       "font-family": "segoe ui",
       "color": "#212529"
     },
-    "btnBackAligned": "left",
-    "btnRegisterAligned": "middle"
+    "btnAligned": ["left", "middle"]
   }
 
 }
