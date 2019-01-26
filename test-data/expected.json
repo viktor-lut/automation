@@ -10,13 +10,13 @@
     "expMaxLength": 45,
     "bulletsPass": "-webkit-text-security",
     "errorCss": {
-      "fontFamily": "segoe ui",
-      "backgroundColor": "#f8d7da",
+      "font-family": "segoe ui",
+      "background-color": "#f8d7da",
       "border": "(245, 198, 203)",
       "fontSize": "16px",
-      "fontWeight": "400",
+      "font-weight": "400",
       "color": "#721c24",
-      "textAlign": "center"
+      "text-align": "center"
     }
   },
 
