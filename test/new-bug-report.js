@@ -1,18 +1,19 @@
-const assert = require('assert');
-
-let userName = 'test';
-let password = 'test';
+const { assert } = require('chai');
+const exd = require('./../test-data/expected').newBugReport;
+const sel = require('./../test-data/selectors').newBugReport;
+const sel1 = require('./../test-data/selectors').loginFunctionality;
+const user = require('./../test-data/users');
 
 describe('General', function () {
 
     it('click new bug button', function(){
         browser.url('/');
-        browser.waitForVisible('#login');
+        browser.waitForVisible(sel1.loginBtn);
 
-        browser.setValue('#email', userName);
+        browser.setValue(sel1.email, user.email);
         // browser.pause(2000);
-        browser.setValue('#pass', password);
-        browser.click('#login');
+        browser.setValue(sel1.pass, user.pass);
+        browser.click(sel1.loginBtn);
 
         browser.waitForVisible('#new_bug');
         browser.click('#new_bug');
@@ -30,12 +31,12 @@ describe('Design', function () {
     })
 
     it('Verify that Submit button is visible', function(){
-        let result = browser.waitForVisible('#todo_add', 5000);
+        let result = browser.waitForVisible(sel.submitBtn, 5000);
         assert.equal(result, true, 'Submit button is not visible');
     })
 
     it('Verify that Clear Form button is visible', function(){
-        let result = browser.waitForVisible('#todo_cancel', 5000);
+        let result = browser.waitForVisible(sel.clearFormBtn, 5000);
         assert.equal(result, true, 'Clear Form button is not visible');
     })
 
@@ -146,37 +147,37 @@ describe('* Required field text requirements', function () {
 describe('Submit button', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('#todo_add').getCssProperty('font-family');
+        let fontFam = $(sel.submitBtn).getCssProperty('font-family');
         // console.log(fontFam);
         assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('#todo_add').getCssProperty('font-size');
+        let fontSize = $(sel.submitBtn).getCssProperty('font-size');
         // console.log(fontSize);
         assert.equal(fontSize.value,'16px', 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('#todo_add').getCssProperty('font-weight');
+        let fontWeight = $(sel.submitBtn).getCssProperty('font-weight');
         // console.log(fontWeight);
         assert.equal(fontWeight.value,400, 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
-        let fontColor = $('#todo_add').getCssProperty('color');
+        let fontColor = $(sel.submitBtn).getCssProperty('color');
         // console.log(fontColor);
         assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
     })
 
     it('Verify text align: center', function(){
-        let txtAlign = $('#todo_add').getCssProperty('text-align');
+        let txtAlign = $(sel.submitBtn).getCssProperty('text-align');
         // console.log(txtAlign);
         assert.equal(txtAlign.value,'center', 'Text align is incorrect');
     })
 
     it('verify background color', function(){
-        let elem = $('#todo_add');
+        let elem = $(sel.submitBtn);
         let bColor = elem.getCssProperty('background-color');
         // console.log(bColor);
         assert.equal(bColor.value, 'rgba(0,123,255,1)', 'Background color is incorrect');
@@ -194,44 +195,44 @@ describe('Submit button', function () {
 describe('Clear Form button', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('#todo_cancel').getCssProperty('font-family');
+        let fontFam = $(sel.clearFormBtn).getCssProperty('font-family');
         // console.log(fontFam);
         assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('#todo_cancel').getCssProperty('font-size');
+        let fontSize = $(sel.clearFormBtn).getCssProperty('font-size');
         // console.log(fontSize);
         assert.equal(fontSize.value,'16px', 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('#todo_cancel').getCssProperty('font-weight');
+        let fontWeight = $(sel.clearFormBtn).getCssProperty('font-weight');
         // console.log(fontWeight);
         assert.equal(fontWeight.value,400, 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
-        let fontColor = $('#todo_cancel').getCssProperty('color');
+        let fontColor = $(sel.clearFormBtn).getCssProperty('color');
         // console.log(fontColor);
         assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
     })
 
     it('Verify text align: center', function(){
-        let txtAlign = $('#todo_cancel').getCssProperty('text-align');
+        let txtAlign = $(sel.clearFormBtn).getCssProperty('text-align');
         // console.log(txtAlign);
         assert.equal(txtAlign.value,'center', 'Text align is incorrect');
     })
 
     it('verify background color', function(){
-        let elem = $('#todo_cancel');
+        let elem = $(sel.clearFormBtn);
         let bColor = elem.getCssProperty('background-color');
         // console.log(bColor);
         assert.equal(bColor.value, 'rgba(23,162,184,1)', 'Background color is incorrect');
     })
 
     // it('verify hover background color', function(){
-    //     let elem = $('#todo_cancel');
+    //     let elem = $(sel.clearFormBtn);
     //     let hBColor = elem.getCssProperty('.btn-info:hover');
     //     // console.log(hBColor);
     //     assert.equal(hBColor.value, '#138496', 'Hover background color is incorrect');
