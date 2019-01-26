@@ -21,13 +21,12 @@ describe(exd.suite, function () {
         browser.clearElement(sel.email);
         $(sel.email).setValue(randomString(sel.maxS));
         let result = $(sel.email).getValue();
-        browser.pause(1000);
         assert.equal(result.length, exd.expMaxLength, 'Email field  doesn/t accept 45 symbols');
     });
 
     it('Field Email doesn/t accepts 46 symbols', function(){
         browser.clearElement(sel.email);
-        let value = $(sel.email).setValue(randomString(sel.maxS+1));
+        $(sel.email).setValue(randomString(sel.maxS+1));
         let result = $(sel.email).getValue();
         assert.equal(result.length, exd.expMaxLength, 'Email field doesn/t accept 46 symbols');
     });
@@ -35,7 +34,7 @@ describe(exd.suite, function () {
     it('Text - Specify email and password - when login is empty', function(){
         browser.clearElement(sel.email);
         browser.click(sel.loginBtn);
-        browser.pause(1500);
+        browser.waitForVisible(sel.loginBtn, 3000);
         assert.isTrue($(sel.alertSps).isVisible());
     });
 
@@ -45,8 +44,7 @@ describe(exd.suite, function () {
         browser.setValue(sel.email, user.email +'a');
         browser.setValue(sel.pass, user.pass);
         browser.click(sel.loginBtn);
-        browser.pause(1500);
-        assert.isTrue($(sel.alertDntEx).isVisible());
+        assert.isTrue(browser.waitForVisible(sel.alertDntEx, 3000));
     });
 });
 
@@ -64,13 +62,12 @@ describe(exd.suite, function () {
          browser.clearElement(sel.pass);
          $(sel.pass).setValue(randomString(sel.maxS));
          let result = $(sel.pass).getValue();
-         browser.pause(2000);
          assert.equal(result.length, exd.expMaxLength, 'Password field  doesn/t accept 45 symbols');
      });
 
      it('Password doesn/t accepts 46 symbols', function(){
          browser.clearElement(sel.pass);
-         let value = $(sel.pass).setValue(randomString(sel.maxS+1));
+         $(sel.pass).setValue(randomString(sel.maxS+1));
          let result = $(sel.pass).getValue();
          assert.equal(result.length, exd.expMaxLength, 'Password field doesn/t accept 46 symbols');
      });
@@ -78,8 +75,7 @@ describe(exd.suite, function () {
      it('Text - Specify email and password - when password is empty', function(){
          browser.clearElement(sel.pass);
          browser.click(sel.loginBtn);
-         browser.pause(1500);
-         assert.isTrue($(sel.alertSps).isVisible());
+         assert.isTrue(browser.waitForVisible(sel.alertSps, 3000));
      });
 
      it('Text - Specify email and password - when password is wrong', function(){
@@ -88,8 +84,7 @@ describe(exd.suite, function () {
          browser.setValue(sel.email, user.email);
          browser.setValue(sel.pass, user.pass + 'a');
          browser.click(sel.loginBtn);
-         browser.pause(2000);
-         assert.isTrue($(sel.alertPassIncrt).isVisible());
+         assert.isTrue(browser.waitForVisible(sel.alertPassIncrt, 3000));
      });
 
      it('Symbols in password field are replaced by bullets', function () {
@@ -138,7 +133,7 @@ describe('Error design', function () {
 
     it('error design text-align login-page', function(){
         let textAlign = $(sel.alert).getCssProperty('text-align');
-        assert.equal(textAlign.value, exd.errorCss.textAlign, 'Button has incorrect text-align');
+        assert.equal(textAlign.value, exd.errorCss["text-align"], 'Button has incorrect text-align');
     });
 });
 
@@ -149,17 +144,16 @@ describe('Correct credentials', function () {
         browser.setValue(sel.email, user.email);
         browser.setValue(sel.pass, user.pass);
         browser.click(sel.loginBtn);
-        browser.waitForVisible(selB.newBug);
-        assert.isTrue(browser.isExisting(selB.newBug));
+        assert.isTrue(browser.waitForVisible(selB.newBug));
     });
 });
 
 describe('Registration page exists', function () {
     it('Registration button Clickable and redirects to the right page', function(){
         browser.url('/');
-        browser.pause(5000);
+        browser.waitForVisible(sel.registrationBtn, 3000);
         browser.click(sel.registrationBtn);
         assert.equal(browser.waitForVisible(selR.btnBack, 1500), true, 'Button Registration is not clicked');
     })
- });
+});
 
