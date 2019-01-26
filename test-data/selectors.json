@@ -15,7 +15,8 @@
     "maxS": 45,
     "alertDntEx": ".alert-danger=User with this email does not exist",
     "alertPassIncrt": ".alert-danger=Password is incorrect",
-    "alert": ".alert-danger"
+    "alert": ".alert-danger",
+    "btnBack": "#back"
   },
 
   "bugList": {
@@ -23,19 +24,13 @@
   },
 
   "registrationDesign": {
-    "buttonsSel": "button",
-    "inputsSel": "input",
-    "textSel": "p",
-    "firstName": "#fname",
-    "lastName": "#lname",
-    "email": "#email",
-    "confEmail": "#email_confirm",
-    "pass": "#pass",
-    "confPass": "#pass_confirm",
     "page": "#root",
-    "btnBack": "button=< Back",
-    "btnRegister": "button=Register",
-    "txtRequired": "p=* Required field"
+    "buttonGroupSel": "button",
+    "inputGroupSel": "input",
+    "textGroupSel": "p",
+    "buttonIds": ["#back", "#registration"],
+    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
+    "textSel": ["p=* Required field"]
   }
 
 }
