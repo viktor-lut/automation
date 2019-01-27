@@ -61,6 +61,7 @@ for (let i = 0; i < exp.inputs.length; i ++) {
 }
 
 for (let i = 0; i < exp.btnNames.length; i ++) {
+
     describe("'" + exp.btnNames[i] + "' button", function () {
 
         verificationText(sel.buttonIds[i], exp.btnNames[i]);
@@ -68,8 +69,8 @@ for (let i = 0; i < exp.btnNames.length; i ++) {
         verificationHorizontalAligned(sel.buttonIds[i], sel.page, exp.btnAligned[i]);
 
     });
-}
 
+}
 
 for (let i = 0; i < exp.texts.length; i ++) {
 
@@ -79,6 +80,7 @@ for (let i = 0; i < exp.texts.length; i ++) {
         verificationCssValue(sel.textSel[i], exp.txtCssProp);
 
     });
+
 }
 
 
