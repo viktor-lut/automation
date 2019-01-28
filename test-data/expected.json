@@ -3,14 +3,60 @@
     "suite": "Client",
     "pageTitle": "Bug Tracker"
   },
-
-  "loginFunctionality": {
-    "suite": "Login Functionality"
-  },
-
   "fPasswordFunc": {
     "suite": "f-password-func",
     "alert": "Please specify an email registered in the system"
+
+  },
+  "loginFunctionality": {
+    "suite": "Login Functionality",
+    "expMinLength": 1,
+    "expMaxLength": 45,
+    "bulletsPass": "-webkit-text-security",
+    "errorCss": {
+      "font-family": "segoe ui",
+      "background-color": "#f8d7da",
+      "border": "(245, 198, 203)",
+      "fontSize": "16px",
+      "font-weight": "400",
+      "color": "#721c24",
+      "text-align": "center"
+    }
+  },
+
+  "registrationDesign": {
+    "btnNames": ["< Back", "Register"],
+    "inputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
+    "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
+    "texts": ["* Required field"],
+    "maxLength": [20, 45],
+    "inputCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#495057",
+      "focus": {
+        "box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"
+      }
+    },
+    "btnCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#ffffff",
+      "background-color": "#17a2b8",
+      "hover": {
+        "background-color": "#138496"
+      }
+    },
+    "txtCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#212529"
+    },
+    "btnAligned": ["left", "middle"]
+
   }
 
 }

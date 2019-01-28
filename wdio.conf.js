@@ -4,8 +4,8 @@ exports.config = {
     './test/client.js',
     './test/f-password-func.js',
     './test/login-functionality.js',
-    './test/new-bug-report.js'
-
+    './test/registration-design.js',
+    // './test/new-bug-report.js'
   ],
 
   exclude: [
