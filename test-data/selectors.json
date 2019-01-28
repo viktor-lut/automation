@@ -8,7 +8,15 @@
   "loginFunctionality": {
     "email": "#email",
     "pass": "#pass",
-    "loginBtn": "#login"
+    "loginBtn": "#login",
+    "registrationBtn": "#registration",
+    "alertSps": ".alert-danger=Specify email and password",
+    "minS": 1,
+    "maxS": 45,
+    "alertDntEx": ".alert-danger=User with this email does not exist",
+    "alertPassIncrt": ".alert-danger=Password is incorrect",
+    "alert": ".alert-danger",
+    "btnBack": "#back"
   },
 
   "bugList": {
@@ -18,6 +26,16 @@
   "newBugReport": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear"
+  },
+
+  "registrationDesign": {
+    "page": "#root",
+    "buttonGroupSel": "button",
+    "inputGroupSel": "input",
+    "textGroupSel": "p",
+    "buttonIds": ["#back", "#registration"],
+    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
+    "textSel": ["p=* Required field"]
   }
 
 }

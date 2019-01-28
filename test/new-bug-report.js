@@ -27,17 +27,17 @@ describe('Design', function () {
 
     it('Verify that "* Required" is visible', function(){
         let result = browser.waitForVisible('.text-sm-left', 5000);
-        assert.equal(result, true, '"* Required" is not visible');
+        assert.isTrue(result, '"* Required" is not visible');
     })
 
     it('Verify that Submit button is visible', function(){
         let result = browser.waitForVisible(sel.submitBtn, 5000);
-        assert.equal(result, true, 'Submit button is not visible');
+        assert.isTrue(result, 'Submit button is not visible');
     })
 
     it('Verify that Clear Form button is visible', function(){
         let result = browser.waitForVisible(sel.clearFormBtn, 5000);
-        assert.equal(result, true, 'Clear Form button is not visible');
+        assert.isTrue(result, 'Clear Form button is not visible');
     })
 
 });
@@ -183,12 +183,14 @@ describe('Submit button', function () {
         assert.equal(bColor.value, 'rgba(0,123,255,1)', 'Background color is incorrect');
     })
 
-    // it('verify hover background color', function(){
-    //     let elem = $('.btn-primary:hover');
-    //     let hBColor = elem.getCssProperty('background-color');
-    //     console.log(hBColor);
-    //     assert.equal(hBColor.value, '#0069d9', 'Hover background color is incorrect');
-    // })
+    it('verify hover background color', function(){
+        browser.moveToObject(sel.submitBtn);
+        browser.pause(1000);
+        let elem = $(sel.submitBtn);
+        let hBColor = elem.getCssProperty('background-color');
+        // console.log(hBColor);
+        assert.equal(hBColor.value, 'rgba(0,105,217,1)', 'Hover background color is incorrect');
+    })
 
 })
 
@@ -231,11 +233,13 @@ describe('Clear Form button', function () {
         assert.equal(bColor.value, 'rgba(23,162,184,1)', 'Background color is incorrect');
     })
 
-    // it('verify hover background color', function(){
-    //     let elem = $(sel.clearFormBtn);
-    //     let hBColor = elem.getCssProperty('.btn-info:hover');
-    //     // console.log(hBColor);
-    //     assert.equal(hBColor.value, '#138496', 'Hover background color is incorrect');
-    // })
+    it('verify hover background color', function(){
+        browser.moveToObject(sel.clearFormBtn);
+        browser.pause(1000);
+        let elem = $(sel.clearFormBtn);
+        let hBColor = elem.getCssProperty('background-color');
+        // console.log(hBColor);
+        assert.equal(hBColor.value, 'rgba(19,132,150,1)', 'Hover background color is incorrect');
+    })
 
 })
