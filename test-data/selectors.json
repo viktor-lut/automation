@@ -31,7 +31,6 @@
     "newBugInputFields": ".form-control",
     "dropDownFieldsPlcholder": ".Dropdown-placeholder",
     "requiredFieldTxt": ".text-sm-left"
-
   },
 
   "registrationDesign": {
