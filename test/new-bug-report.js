@@ -1,23 +1,23 @@
 const { assert } = require('chai');
 const exd = require('./../test-data/expected').newBugReport;
 const sel = require('./../test-data/selectors').newBugReport;
-const sel1 = require('./../test-data/selectors').loginFunctionality;
+const selLogin = require('./../test-data/selectors').loginFunctionality;
 const user = require('./../test-data/users');
 
 describe('General', function () {
 
     it('click New Bug button', function(){
         browser.url('/');
-        browser.waitForVisible(sel1.loginBtn);
+        browser.waitForVisible(selLogin.loginBtn);
 
-        browser.setValue(sel1.email, user.email);
+        browser.setValue(selLogin.email, user.email);
         // browser.pause(2000);
-        browser.setValue(sel1.pass, user.pass);
-        browser.click(sel1.loginBtn);
+        browser.setValue(selLogin.pass, user.pass);
+        browser.click(selLogin.loginBtn);
 
         browser.waitForVisible(sel.newBugBtn);
         browser.click(sel.newBugBtn);
-        let result = browser.waitForVisible('.mt-2', 5000);
+        let result = browser.waitForVisible(sel.newBugRepForm, 5000);
         assert.isTrue(result, 'Button is not clicked');
     })
 
@@ -26,17 +26,17 @@ describe('General', function () {
 describe('Design', function () {
 
     it('Verify that "* Required" is visible', function(){
-        let result = browser.waitForVisible('.text-sm-left', 5000);
+        let result = browser.waitForVisible(sel.requiredFieldTxt, 2000);
         assert.isTrue(result, '"* Required" is not visible');
     })
 
     it('Verify that Submit button is visible', function(){
-        let result = browser.waitForVisible(sel.submitBtn, 5000);
+        let result = browser.waitForVisible(sel.submitBtn, 2000);
         assert.isTrue(result, 'Submit button is not visible');
     })
 
     it('Verify that Clear Form button is visible', function(){
-        let result = browser.waitForVisible(sel.clearFormBtn, 5000);
+        let result = browser.waitForVisible(sel.clearFormBtn, 2000);
         assert.isTrue(result, 'Clear Form button is not visible');
     })
 
@@ -45,31 +45,31 @@ describe('Design', function () {
 describe('Text Field Requirements', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('.form-control').getCssProperty('font-family');
+        let fontFam = $(sel.newBugInputFields).getCssProperty('font-family');
         // console.log(fontFam);
         assert.equal(fontFam.value, exd.txtFieldsCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('.form-control').getCssProperty('font-size');
+        let fontSize = $(sel.newBugInputFields).getCssProperty('font-size');
         // console.log(fontSize);
         assert.equal(fontSize.value, exd.txtFieldsCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('.form-control').getCssProperty('font-weight');
+        let fontWeight = $(sel.newBugInputFields).getCssProperty('font-weight');
         // console.log(fontWeight);
         assert.equal(fontWeight.value, exd.txtFieldsCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
-        let fontColor = $('.form-control').getCssProperty('color');
+        let fontColor = $(sel.newBugInputFields).getCssProperty('color');
         // console.log(fontColor);
         assert.equal(fontColor.value, exd.txtFieldsCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
-        let txtAlign = $('.form-control').getCssProperty('text-align');
+        let txtAlign = $(sel.newBugInputFields).getCssProperty('text-align');
         // console.log(txtAlign);
         assert.equal(txtAlign.value, exd.txtFieldsCss["text-align"], 'Text align is incorrect');
     })
@@ -79,31 +79,31 @@ describe('Text Field Requirements', function () {
 describe('Drop-down lists requirements', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('.Dropdown-placeholder').getCssProperty('font-family');
+        let fontFam = $(sel.dropDownFieldsPlcholder).getCssProperty('font-family');
         // console.log(fontFam);
         assert.equal(fontFam.value, exd.dropDownListCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('.Dropdown-placeholder').getCssProperty('font-size');
+        let fontSize = $(sel.dropDownFieldsPlcholder).getCssProperty('font-size');
         // console.log(fontSize);
         assert.equal(fontSize.value, exd.dropDownListCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('.Dropdown-placeholder').getCssProperty('font-weight');
+        let fontWeight = $(sel.dropDownFieldsPlcholder).getCssProperty('font-weight');
         // console.log(fontWeight);
         assert.equal(fontWeight.value, exd.dropDownListCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
-        let fontColor = $('.Dropdown-placeholder').getCssProperty('color');
+        let fontColor = $(sel.dropDownFieldsPlcholder).getCssProperty('color');
         // console.log(fontColor);
         assert.equal(fontColor.value, exd.dropDownListCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
-        let txtAlign = $('.form-control').getCssProperty('text-align');
+        let txtAlign = $(sel.dropDownFieldsPlcholder).getCssProperty('text-align');
         // console.log(txtAlign);
         assert.equal(txtAlign.value, exd.dropDownListCss["text-align"], 'Text align is incorrect');
     })
@@ -113,31 +113,31 @@ describe('Drop-down lists requirements', function () {
 describe('* Required field text requirements', function () {
 
     it('Verify font family', function(){
-        let fontFam = $('.text-sm-left').getCssProperty('font-family');
+        let fontFam = $(sel.requiredFieldTxt).getCssProperty('font-family');
         // console.log(fontFam);
         assert.equal(fontFam.value, exd.requiredFieldTxtCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
-        let fontSize = $('.text-sm-left').getCssProperty('font-size');
+        let fontSize = $(sel.requiredFieldTxt).getCssProperty('font-size');
         // console.log(fontSize);
         assert.equal(fontSize.value, exd.requiredFieldTxtCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
-        let fontWeight = $('.text-sm-left').getCssProperty('font-weight');
+        let fontWeight = $(sel.requiredFieldTxt).getCssProperty('font-weight');
         // console.log(fontWeight);
         assert.equal(fontWeight.value, exd.requiredFieldTxtCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
-        let fontColor = $('.text-sm-left').getCssProperty('color');
+        let fontColor = $(sel.requiredFieldTxt).getCssProperty('color');
         // console.log(fontColor);
         assert.equal(fontColor.value, exd.requiredFieldTxtCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
-        let txtAlign = $('.text-sm-left').getCssProperty('text-align');
+        let txtAlign = $(sel.requiredFieldTxt).getCssProperty('text-align');
         // console.log(txtAlign);
         assert.equal(txtAlign.value, exd.requiredFieldTxtCss["text-align"], 'Text align is incorrect');
     })
