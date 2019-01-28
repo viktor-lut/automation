@@ -23,7 +23,7 @@ describe("Registration page components", function () {
     for (let i = 0; i < exp.btnNames.length; i ++) {
 
         it("button '" + exp.btnNames[i] + "' is visible", function() {
-            assert.isTrue($(sel.buttonIds[i]).isVisible(), exp.btnNames[i] + " button is not visible");
+            assert.isTrue($(sel.buttonIds[i]).isVisible(), `${exp.btnNames[i]} button is not visible`);
         });
 
     }
@@ -31,7 +31,7 @@ describe("Registration page components", function () {
     for (let i = 0; i < exp.placeholders.length; i ++) {
 
         it(exp.inputs[i] + " field is visible", function() {
-            assert.isTrue($(sel.inputIds[i]).isVisible(), exp.inputs[i] + " field is not visible");
+            assert.isTrue($(sel.inputIds[exp.inputs[i]]).isVisible(), `${exp.inputs[i]} field is not visible`);
         });
 
     }
@@ -39,7 +39,7 @@ describe("Registration page components", function () {
     for (let i = 0; i < exp.texts.length; i ++) {
 
         it("text '" + exp.texts[i] + "' is visible", function() {
-            assert.isTrue($(sel.textSel[i]).isVisible(), exp.texts[i] + " text is not visible");
+            assert.isTrue($(sel.textSel[i]).isVisible(), `${exp.texts[i]} text is not visible`);
         });
 
     }
@@ -51,10 +51,10 @@ for (let i = 0; i < exp.inputs.length; i ++) {
 
     describe(exp.inputs[i] + " field", function () {
         expectedMaxLength = exp.inputs[i].includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
-        verificationEmptyField(sel.inputIds[i], exp.inputs[i]);
-        verificationPlaceholder(sel.inputIds[i], exp.placeholders[i]);
-        verificationMaxLength(sel.inputIds[i], expectedMaxLength);
-        verificationCssValue(sel.inputIds[i], exp.inputCssProp);
+        verificationEmptyField(sel.inputIds[exp.inputs[i]], exp.inputs[i]);
+        verificationPlaceholder(sel.inputIds[exp.inputs[i]], exp.placeholders[i]);
+        verificationMaxLength(sel.inputIds[exp.inputs[i]], expectedMaxLength);
+        verificationCssValue(sel.inputIds[exp.inputs[i]], exp.inputCssProp);
 
     });
 

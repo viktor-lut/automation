@@ -29,7 +29,13 @@
     "inputGroupSel": "input",
     "textGroupSel": "p",
     "buttonIds": ["#back", "#registration"],
-    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
+    "inputIds": {
+      "FirstName": "#fname",
+      "LastName": "#lname",
+      "Email": "#email",
+      "ConfirmEmail": "#email_confirm",
+      "Password": "#pass",
+      "ConfirmPassword": "#pass_confirm"},
     "textSel": ["p=* Required field"]
   }
 

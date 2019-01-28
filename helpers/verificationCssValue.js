@@ -24,7 +24,7 @@ module.exports =
                 }
                 value = $(selector).getCssProperty(key);
                 value = key.includes("color") ? value["parsed"]["hex"] : value["value"];
-                assert.equal(value, cssProp[key], "expected " + state + key + " is " + cssProp[key] + ", got " + value);
+                assert.equal(value, cssProp[key], `expected ${state} ${key} is ${cssProp[key]}, got ${value}`);
             })
         }
     };
