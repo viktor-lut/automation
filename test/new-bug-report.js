@@ -6,7 +6,7 @@ const user = require('./../test-data/users');
 
 describe('General', function () {
 
-    it('click new bug button', function(){
+    it('click New Bug button', function(){
         browser.url('/');
         browser.waitForVisible(sel1.loginBtn);
 
@@ -15,10 +15,10 @@ describe('General', function () {
         browser.setValue(sel1.pass, user.pass);
         browser.click(sel1.loginBtn);
 
-        browser.waitForVisible('#new_bug');
-        browser.click('#new_bug');
+        browser.waitForVisible(sel.newBugBtn);
+        browser.click(sel.newBugBtn);
         let result = browser.waitForVisible('.mt-2', 5000);
-        assert.equal(result, true, 'Button is not clicked');
+        assert.isTrue(result, 'Button is not clicked');
     })
 
 });
@@ -47,31 +47,31 @@ describe('Text Field Requirements', function () {
     it('Verify font family', function(){
         let fontFam = $('.form-control').getCssProperty('font-family');
         // console.log(fontFam);
-        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+        assert.equal(fontFam.value, exd.txtFieldsCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
         let fontSize = $('.form-control').getCssProperty('font-size');
         // console.log(fontSize);
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        assert.equal(fontSize.value, exd.txtFieldsCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
         let fontWeight = $('.form-control').getCssProperty('font-weight');
         // console.log(fontWeight);
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        assert.equal(fontWeight.value, exd.txtFieldsCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $('.form-control').getCssProperty('color');
         // console.log(fontColor);
-        assert.equal(fontColor.value,'rgba(73,80,87,1)', 'Font color is incorrect');
+        assert.equal(fontColor.value, exd.txtFieldsCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
         let txtAlign = $('.form-control').getCssProperty('text-align');
         // console.log(txtAlign);
-        assert.equal(txtAlign.value,'start', 'Text align is incorrect');
+        assert.equal(txtAlign.value, exd.txtFieldsCss["text-align"], 'Text align is incorrect');
     })
 
 })
@@ -81,31 +81,31 @@ describe('Drop-down lists requirements', function () {
     it('Verify font family', function(){
         let fontFam = $('.Dropdown-placeholder').getCssProperty('font-family');
         // console.log(fontFam);
-        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+        assert.equal(fontFam.value, exd.dropDownListCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
         let fontSize = $('.Dropdown-placeholder').getCssProperty('font-size');
         // console.log(fontSize);
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        assert.equal(fontSize.value, exd.dropDownListCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
         let fontWeight = $('.Dropdown-placeholder').getCssProperty('font-weight');
         // console.log(fontWeight);
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        assert.equal(fontWeight.value, exd.dropDownListCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $('.Dropdown-placeholder').getCssProperty('color');
         // console.log(fontColor);
-        assert.equal(fontColor.value,'rgba(51,51,51,1)', 'Font color is incorrect');
+        assert.equal(fontColor.value, exd.dropDownListCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
         let txtAlign = $('.form-control').getCssProperty('text-align');
         // console.log(txtAlign);
-        assert.equal(txtAlign.value,'start', 'Text align is incorrect');
+        assert.equal(txtAlign.value, exd.dropDownListCss["text-align"], 'Text align is incorrect');
     })
 
 })
@@ -115,31 +115,31 @@ describe('* Required field text requirements', function () {
     it('Verify font family', function(){
         let fontFam = $('.text-sm-left').getCssProperty('font-family');
         // console.log(fontFam);
-        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+        assert.equal(fontFam.value, exd.requiredFieldTxtCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
         let fontSize = $('.text-sm-left').getCssProperty('font-size');
         // console.log(fontSize);
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        assert.equal(fontSize.value, exd.requiredFieldTxtCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
         let fontWeight = $('.text-sm-left').getCssProperty('font-weight');
         // console.log(fontWeight);
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        assert.equal(fontWeight.value, exd.requiredFieldTxtCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $('.text-sm-left').getCssProperty('color');
         // console.log(fontColor);
-        assert.equal(fontColor.value,'rgba(33,37,41,1)', 'Font color is incorrect');
+        assert.equal(fontColor.value, exd.requiredFieldTxtCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: left', function(){
         let txtAlign = $('.text-sm-left').getCssProperty('text-align');
         // console.log(txtAlign);
-        assert.equal(txtAlign.value,'left', 'Text align is incorrect');
+        assert.equal(txtAlign.value, exd.requiredFieldTxtCss["text-align"], 'Text align is incorrect');
     })
 
 })
@@ -149,38 +149,38 @@ describe('Submit button', function () {
     it('Verify font family', function(){
         let fontFam = $(sel.submitBtn).getCssProperty('font-family');
         // console.log(fontFam);
-        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+        assert.equal(fontFam.value, exd.submitBtnCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
         let fontSize = $(sel.submitBtn).getCssProperty('font-size');
         // console.log(fontSize);
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        assert.equal(fontSize.value, exd.submitBtnCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
         let fontWeight = $(sel.submitBtn).getCssProperty('font-weight');
         // console.log(fontWeight);
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        assert.equal(fontWeight.value, exd.submitBtnCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $(sel.submitBtn).getCssProperty('color');
         // console.log(fontColor);
-        assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
+        assert.equal(fontColor.value, exd.submitBtnCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: center', function(){
         let txtAlign = $(sel.submitBtn).getCssProperty('text-align');
         // console.log(txtAlign);
-        assert.equal(txtAlign.value,'center', 'Text align is incorrect');
+        assert.equal(txtAlign.value, exd.submitBtnCss["text-align"], 'Text align is incorrect');
     })
 
     it('verify background color', function(){
         let elem = $(sel.submitBtn);
         let bColor = elem.getCssProperty('background-color');
         // console.log(bColor);
-        assert.equal(bColor.value, 'rgba(0,123,255,1)', 'Background color is incorrect');
+        assert.equal(bColor.value, exd.submitBtnCss["background-color"], 'Background color is incorrect');
     })
 
     it('verify hover background color', function(){
@@ -189,7 +189,7 @@ describe('Submit button', function () {
         let elem = $(sel.submitBtn);
         let hBColor = elem.getCssProperty('background-color');
         // console.log(hBColor);
-        assert.equal(hBColor.value, 'rgba(0,105,217,1)', 'Hover background color is incorrect');
+        assert.equal(hBColor.value, exd.submitBtnCss.hover["background-color"], 'Hover background color is incorrect');
     })
 
 })
@@ -199,38 +199,38 @@ describe('Clear Form button', function () {
     it('Verify font family', function(){
         let fontFam = $(sel.clearFormBtn).getCssProperty('font-family');
         // console.log(fontFam);
-        assert.equal(fontFam.value,'segoe ui', 'Font family is incorrect');
+        assert.equal(fontFam.value, exd.clearFormBtnCss["font-family"], 'Font family is incorrect');
     })
 
     it('Verify font size', function(){
         let fontSize = $(sel.clearFormBtn).getCssProperty('font-size');
         // console.log(fontSize);
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        assert.equal(fontSize.value, exd.clearFormBtnCss["font-size"], 'Font size is incorrect');
     })
 
     it('Verify font weight', function(){
         let fontWeight = $(sel.clearFormBtn).getCssProperty('font-weight');
         // console.log(fontWeight);
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        assert.equal(fontWeight.value, exd.clearFormBtnCss["font-weight"], 'Font weight is incorrect');
     })
 
     it('Verify color', function(){
         let fontColor = $(sel.clearFormBtn).getCssProperty('color');
         // console.log(fontColor);
-        assert.equal(fontColor.value,'rgba(255,255,255,1)', 'Font color is incorrect');
+        assert.equal(fontColor.value, exd.clearFormBtnCss.color, 'Font color is incorrect');
     })
 
     it('Verify text align: center', function(){
         let txtAlign = $(sel.clearFormBtn).getCssProperty('text-align');
         // console.log(txtAlign);
-        assert.equal(txtAlign.value,'center', 'Text align is incorrect');
+        assert.equal(txtAlign.value, exd.clearFormBtnCss["text-align"], 'Text align is incorrect');
     })
 
     it('verify background color', function(){
         let elem = $(sel.clearFormBtn);
         let bColor = elem.getCssProperty('background-color');
         // console.log(bColor);
-        assert.equal(bColor.value, 'rgba(23,162,184,1)', 'Background color is incorrect');
+        assert.equal(bColor.value, exd.clearFormBtnCss["background-color"], 'Background color is incorrect');
     })
 
     it('verify hover background color', function(){
@@ -239,7 +239,7 @@ describe('Clear Form button', function () {
         let elem = $(sel.clearFormBtn);
         let hBColor = elem.getCssProperty('background-color');
         // console.log(hBColor);
-        assert.equal(hBColor.value, 'rgba(19,132,150,1)', 'Hover background color is incorrect');
+        assert.equal(hBColor.value, exd.clearFormBtnCss.hover["background-color"], 'Hover background color is incorrect');
     })
 
 })

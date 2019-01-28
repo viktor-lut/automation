@@ -25,7 +25,8 @@
 
   "newBugReport": {
     "submitBtn": "#submit",
-    "clearFormBtn": "#clear"
+    "clearFormBtn": "#clear",
+    "newBugBtn": "#new_bug"
   },
 
   "registrationDesign": {
