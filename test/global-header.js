@@ -8,16 +8,25 @@ describe('General', function () {
         assert.equal($(".custom-header").isVisible(), true);
     })
 
+    it('Header has 100% width of the page.', function(){
+        let widthPage = $('.site-content').getCssProperty('text-size-adjust');
+        let widthHeader = $('.custom-header').getCssProperty('text-size-adjust');
+        assert.equal((widthPage.value === widthHeader.value), true);
+    });
+
+    it('Get Header title', function(){
+        let title = browser.getText('.custom-header span');
+        assert.equal(title, 'BugTracker', 'Title is incorrect');
+    })
 })
 
 
 describe('Design', function () {
 
-   // it('Verify text-size is 30px', function(){
-   //   let textS = $('.font-size').getElementSize('text-size');
-   //     console.log(textS);
-   //     assert.equal(textS.value,'30px', 'Text size is incorrect');
-   // });
+     it('Verify text size is 30px', function(){
+         let textS = $('.custom-header span').getCssProperty('font-size');
+         assert.equal(textS.value,'30px', 'Text size is incorrect');
+     });
 
 
     it('Verify font family', function(){
@@ -30,18 +39,9 @@ describe('Design', function () {
         assert.equal(fontWeight.value,400, 'Font weight is incorrect');
     })
 
- //   it('Verify text size', function(){
- //       let textS = $('.font-size').getCssProperty('text-size');
- //       console.log(textS);
- //       assert.equal(textS.value,'30px', 'Text size is incorrect');
- //   })
-
-
-
-    it('Verify color', function(){
+     it('Verify color', function(){
         let color = $('.custom-header').getCssProperty('color');
-        console.log(color);
-        assert.equal(color.value,'rgba(33,37,41,1)', 'Color is incorrect');
+        assert.equal(color.parsed.hex,'#212529', 'Color is incorrect');
 })
     it('Verify background color', function() {
         let backColor = $('.custom-header').getCssProperty('background-color');
@@ -52,7 +52,7 @@ describe('Design', function () {
             const logo = $('.align-content-center')
             const size = logo.getElementSize()
            // console.log(size);
-            //assert.equal(size.value,'30*30px', 'Icon size color is incorrect');
+            //assert.equal(size.value,'30*30px', 'Icon size color is incorrect'); //почему не принимает value но тест проходит
     })
 
 
