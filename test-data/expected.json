@@ -56,6 +56,75 @@
       "color": "#212529"
     },
     "btnAligned": ["left", "middle"]
+  },
+
+  "globalFooter": {
+    "suite": ["Global Footer","General", "Design Main Footer text","Design Small Footer text"],
+    "glFooterBottom": "on the bottom",
+    "mainFooterText": "© 2019 Bug Tracker by React Web Development",
+    "smallFooterText": "Version: 0.2",
+    "smallTextLocat": "below",
+    "mainFootCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center",
+      "background-color": "rgba(0,0,0,0.125)"
+    },
+    "smallFootCssProp":{
+      "font-size": "12px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center"
+    }
+  },
+
+  "newBugReport": {
+    "txtFieldsCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(73,80,87,1)",
+      "text-align": "start"
+    },
+    "dropDownListCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(51,51,51,1)",
+      "text-align": "left"
+    },
+    "requiredFieldTxtCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(33,37,41,1)",
+      "text-align": "left"
+    },
+    "submitBtnCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(255,255,255,1)",
+      "text-align": "center",
+      "background-color": "rgba(0,123,255,1)",
+      "hover": {
+        "background-color": "rgba(0,105,217,1)"
+      }
+    },
+    "clearFormBtnCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(255,255,255,1)",
+      "text-align": "center",
+      "background-color": "rgba(23,162,184,1)",
+      "hover": {
+        "background-color": "rgba(19,132,150,1)"
+      }
+    }
 
   }
 
