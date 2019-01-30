@@ -1,99 +1,101 @@
 const { assert } = require('chai');
-//const sel = require('./../test-data/selectors').client;
+const selUsers = require('./../test-data/users');
+const sel = require('./../test-data/selectors').fPasswordFunc;
+const exd = require('./../test-data/expected').fPasswordFunc;
+
 
 describe('General', function () {
 
     it('Remind Password', function(){
         browser.url('/');
-        browser.waitForVisible(".btn-link", 10000);
+        browser.waitForVisible(sel.forgot, 10000);
 
-        $(".btn-link").click();
-        browser.waitForVisible("#email", 5000);
+        $(sel.forgot).click();
+        browser.waitForVisible(sel.email, 5000);
 
-        $("#email").setValue(['\uE01A', '\uE003']);
-        $("#remind").click();
+        $(sel.email).setValue(['\uE01A', '\uE003']);
+        $(sel.remind).click();
 
-        browser.waitForVisible("div*=Please", 5000);
-        const danger = $(".alert-danger").getText();
-        assert.equal(danger, 'Please specify an email registered in the system');
+        browser.waitForVisible(sel.emptyField, 5000);
+        const danger = $(sel.errorMessage).getText();
+        assert.equal(danger, exd.remindPass);
     });
 
     it('email is not registered in the system', function(){
 
-        $("#email").setValue('takogoadresanesushestvuet@mail.ru');
-        $("#remind").click();
-        browser.waitForVisible("div*=User", 5000);
-        const danger = $(".alert-danger").getText();
-        assert.equal(danger, 'User with this email is not registered in the system');
+        $(sel.email).setValue('theMailIsNotExist@mail.com');
+        $(sel.remind).click();
+        browser.waitForVisible(sel.incorrectMail, 5000);
+        const danger = $(sel.errorMessage).getText();
+        assert.equal(danger, exd.userIsNotR);
     });
 
 
     it('correct email', function(){
-        $(".btn").click();
-        browser.waitForVisible(".btn-link", 5000);
-        $(".btn-link").click();
-        browser.waitForVisible("#email", 5000);
-        $("#email").setValue('zolotokrad@gmail.com');
-        $("#remind").click();
-        browser.waitForVisible(".alert-danger", 5000);
-        const danger = $(".alert-danger").getText();
-        assert.equal(danger, 'Password reminder sent to your email. Please, check your inbox.');
+        $(sel.backButton).click();
+        browser.waitForVisible(sel.forgot, 5000);
+        $(sel.forgot).click();
+        browser.waitForVisible(sel.email, 5000);
+        $(sel.email).setValue(selUsers.email);
+        $(sel.remind).click();
+        browser.waitForVisible(sel.correctMail, 5000);
+        const danger = $(sel.errorMessage).getText();
+        assert.equal(danger, exd.correctEmail);
     });
 
-    it('Verify Message disappears after 5 seconds', function(){
-        $(".btn").click();
-        browser.waitForVisible(".btn-link", 5000);                       //этот
-        $(".btn-link").click();                                    //тест
-        browser.waitForVisible("#email", 5000);                              //написан
-        $("#email").setValue('zolotokrad@gmail.com');                  //не
-        $("#remind").click();                                            //верно
-        const mainPage = browser.waitForVisible(".btn-link", 10000); // а именно эта строка, нужно узнать сколько
-                                                                   // по времени висит надпись 'Password reminder sent to your email.'
+    it('Verify that after the message disappears, the user is redirected to the login page.', function(){
+        $(sel.backButton).click();
+        browser.waitForVisible(sel.forgot, 5000);
+        $(sel.forgot).click();
+        browser.waitForVisible(sel.email, 5000);
+        $(sel.email).setValue(selUsers.email);
+        $(sel.remind).click();
+        const mainPage = browser.waitForVisible(sel.forgot, 10000);
         assert.equal(mainPage, true,'Can not return main page');
     })
 
-    //////////////////////////////////////////////////////////////////////////
 });
 
 describe('Messages design', function () {
 
     it('Verify Background color', function(){
-        $(".btn-link").click();
-        browser.waitForVisible("#email", 5000);
-        $("#email").setValue(['\uE01A', '\uE003']);
-        $("#remind").click();
+        $(sel.forgot).click();
+        browser.waitForVisible(sel.email, 5000);
+        $(sel.email).setValue(['\uE01A', '\uE003']);
+        $(sel.remind).click();
 
-        let backColor = $('.alert-danger').getCssProperty('background-color');
-        assert.equal(backColor.value,'rgba(248,215,218,1)', 'Background color is incorrect');
+        let backColor = $(sel.errorMessage).getCssProperty('background-color').value;
+        assert.equal(backColor,exd.messagesDesignCssProp["background-color"], 'Background color is incorrect');
     });
 
     it('Verify border color', function(){
-        let borderColor = $('.alert-danger').getCssProperty('border-top-color');
-        assert.equal(borderColor.value,'rgba(245,198,203,1)', 'Border color is incorrect');
+        let borderColor = $(sel.errorMessage).getCssProperty('border-top-color').value;
+        assert.equal(borderColor,exd.messagesDesignCssProp["border-color"], 'Border color is incorrect');
     });
 
     it('Verify Font family', function(){
-        let borderColor = $('.alert-danger').getCssProperty('font-family');
-        assert.equal(borderColor.value,'segoe ui', 'Font family is incorrect');
+        let fontFamily = $(sel.errorMessage).getCssProperty('font-family').value;
+        assert.equal(fontFamily,exd.messagesDesignCssProp["font-family"], 'Font family is incorrect');
     });
 
     it('Verify font size', function(){
-        let fontSize = $('.alert-danger').getCssProperty('font-size');
-        assert.equal(fontSize.value,'16px', 'Font size is incorrect');
+        let fontSize = $(sel.errorMessage).getCssProperty('font-size').value;
+        assert.equal(fontSize,exd.messagesDesignCssProp["font-size"], 'Font size is incorrect');
     });
 
     it('Verify font weight', function(){
-        let fontWeight = $('.alert-danger').getCssProperty('font-weight');
-        assert.equal(fontWeight.value,400, 'Font weight is incorrect');
+        let fontWeight = $(sel.errorMessage).getCssProperty('font-weight').value;
+        assert.equal(fontWeight,exd.messagesDesignCssProp["font-weight"], 'Font weight is incorrect');
     });
 
     it('Verify font color', function(){
-        let fontColor = $('.alert-danger').getCssProperty('color');
-        assert.equal(fontColor.value,'rgba(114,28,36,1)', 'Font color is incorrect');
+        let fontColor = $(sel.errorMessage).getCssProperty('color').value;
+        assert.equal(fontColor,exd.messagesDesignCssProp["font-color"], 'Font color is incorrect');
     });
 
     it('Verify Text is center aligned.', function(){
-        let txtCtrAlign = $('.alert-danger').getCssProperty('text-align');
-        assert.equal(txtCtrAlign.value,'center', 'Text align is incorrect');
-    })
+        let textAlign = $(sel.errorMessage).getCssProperty('text-align').value;
+        assert.equal(textAlign,exd.messagesDesignCssProp["text-align"], 'Text align is incorrect');
+    });
 });
+///// test

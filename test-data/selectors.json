@@ -46,9 +46,15 @@
 
 
   "fPasswordFunc": {
-    "forgot": ".btn-link",
+    "forgot": "#forgot",
     "remind": "#remind",
-    "alertDanger": "alert-danger"
+    "errorMessage": "#error",
+    "backButton": "#back",
+    "email": "#email",
+    "emptyField": "div*=Please",
+    "incorrectMail": "div*=User",
+    "correctMail": "#error*=Password"
+
   },
 
   "globalFooter": {
