@@ -10,22 +10,21 @@
     "expMaxLength": 45,
     "bulletsPass": "-webkit-text-security",
     "errorCss": {
-      "font-family": "segoe ui",
-      "background-color": "#f8d7da",
+      "fontFamily": "segoe ui",
+      "backgroundColor": "#f8d7da",
       "border": "(245, 198, 203)",
       "fontSize": "16px",
-      "font-weight": "400",
+      "fontWeight": "400",
       "color": "#721c24",
-      "text-align": "center"
+      "textAlign": "center"
     }
   },
 
   "registrationDesign": {
-    "btnNames": ["< Back", "Register"],
-    "inputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
-    "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
-    "texts": ["* Required field"],
-    "maxLength": [20, 45],
+    "expBtnNames": ["< Back", "Register"],
+    "expPlaceholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
+    "expText": ["* Required field"],
+    "expMaxLength": [20, 45],
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
@@ -51,7 +50,31 @@
       "font-family": "segoe ui",
       "color": "#212529"
     },
-    "btnAligned": ["left", "middle"]
+    "btnBackAligned": "left",
+    "btnRegisterAligned": "middle"
+  },
+
+  "globalFooter": {
+    "suite": ["Global Footer","General", "Design Main Footer text","Design Small Footer text"],
+    "glFooterBottom": "on the bottom",
+    "mainFooterText": "© 2019 Bug Tracker by React Web Development",
+    "smallFooterText": "Version: 0.2",
+    "smallTextLocat": "below",
+    "mainFootCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center",
+      "background-color": "rgba(0,0,0,0.125)"
+    },
+    "smallFootCssProp":{
+      "font-size": "12px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center"
+    }
   }
 
 }
