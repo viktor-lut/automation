@@ -18,11 +18,11 @@ describe("Page opening", function () {
 });
 
 let expectedMaxLength;
-for (let i = 0; i < exp.inputs.length; i ++) {
 
-    describe(exp.inputs[i] + " field", function () {
-        expectedMaxLength = exp.inputs[i].includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
-        verificationAnySymbolsAcception(sel.inputIds[exp.inputs[i]], exp.inputs[i], expectedMaxLength);
-    });
+exp.inputs.map(el => describe(el + " field", function () {
 
-}
+    expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
+    verificationAnySymbolsAcception(sel.inputIds[el], expectedMaxLength);
+
+}));
+

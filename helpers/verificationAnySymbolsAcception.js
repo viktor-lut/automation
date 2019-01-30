@@ -2,7 +2,7 @@ const { assert } = require("chai");
 const randomString = require("./randomString");
 
 module.exports =
-    function (selector, inputName, maxLength) {
+    function (selector, maxLength) {
         let arrOfLengths = [1, ~~(maxLength / 2), maxLength, maxLength + 1];
         let verb;
         let expLength;
@@ -13,7 +13,7 @@ module.exports =
             verb = testLength > maxLength ? "doesn't accept": "accepts";
             s = testLength === 1 ? "" : "s";
 
-            it(`${inputName} field ${verb} ${testLength} symbol${s}`, function(){
+            it(`${verb} ${testLength} symbol${s}`, function(){
                 expLength = testLength > maxLength ? maxLength: testLength;
                 $(selector).setValue(randomString(testLength));
                 let result = $(selector).getValue().length;
