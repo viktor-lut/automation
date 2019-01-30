@@ -22,7 +22,7 @@
     "newBug": "#new_bug"
   },
 
-  "newBugReport": {
+  "newBugReport1": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear",
     "newBugBtn": "#new_bug",
