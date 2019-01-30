@@ -22,16 +22,6 @@
     "newBug": "#new_bug"
   },
 
-  "newBugReport": {
-    "submitBtn": "#submit",
-    "clearFormBtn": "#clear",
-    "newBugBtn": "#new_bug",
-    "newBugRepForm": ".mt-2",
-    "newBugInputFields": ".form-control",
-    "dropDownFieldsPlcholder": ".Dropdown-placeholder",
-    "requiredFieldTxt": ".text-sm-left"
-  },
-
   "registrationDesign": {
     "buttonsSel": "button",
     "inputsSel": "input",
