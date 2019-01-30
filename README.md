@@ -104,24 +104,11 @@ mkdir test
 cd test
 ````
 
-<<<<<<< HEAD
-#### 4.2. Create `client.js` file and open it:
-MacOS:
-=======
 #### 4.2. Create `test.js` file and open it:
->>>>>>> 61e6bb85059b993797a3c8064c4c46e39ca0e6d3
 ````
-touch client.js
-open client.js
+touch test.js
+open test.js
 ````
-<<<<<<< HEAD
-Windows:
-````
-copy NUL client.js
-client.js
-````
-=======
->>>>>>> 61e6bb85059b993797a3c8064c4c46e39ca0e6d3
 #### 4.3. Add the first test:
 ````
 const assert = require('assert');
