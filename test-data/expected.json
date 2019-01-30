@@ -54,6 +54,29 @@
     "btnAligned": ["left", "middle"]
   },
 
+  "globalFooter": {
+    "suite": ["Global Footer","General", "Design Main Footer text","Design Small Footer text"],
+    "glFooterBottom": "on the bottom",
+    "mainFooterText": "© 2019 Bug Tracker by React Web Development",
+    "smallFooterText": "Version: 0.2",
+    "smallTextLocat": "below",
+    "mainFootCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center",
+      "background-color": "rgba(0,0,0,0.125)"
+    },
+    "smallFootCssProp":{
+      "font-size": "12px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center"
+    }
+  },
+
   "newBugReport": {
     "txtFieldsCss": {
       "font-family": "segoe ui",
@@ -99,4 +122,5 @@
       }
     }
   }
+
 }
