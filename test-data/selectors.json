@@ -23,6 +23,16 @@
     "newBug": "#new_bug"
   },
 
+  "newBugReport": {
+    "submitBtn": "#submit",
+    "clearFormBtn": "#clear",
+    "newBugBtn": "#new_bug",
+    "newBugRepForm": ".mt-2",
+    "newBugInputFields": ".form-control",
+    "dropDownFieldsPlcholder": ".Dropdown-placeholder",
+    "requiredFieldTxt": ".text-sm-left"
+  },
+
   "registrationDesign": {
     "page": "#root",
     "buttonGroupSel": "button",
@@ -37,6 +47,12 @@
       "Password": "#pass",
       "ConfirmPassword": "#pass_confirm"},
     "textSel": ["p=* Required field"]
+  },
+
+  "globalFooter": {
+    "globFooter": ".custom-footer",
+    "mainFooter": ".custom-footer div",
+    "smallFooter": ".small-text"
   }
 
 }
