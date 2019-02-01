@@ -1,6 +1,4 @@
 const { assert } = require("chai");
-const exp = require("./../test-data/expected").registrationDesign;
-const sel = require("./../test-data/selectors").registrationDesign;
 
 module.exports =
     function (emptyField, inputSel, buttonSel, errorSel, expErrorText) {

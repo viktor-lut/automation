@@ -40,6 +40,15 @@ exp.inputs.map(el => describe(el + " field", function () {
     expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
     verificationAnySymbolsAcception(sel.inputIds[el], expectedMaxLength);
 
+    if (el.includes("Pass")) {
+
+        it('entered symbols are replaced by bullets', function () {
+            let result = $(sel.inputIds[el]).getCssProperty('-webkit-text-security').value;
+            assert.equal(result, exp.bullet, `expected ${exp.bullet}, got ${result}`);
+        });
+
+    }
+
 }));
 
 
