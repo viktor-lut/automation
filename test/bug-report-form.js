@@ -1,7 +1,6 @@
 const { assert } = require('chai');
 const login = require('./../helpers/login');
-const randomString = require('./../helpers/randomString');
-const fillForm= require('./../helpers/pre-filled-new-bug-report-form');
+const fillForm = require('./../helpers/pre-filled-new-bug-report-form');
 const exd = require('./../test-data/expected').bugReportForm;
 const gSel = require('./../test-data/selectors');
 const bugSel = gSel.bugList;
@@ -32,9 +31,8 @@ describe(exd.suite, function () {
         assert.equal(browser.isVisible(formSel.edit), true, 'You are not on Bug report form');
     })
 
-    it('Global Header exists', function () {
+    //it('Global Header exists', function () {
         //     assert.equal($(".custom-header").isVisible(), true);
         // })
 
     });
-})

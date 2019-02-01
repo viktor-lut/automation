@@ -2,12 +2,12 @@ const gSel = require('./../test-data/selectors');
 const formSel = gSel.bugReportForm;
 const randomString = require('./../helpers/randomString');
 let x = [formSel.summary, formSel.str, formSel.actual, formSel.expected];
-
+let value = 'test'.repeat(76);
 module.exports =
     function () {
         return it('PREREQUISITE: New bug report form is filled in', function () {
             for(let i = 0; i < x.length; i++){
-                browser.setValue(x[i], randomString(150));
+                browser.setValue(x[i], value);
             }
 
             browser.click(formSel.assignee);

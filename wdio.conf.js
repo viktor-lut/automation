@@ -1,14 +1,15 @@
 exports.config = {
 
   specs: [
-    './test/bug-report-form.js',
-
+    './test/bug-report-form.js'
   ],
 
   exclude: [
     './test/client.js',
+    './test/login-functionality.js',
     './test/registration-design.js',
-    //'./test/new-bug-report.js'
+    './test/new-bug-report.js',
+    './test/global-footer.js'
   ],
 
   maxInstances: 10,
@@ -56,4 +57,4 @@ exports.config = {
     ui: 'bdd'
   },
 
-};
+}

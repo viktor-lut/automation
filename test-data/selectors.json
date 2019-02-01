@@ -15,27 +15,38 @@
     "maxS": 45,
     "alertDntEx": ".alert-danger=User with this email does not exist",
     "alertPassIncrt": ".alert-danger=Password is incorrect",
-    "alert": ".alert-danger"
+    "alert": ".alert-danger",
+    "btnBack": "#back"
   },
 
   "bugList": {
     "newBug": "#new_bug"
   },
 
+  "newBugReport": {
+    "submitBtn": "#submit",
+    "clearFormBtn": "#clear",
+    "newBugBtn": "#new_bug",
+    "newBugRepForm": ".mt-2",
+    "newBugInputFields": ".form-control",
+    "dropDownFieldsPlcholder": ".Dropdown-placeholder",
+    "requiredFieldTxt": ".text-sm-left"
+  },
+
   "registrationDesign": {
-    "buttonsSel": "button",
-    "inputsSel": "input",
-    "textSel": "p",
-    "firstName": "#fname",
-    "lastName": "#lname",
-    "email": "#email",
-    "confEmail": "#email_confirm",
-    "pass": "#pass",
-    "confPass": "#pass_confirm",
     "page": "#root",
-    "btnBack": "button=< Back",
-    "btnRegister": "button=Register",
-    "txtRequired": "p=* Required field"
+    "buttonGroupSel": "button",
+    "inputGroupSel": "input",
+    "textGroupSel": "p",
+    "buttonIds": ["#back", "#registration"],
+    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
+    "textSel": ["p=* Required field"]
+  },
+
+  "globalFooter": {
+    "globFooter": ".custom-footer",
+    "mainFooter": ".custom-footer div",
+    "smallFooter": ".small-text"
   },
 
   "bugReportForm": {
@@ -55,7 +66,7 @@
     "sprint": "div=0.2",
     "submit": "#submit",
     "edit": "#edit"
-
   }
+
 
 }
