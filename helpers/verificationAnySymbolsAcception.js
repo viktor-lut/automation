@@ -17,7 +17,6 @@ module.exports =
                 expLength = testLength > maxLength ? maxLength: testLength;
                 $(selector).setValue(randomString(testLength));
                 let result = $(selector).getValue().length;
-                browser.clearElement(selector);
                 assert.equal(result, expLength, `expected number of symbols is ${expLength}, actual is ${result}`);
             });
 

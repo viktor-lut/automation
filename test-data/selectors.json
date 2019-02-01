@@ -46,7 +46,8 @@
       "ConfirmEmail": "#email_confirm",
       "Password": "#pass",
       "ConfirmPassword": "#pass_confirm"},
-    "textSel": ["p=* Required field"]
+    "textSel": ["p=* Required field"],
+    "error": "#error"
   },
 
   "globalFooter": {
