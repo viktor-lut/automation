@@ -21,10 +21,22 @@
   },
 
   "registrationDesign": {
-    "btnNames": ["< Back", "Register"],
-    "inputs": ["FirstName", "LastName", "Email", "ConfirmEmail", "Password", "ConfirmPassword"],
+    "btnsNames": {
+      "Back": "< Back",
+      "Register": "Register"
+    },
+    "inputsPlaceholders": {
+      "FirstName": "First Name *",
+      "LastName": "Last Name *",
+      "Email": "Email *",
+      "ConfirmEmail": "Confirm Email *",
+      "Password": "Password *",
+      "ConfirmPassword": "Confirm Password *"
+    },
     "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
-    "texts": ["* Required field"],
+    "texts": {
+      "RequireField": "* Required field"
+    },
     "maxLength": [20, 45],
     "inputCssProp": {
       "font-size": "16px",
@@ -59,7 +71,10 @@
       "background-color": "#f8d7da",
       "border-color": "#f5c6cb"
     },
-    "btnAligned": ["left", "middle"],
+    "btnAligned": {
+      "Back": "left",
+      "Register": "middle"
+    },
     "errorText": "Please fill all the fields",
     "bullet": "disc"
   },

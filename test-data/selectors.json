@@ -38,7 +38,9 @@
     "buttonGroupSel": "button",
     "inputGroupSel": "input",
     "textGroupSel": "p",
-    "buttonIds": ["#back", "#registration"],
+    "buttonIds": {
+      "Back": "#back",
+      "Register": "#registration"},
     "inputIds": {
       "FirstName": "#fname",
       "LastName": "#lname",
@@ -46,7 +48,9 @@
       "ConfirmEmail": "#email_confirm",
       "Password": "#pass",
       "ConfirmPassword": "#pass_confirm"},
-    "textSel": ["p=* Required field"],
+    "textSel": {
+      "RequireField": "p=* Required field"
+    },
     "error": "#error"
   },
 

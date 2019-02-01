@@ -16,71 +16,69 @@ describe("Registration page components", function () {
         browser.url("/");
         browser.waitForVisible(selLoginPage.registrationBtn, 10000);
         browser.click(selLoginPage.registrationBtn);
-        const registrationPageExist = browser.waitForVisible(sel.buttonIds[0], 10000);
+        const registrationPageExist = browser.waitForVisible(sel.buttonIds.Register, 10000);
         assert.isTrue(registrationPageExist, "Registration page not found");
     });
 
-    for (let i = 0; i < exp.btnNames.length; i ++) {
+    Object.keys(exp.btnsNames).map(el =>
 
-        it("button '" + exp.btnNames[i] + "' is visible", function() {
-            assert.isTrue($(sel.buttonIds[i]).isVisible(), `${exp.btnNames[i]} button is not visible`);
-        });
+        it(`button ${el} is visible`, function() {
+            assert.isTrue($(sel.buttonIds[el]).isVisible(), `${el} button is not visible`);
+        })
 
-    }
+    );
 
-    for (let i = 0; i < exp.placeholders.length; i ++) {
+    Object.keys(exp.inputsPlaceholders).map(el =>
 
-        it(exp.inputs[i] + " field is visible", function() {
-            assert.isTrue($(sel.inputIds[exp.inputs[i]]).isVisible(), `${exp.inputs[i]} field is not visible`);
-        });
+        it(`${el} field is visible`, function() {
+            assert.isTrue($(sel.inputIds[el]).isVisible(), `${el} field is not visible`);
+        })
 
-    }
+    );
 
-    for (let i = 0; i < exp.texts.length; i ++) {
+    Object.keys(exp.texts).map(el =>
 
-        it("text '" + exp.texts[i] + "' is visible", function() {
-            assert.isTrue($(sel.textSel[i]).isVisible(), `${exp.texts[i]} text is not visible`);
-        });
+        it(`text '${exp.texts[el]}' is visible`, function() {
+            assert.isTrue($(sel.textSel[el]).isVisible(), `${exp.texts[el]} text is not visible`);
+        })
 
-    }
+    )
 
 });
 
 let expectedMaxLength = 0;
-for (let i = 0; i < exp.inputs.length; i ++) {
+Object.keys(exp.inputsPlaceholders).map(el =>
 
-    describe(exp.inputs[i] + " field", function () {
-        expectedMaxLength = exp.inputs[i].includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
-        verificationEmptyField(sel.inputIds[exp.inputs[i]], exp.inputs[i]);
-        verificationPlaceholder(sel.inputIds[exp.inputs[i]], exp.placeholders[i]);
-        verificationMaxLength(sel.inputIds[exp.inputs[i]], expectedMaxLength);
-        verificationCssValue(sel.inputIds[exp.inputs[i]], exp.inputCssProp);
+    describe(`${el} field`, function () {
+        expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
+        verificationEmptyField(sel.inputIds[el], el);
+        verificationPlaceholder(sel.inputIds[el], exp.inputsPlaceholders[el]);
+        verificationMaxLength(sel.inputIds[el], expectedMaxLength);
+        verificationCssValue(sel.inputIds[el], exp.inputCssProp);
 
-    });
+    })
 
-}
+);
 
-for (let i = 0; i < exp.btnNames.length; i ++) {
+Object.keys(exp.btnsNames).map(el =>
 
-    describe("'" + exp.btnNames[i] + "' button", function () {
+    describe(`${el} button` , function () {
 
-        verificationText(sel.buttonIds[i], exp.btnNames[i]);
-        verificationCssValue(sel.buttonIds[i], exp.btnCssProp);
-        verificationHorizontalAligned(sel.buttonIds[i], sel.page, exp.btnAligned[i]);
+        verificationText(sel.buttonIds[el], exp.btnsNames[el]);
+        verificationCssValue(sel.buttonIds[el], exp.btnCssProp);
+        verificationHorizontalAligned(sel.buttonIds[el], sel.page, exp.btnAligned[el]);
 
-    });
+    })
 
-}
+);
 
-for (let i = 0; i < exp.texts.length; i ++) {
+Object.keys(exp.texts).map(el =>
 
-    describe(  "'" + exp.texts[i] + "' text", function () {
+    describe(  `'${exp.texts[el]}' text`, function () {
 
-        verificationText(sel.textSel[i], exp.texts[i]);
-        verificationCssValue(sel.textSel[i], exp.txtCssProp);
+        verificationText(sel.textSel[el], exp.texts[el]);
+        verificationCssValue(sel.textSel[el], exp.txtCssProp);
 
-    });
+    })
 
-}
-
-
+);
