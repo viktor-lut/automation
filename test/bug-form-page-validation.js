@@ -1,6 +1,7 @@
 const { assert } = require('chai');
 
-const exp = require('./../test-data/expected').bfpValid;
+const exp = require('./../test-data/expected').bfpvErrorMessageCSS;
+const expMsg = require('./../test-data/expected').bfpValid;
 const user = require('./../test-data/users');
 const selLog = require('./../test-data/selectors').loginFunctionality;
 const sel = require('./../test-data/selectors').bfpValid;
@@ -17,14 +18,13 @@ describe('Bug-form-page-validation', function () {
         browser.click(sel.firstBug);
         browser.waitForVisible(sel.editBtn);
         browser.click(sel.editBtn);
-        browser.waitForVisible(sel.summary);
-       $(sel.summary).setValue([' ', '\uE003']);
-
-        browser.pause(2000);
+        browser.waitForVisible(sel.sum);
+        $(sel.sum).setValue([' ', '\uE003']);
+        browser.pause(1000);
         browser.click(sel.submitBtn);
         browser.waitForVisible(sel.errorMsg);
         var errorMsg=$(sel.errorMsg).getText();
-        assert.equal(errorMsg, exp.errorMsg);
+        assert.equal(errorMsg, expMsg.errorMsg);
 
     })
 
