@@ -1,11 +1,12 @@
 exports.config = {
 
   specs: [
-    './test/client.js',
-    './test/login-functionality.js',
-    './test/registration-design.js',
-    './test/new-bug-report.js',
-    './test/global-footer.js'
+    // './test/client.js',
+    // // './test/login-functionality.js',
+    // './test/registration-design.js',
+    // './test/new-bug-report.js',
+    // './test/global-footer.js',
+    './test/rest-api/GET.js'
   ],
 
   exclude: [
@@ -28,7 +29,7 @@ exports.config = {
 
   coloredLogs: true,
 
-  deprecationWarnings: true,
+  deprecationWarnings: false,
 
   bail: 0,
 
