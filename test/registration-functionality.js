@@ -3,10 +3,11 @@ const exp = require("./../test-data/expected").registrationDesign;
 const sel = require("./../test-data/selectors").registrationDesign;
 const users = require("./../test-data/users");
 const selLoginPage = require("./../test-data/selectors").loginFunctionality;
-const verificationAnySymbolsAcception = require("./../helpers/verificationAnySymbolsAcception");
-const textFieldsFiller = require("./../helpers/textFieldsFiller");
-const verificationErrorTextWhenEmptyField = require("../helpers/verificationErrorTextWhenEmptyField");
+const verificationInputLength = require("../helpers/verificationInputLength");
+const fillInputs = require("../helpers/fillInputs");
 const verificationCssValue = require("./../helpers/verificationCssValue");
+const getErrorWhenEmptyField = require("./../helpers/getErrorWhenEmptyField");
+const randomString = require("./../helpers/randomString");
 
 
 
@@ -14,11 +15,9 @@ describe("Page opening", function () {
 
     it("page opening", function () {
         browser.url("/");
-        browser.waitForVisible(selLoginPage.registrationBtn, 10000);
+        browser.waitForVisible(selLoginPage.registrationBtn, 5000);
         browser.click(selLoginPage.registrationBtn);
-        const registrationPageExist = browser.waitForVisible(sel.buttonIds[0], 10000);
-        console.log(sel.inputIds);
-        textFieldsFiller(sel.inputIds, ["Test", "Test", users.email, users.email, users.pass, users.pass]);
+        const registrationPageExist = browser.waitForVisible(sel.buttonIds.Register, 5000);
         assert.isTrue(registrationPageExist, "Registration page not found");
     });
 
@@ -26,30 +25,60 @@ describe("Page opening", function () {
 
 describe(  "Error message verification", function () {
 
-    exp.inputs.map(el => {if (!el.includes("Confirm"))
-        verificationErrorTextWhenEmptyField(el, sel.inputIds[el], sel.buttonIds[1], sel.error, exp.errorText)});
+    Object.keys(exp.inputsPlaceholders).map(el => {
+
+        const elLowerCase = el.toLowerCase();
+        if (!(elLowerCase.includes("conf"))) {
+            let name = el;
+            let s = '';
+            let emptyFieldSelArr = [sel.inputIds[el]];
+            let isConfirm = elLowerCase.includes("email") || elLowerCase.includes("pass");
+            if (isConfirm) {
+                name += " and Confirm" + el;
+                s = 's';
+                emptyFieldSelArr.push(sel.inputIds[el] + "_confirm");
+            }
+
+            it(`text of the error message when ${name} field${s} is empty`, function () {
+                browser.click(sel.buttonIds.Back);
+                browser.waitForVisible(selLoginPage.loginBtn, 3000);
+                browser.click(selLoginPage.registrationBtn);
+                browser.waitForVisible(sel.buttonIds.Back, 3000);
+                fillInputs(Object.values(sel.inputIds), ["Test", "Test", users.email, users.email, users.pass, users.pass]);
+                getErrorWhenEmptyField(emptyFieldSelArr, sel.buttonIds.Register, sel.error);
+                const errorText = browser.getText(sel.error);
+                assert.equal(errorText, exp.errorText);
+            });
+
+        }
+
+    });
+
     verificationCssValue(sel.error, exp.errorCssProp);
 
 });
 
-let expectedMaxLength;
-let inputTexts = [];
 
-exp.inputs.map(el => describe(el + " field", function () {
+Object.keys(exp.inputsPlaceholders).map(el => {
 
-    expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
-    verificationAnySymbolsAcception(sel.inputIds[el], expectedMaxLength);
+    describe(el + " field", function () {
 
-    if (el.includes("Pass")) {
+        verificationInputLength(sel.inputIds[el], exp.maxLength[el], randomString);
 
-        it('entered symbols are replaced by bullets', function () {
-            let result = $(sel.inputIds[el]).getCssProperty('-webkit-text-security').value;
-            assert.equal(result, exp.bullet, `expected ${exp.bullet}, got ${result}`);
-        });
+        if (el.toLowerCase().includes("pass")) {
 
-    }
+            it('entered symbols are replaced by bullets', function () {
+                let result = $(sel.inputIds[el]).getCssProperty('-webkit-text-security').value;
+                assert.equal(result, exp.bullet, `expected ${exp.bullet}, got ${result}`);
+            });
 
-}));
+        }
+
+    })
+
+});
+
+
 
 
 

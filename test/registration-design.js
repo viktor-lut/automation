@@ -50,10 +50,10 @@ let expectedMaxLength = 0;
 Object.keys(exp.inputsPlaceholders).map(el =>
 
     describe(`${el} field`, function () {
-        expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
+        //expectedMaxLength = el.includes("Name") ? exp.maxLength[0] : exp.maxLength[1];
         verificationEmptyField(sel.inputIds[el], el);
         verificationPlaceholder(sel.inputIds[el], exp.inputsPlaceholders[el]);
-        verificationMaxLength(sel.inputIds[el], expectedMaxLength);
+        verificationMaxLength(sel.inputIds[el], exp.maxLength[el]);
         verificationCssValue(sel.inputIds[el], exp.inputCssProp);
 
     })

@@ -37,7 +37,14 @@
     "texts": {
       "RequireField": "* Required field"
     },
-    "maxLength": [20, 45],
+    "maxLength": {
+      "FirstName": 20,
+      "LastName": 20,
+      "Email": 45,
+      "ConfirmEmail": 45,
+      "Password": 45,
+      "ConfirmPassword": 45
+    },
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
