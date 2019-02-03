@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "rm -rf allure-report allure-results && wdio wdio.conf.js",
-    "report": "allure generate && allure open"
+    "report": "allure generate && allure open",
+    "play": "node ./playground/axios.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/artsenius/automation-webdriverio#readme",
   "dependencies": {
     "allure-commandline": "^2.8.1",
+    "axios": "^0.18.0",
     "chai": "^4.2.0",
     "wdio-allure-reporter": "^0.6.3",
     "wdio-mocha-framework": "^0.6.4",
