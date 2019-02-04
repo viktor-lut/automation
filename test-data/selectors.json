@@ -54,9 +54,9 @@
     "newBugButton": "button#new_bug",
     "newBugPage": ".site-content .mt-2",
     "allIssuesButton": "button#all_issues",
-    "allIssuesPage": ".site-content .small-text",
+    "allIssuesPage": ".small-text",
     "logoutButton": "button#logout",
-    "logoutPage": ".site-content .container p-5"
+    "logoutPage": ".site-content .container.p-5"
   }
 
 }
