@@ -20,7 +20,7 @@
     }
   },
 
-  "registrationDesign": {
+  "registration": {
     "btnsNames": {
       "Back": "< Back",
       "Register": "Register"

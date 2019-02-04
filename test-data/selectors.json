@@ -33,7 +33,7 @@
     "requiredFieldTxt": ".text-sm-left"
   },
 
-  "registrationDesign": {
+  "registration": {
     "page": "#root",
     "buttonGroupSel": "button",
     "inputGroupSel": "input",
