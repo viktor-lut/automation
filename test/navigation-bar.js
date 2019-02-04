@@ -1,86 +1,68 @@
 const { assert } = require('chai');
+const sel = require('./../test-data/selectors').loginFunctionality;
+const selBar = require('./../test-data/selectors').navigationBar;
+const user = require('./../test-data/users');
 
-describe('Navigation Bar', function () {
+describe('Navigation Bar General', function () {
 
-    let userName = 'test';
-    let password = 'test';
-
-    describe('General', function () {
-
-        it('click new bug button', function () {
-            browser.url('/');
-            browser.waitForVisible('#login');
-
-            browser.setValue('#email', userName);
-            browser.setValue('#pass', password);
-            browser.click('#login');
-
-            browser.waitForVisible('#new_bug');
-            browser.click('#new_bug');
-            let result = browser.waitForVisible('.mt-2', 5000);
-            assert.equal(result, true, 'Button is not clicked');
-        });
-
+    before(function() {
+        browser.url('/');
+        browser.waitForVisible(sel.email);
+        browser.setValue(sel.email, user.email);
+        browser.setValue(sel.pass, user.pass);
+        browser.click(sel.loginBtn);
+        browser.waitForVisible(selBar.bar);
     });
 
-    // it('Verify that  navigation Bar contains navigation buttons. ', function () {
-    //
-    // });
-
-    //     Verify that Background color: rgba(0, 0, 0, 0.03)
-    xit('Verify color', function () {
-        let backgroundColor = $('.text-sm-left').getCssProperty('color');
-        // console.log(fontColor);
-        assert.equal(fontColor.value, 'rgba(33,37,41,1)', 'Font color is incorrect');
-        // Verify that  navBar width is 100%. Located just below the Header.
-        //     Verify that  for Sprint 1 buttons are: New Bug
-        // Verify that  for Sprint 1 buttons are: All Issues
-        // Verify that  for Sprint 1 buttons are: Logout
-
+    it('contains navigation buttons', function() {
+        assert.isTrue($(selBar.newBugButton).isVisible());
+        assert.isTrue($(selBar.allIssuesButton).isVisible());
+        assert.isTrue($(selBar.logoutButton).isVisible());
     });
 
-    describe('Design', function () {
-
-        it('click new bug button', function () {
-            browser.url('/');
-            browser.waitForVisible('#login');
-
-            browser.setValue('#email', userName);
-            browser.setValue('#pass', password);
-            browser.click('#login');
-
-            browser.waitForVisible('#new_bug');
-            browser.click('#new_bug');
-            let result = browser.waitForVisible('.mt-2', 5000);
-            assert.equal(result, true, 'Button is not clicked');
-        });
-        // Verify that  all the buttons have: Font family: Segoe UI
-        // Verify that  font size: 16px
-        // Verify that  font weight: 400
-        // Verify that  font color: #fff
-        // Verify that  button New Bug: Background color: #17a2b8
-        // Verify that button New Bug hover background color: #138496
-        // Verify that  button All Issues: Background color: #17a2b8
-        // Verify that button All Issues hover background color: #138496
-        // Verify that  button Logout:Background color: #6c757d
-        // Verify that button Logout  hover background color: #5a6268
+    it('has background color rgba(0, 0, 0, 0.03)', function () {
+        let background =  $(selBar.bar).getCssProperty('background-color').value;
+        assert.equal(background, "rgba(0,0,0,0.03)", 'Bar has incorrect background color');
     });
 
-    describe('Functionality', function () {
-
-        it('click new bug button', function () {
-            browser.url('/');
-            browser.waitForVisible('#login');
-
-            browser.setValue('#email', userName);
-            browser.setValue('#pass', password);
-            browser.click('#login');
-
-            browser.waitForVisible('#new_bug');
-            browser.click('#new_bug');
-            let result = browser.waitForVisible('.mt-2', 5000);
-            assert.equal(result, true, 'Button is not clicked');
-        });
+    it('has new_bug button with text New Bug', function () {
+        let text = $(selBar.newBugButton).getText();
+        assert.equal(text, "New Bug");
     });
 
+    it('The font-size is 16px', function(){
+        assert.equal($(selBar.newBugButton).getCssProperty("font-size").value, "16px", 'The font-size is not 16px');
+    });
+
+    it('The font-family is segoe ui', function(){
+        let mainFooterFam = $(selBar.newBugButton).getCssProperty('font-family').value;
+        assert.equal(mainFooterFam, "segoe ui", 'The font-family is not segoe');
+    });
+
+    it('The font weight is 400', function() {
+        let mainFooterWeight = $(selBar.newBugButton).getCssProperty('font-weight').value;
+        assert.equal(mainFooterWeight, 400, 'The font is not 400');
+    });
+
+    it('The color is #fff', function(){
+        let mainFooterColor = $(selBar.newBugButton).getCssProperty('color').parsed.hex;
+        assert.equal(mainFooterColor, "#ffffff", 'The color is not #ffffff');
+    });
+
+    it('has background color #17a2b8', function () {
+        let background =  $(selBar.newBugButton).getCssProperty('background-color');
+        assert.equal(background.parsed.hex, "#17a2b8", 'Bar has incorrect background color');
+    });
+
+    it('has hover background color #138496', function(){
+        browser.moveToObject(selBar.newBugButton);
+        browser.pause(200);
+        let hBColor = $(selBar.newBugButton).getCssProperty('background-color');
+        assert.equal(hBColor.parsed.hex, "#138496", 'Hover background color is incorrect');
+    });
+
+    it('navigates to New Bug Report', function () {
+        browser.click(selBar.newBugButton);
+        assert.isTrue($(selBar.newBugPage).isVisible());
+    });
 });
