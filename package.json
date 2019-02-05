@@ -21,9 +21,7 @@
   "dependencies": {
     "allure-commandline": "^2.8.1",
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
     "chai": "^4.2.0",
-    "express": "^4.16.4",
     "wdio-allure-reporter": "^0.6.3",
     "wdio-mocha-framework": "^0.6.4",
     "wdio-selenium-standalone-service": "0.0.10",
