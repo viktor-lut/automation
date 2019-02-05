@@ -28,7 +28,7 @@ exports.config = {
 
   coloredLogs: true,
 
-  deprecationWarnings: true,
+  deprecationWarnings: false,
 
   bail: 0,
 
