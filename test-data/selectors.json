@@ -23,6 +23,7 @@
     "newBug": "#new_bug"
   },
 
+
   "newBugReport": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear",
@@ -54,10 +55,22 @@
     "error": "#error"
   },
 
+
+  "fPasswordFunc": {
+    "forgot": "#forgot",
+    "remind": "#remind",
+    "errorMessage": "#error",
+    "backButton": "#back",
+    "email": "#email",
+    "emptyField": "div*=Please",
+    "incorrectMail": "div*=User",
+    "correctMail": "div*=sent"
+
+  },
+
   "globalFooter": {
     "globFooter": ".custom-footer",
     "mainFooter": ".custom-footer div",
     "smallFooter": ".small-text"
   }
-
 }

@@ -3,7 +3,21 @@
     "suite": "Client",
     "pageTitle": "Bug Tracker"
   },
-
+  "fPasswordFunc": {
+    "suite": "f-password-func",
+    "remindPass": "Please specify an email registered in the system",
+    "userIsNotR": "User with this email is not registered in the system",
+    "correctEmail": "A password reminder has been sent to your email address. Please check your Inbox.",
+    "messagesDesignCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "font-color": "rgba(114,28,36,1)",
+      "text-align": "center",
+      "background-color": "rgba(248,215,218,1)",
+      "border-color": "rgba(245,198,203,1)"
+    }
+  },
   "loginFunctionality": {
     "suite": "Login Functionality",
     "expMinLength": 1,
@@ -153,6 +167,7 @@
         "background-color": "rgba(19,132,150,1)"
       }
     }
+
   }
 
 }
