@@ -19,8 +19,8 @@ describe('Bug-form-page-validation', function () {
         browser.waitForVisible(sel.editBtn);
         browser.click(sel.editBtn);
         browser.waitForVisible(sel.sum);
-        $(sel.sum).setValue([' ', '\uE003']);
-        browser.pause(1000);
+        $(sel.sum).setValue(['1', '\uE003']);
+        browser.pause(500);
         browser.click(sel.submitBtn);
         browser.waitForVisible(sel.errorMsg);
         var errorMsg=$(sel.errorMsg).getText();
