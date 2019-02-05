@@ -34,14 +34,25 @@
     "requiredFieldTxt": ".text-sm-left"
   },
 
-  "registrationDesign": {
+  "registration": {
     "page": "#root",
     "buttonGroupSel": "button",
     "inputGroupSel": "input",
     "textGroupSel": "p",
-    "buttonIds": ["#back", "#registration"],
-    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
-    "textSel": ["p=* Required field"]
+    "buttonIds": {
+      "Back": "#back",
+      "Register": "#registration"},
+    "inputIds": {
+      "FirstName": "#fname",
+      "LastName": "#lname",
+      "Email": "#email",
+      "ConfirmEmail": "#email_confirm",
+      "Password": "#pass",
+      "ConfirmPassword": "#pass_confirm"},
+    "textSel": {
+      "RequireField": "p=* Required field"
+    },
+    "error": "#error"
   },
 
 

@@ -34,12 +34,31 @@
     }
   },
 
-  "registrationDesign": {
-    "btnNames": ["< Back", "Register"],
-    "inputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
+  "registration": {
+    "btnsNames": {
+      "Back": "< Back",
+      "Register": "Register"
+    },
+    "inputsPlaceholders": {
+      "FirstName": "First Name *",
+      "LastName": "Last Name *",
+      "Email": "Email *",
+      "ConfirmEmail": "Confirm Email *",
+      "Password": "Password *",
+      "ConfirmPassword": "Confirm Password *"
+    },
     "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
-    "texts": ["* Required field"],
-    "maxLength": [20, 45],
+    "texts": {
+      "RequireField": "* Required field"
+    },
+    "maxLength": {
+      "FirstName": 20,
+      "LastName": 20,
+      "Email": 45,
+      "ConfirmEmail": 45,
+      "Password": 45,
+      "ConfirmPassword": 45
+    },
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
@@ -65,7 +84,20 @@
       "font-family": "segoe ui",
       "color": "#212529"
     },
-    "btnAligned": ["left", "middle"]
+    "errorCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#721c24",
+      "background-color": "#f8d7da",
+      "border-color": "#f5c6cb"
+    },
+    "btnAligned": {
+      "Back": "left",
+      "Register": "middle"
+    },
+    "errorText": "Please fill all the fields",
+    "bullet": "disc"
   },
 
   "globalFooter": {
