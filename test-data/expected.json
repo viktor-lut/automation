@@ -1,0 +1,173 @@
+{
+  "client": {
+    "suite": "Client",
+    "pageTitle": "Bug Tracker"
+  },
+  "fPasswordFunc": {
+    "suite": "f-password-func",
+    "remindPass": "Please specify an email registered in the system",
+    "userIsNotR": "User with this email is not registered in the system",
+    "correctEmail": "A password reminder has been sent to your email address. Please check your Inbox.",
+    "messagesDesignCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "font-color": "rgba(114,28,36,1)",
+      "text-align": "center",
+      "background-color": "rgba(248,215,218,1)",
+      "border-color": "rgba(245,198,203,1)"
+    }
+  },
+  "loginFunctionality": {
+    "suite": "Login Functionality",
+    "expMinLength": 1,
+    "expMaxLength": 45,
+    "bulletsPass": "-webkit-text-security",
+    "errorCss": {
+      "font-family": "segoe ui",
+      "background-color": "#f8d7da",
+      "border": "(245, 198, 203)",
+      "fontSize": "16px",
+      "font-weight": "400",
+      "color": "#721c24",
+      "text-align": "center"
+    }
+  },
+
+  "registration": {
+    "btnsNames": {
+      "Back": "< Back",
+      "Register": "Register"
+    },
+    "inputsPlaceholders": {
+      "FirstName": "First Name *",
+      "LastName": "Last Name *",
+      "Email": "Email *",
+      "ConfirmEmail": "Confirm Email *",
+      "Password": "Password *",
+      "ConfirmPassword": "Confirm Password *"
+    },
+    "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
+    "texts": {
+      "RequireField": "* Required field"
+    },
+    "maxLength": {
+      "FirstName": 20,
+      "LastName": 20,
+      "Email": 45,
+      "ConfirmEmail": 45,
+      "Password": 45,
+      "ConfirmPassword": 45
+    },
+    "inputCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#495057",
+      "focus": {
+        "box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"
+      }
+    },
+    "btnCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#ffffff",
+      "background-color": "#17a2b8",
+      "hover": {
+        "background-color": "#138496"
+      }
+    },
+    "txtCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#212529"
+    },
+    "errorCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#721c24",
+      "background-color": "#f8d7da",
+      "border-color": "#f5c6cb"
+    },
+    "btnAligned": {
+      "Back": "left",
+      "Register": "middle"
+    },
+    "errorText": "Please fill all the fields",
+    "bullet": "disc"
+  },
+
+  "globalFooter": {
+    "suite": ["Global Footer","General", "Design Main Footer text","Design Small Footer text"],
+    "glFooterBottom": "on the bottom",
+    "mainFooterText": "© 2019 Bug Tracker by React Web Development",
+    "smallFooterText": "Version: 0.2",
+    "smallTextLocat": "below",
+    "mainFootCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center",
+      "background-color": "rgba(0,0,0,0.125)"
+    },
+    "smallFootCssProp":{
+      "font-size": "12px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "color": "#212529",
+      "text-align": "center"
+    }
+  },
+
+  "newBugReport": {
+    "txtFieldsCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(73,80,87,1)",
+      "text-align": "start"
+    },
+    "dropDownListCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(51,51,51,1)",
+      "text-align": "left"
+    },
+    "requiredFieldTxtCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(33,37,41,1)",
+      "text-align": "left"
+    },
+    "submitBtnCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(255,255,255,1)",
+      "text-align": "center",
+      "background-color": "rgba(0,123,255,1)",
+      "hover": {
+        "background-color": "rgba(0,105,217,1)"
+      }
+    },
+    "clearFormBtnCss": {
+      "font-family": "segoe ui",
+      "font-size": "16px",
+      "font-weight": "400",
+      "color": "rgba(255,255,255,1)",
+      "text-align": "center",
+      "background-color": "rgba(23,162,184,1)",
+      "hover": {
+        "background-color": "rgba(19,132,150,1)"
+      }
+    }
+
+  }
+
+}
