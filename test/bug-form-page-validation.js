@@ -6,6 +6,8 @@ const user = require('./../test-data/users');
 const selLog = require('./../test-data/selectors').loginFunctionality;
 const sel = require('./../test-data/selectors').bfpValid;
 
+const { verificationCssValue } = require("./../helpers/test-helpers");
+
 describe('Bug-form-page-validation', function () {
 
     it('Text: “Please fill all the required fields”', function(){
@@ -27,33 +29,33 @@ describe('Bug-form-page-validation', function () {
         assert.equal(errorMsg, expMsg.errorMsg);
 
     })
+    verificationCssValue(sel.errorMsg, exp);
 
-    const MessageLocator = sel.errorMsg;
-
-    it('Verify that  Border color: #f5c6cb', function(){
-        let border = $(MessageLocator).getCssProperty('border-bottom-color');
-        assert.equal(border.parsed.hex, exp["border-bottom-color"]);
-    })
-    it('Verify that  Font family: Segoe UI', function(){
-        let prop = $(MessageLocator).getCssProperty('font-family');
-        assert.equal(prop.value, exp["font-family"]);
-    })
-    it('VVerify that  Font size: 16px', function(){
-        let prop = $(MessageLocator).getCssProperty('font-size');
-        assert.equal(prop.value, exp["font-size"]);
-    })
-    it('Verify that  Font weight: 400', function(){
-        let prop = $(MessageLocator).getCssProperty('font-weight');
-        assert.equal(prop.value, exp["font-weight"]);
-    })
-    it('Verify that  Font color: #721c24', function(){
-        let prop = $(MessageLocator).getCssProperty('color');
-        assert.equal(prop.parsed.hex,exp["color"]);
-    })
-    it('Verify that  Text is center aligned.', function(){
-        let prop = $(MessageLocator).getCssProperty('text-align');
-        assert.equal(prop.value, exp["text-align"]        );
-    })
+    //
+    // it('Verify that  Border color: #f5c6cb', function(){
+    //     let border = $(MessageLocator).getCssProperty('border-bottom-color');
+    //     assert.equal(border.parsed.hex, exp["border-bottom-color"]);
+    // })
+    // it('Verify that  Font family: Segoe UI', function(){
+    //     let prop = $(MessageLocator).getCssProperty('font-family');
+    //     assert.equal(prop.value, exp["font-family"]);
+    // })
+    // it('VVerify that  Font size: 16px', function(){
+    //     let prop = $(MessageLocator).getCssProperty('font-size');
+    //     assert.equal(prop.value, exp["font-size"]);
+    // })
+    // it('Verify that  Font weight: 400', function(){
+    //     let prop = $(MessageLocator).getCssProperty('font-weight');
+    //     assert.equal(prop.value, exp["font-weight"]);
+    // })
+    // it('Verify that  Font color: #721c24', function(){
+    //     let prop = $(MessageLocator).getCssProperty('color');
+    //     assert.equal(prop.parsed.hex,exp["color"]);
+    // })
+    // it('Verify that  Text is center aligned.', function(){
+    //     let prop = $(MessageLocator).getCssProperty('text-align');
+    //     assert.equal(prop.value, exp["text-align"]        );
+    // })
 
 
 });
