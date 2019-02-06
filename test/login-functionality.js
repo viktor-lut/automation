@@ -18,24 +18,26 @@ describe(exd.suite, function () {
     });
 
     it('Email accepts 45 symbols', function(){
-        browser.clearElement(sel.email);
-        $(sel.email).setValue(randomString(sel.maxS));
-        let result = $(sel.email).getValue();
-        assert.equal(result.length, exd.expMaxLength, 'Email field  doesn/t accept 45 symbols');
-    });
+         browser.clearElement(sel.email);
+         $(sel.email).setValue(randomString(sel.maxS));
+         let result = $(sel.email).getValue();
+         assert.equal(result.length, exd.expMaxLength, 'Email field  doesn/t accept 45 symbols');
+     });
 
-    it('Field Email doesn/t accepts 46 symbols', function(){
-        browser.clearElement(sel.email);
-        $(sel.email).setValue(randomString(sel.maxS+1));
-        let result = $(sel.email).getValue();
-        assert.equal(result.length, exd.expMaxLength, 'Email field doesn/t accept 46 symbols');
-    });
+     it('Field Email doesn/t accepts 46 symbols', function(){
+         browser.clearElement(sel.email);
+         $(sel.email).setValue(randomString(sel.maxS+1));
+         let result = $(sel.email).getValue();
+         assert.equal(result.length, exd.expMaxLength, 'Email field doesn/t accept 46 symbols')
 
-    it('Text - Specify email and password - when login is empty', function(){
-        browser.clearElement(sel.email);
-        browser.click(sel.loginBtn);
-        browser.waitForVisible(sel.loginBtn, 3000);
-        assert.isTrue($(sel.alertSps).isVisible());
+     });
+
+     it('Text - Specify email and password - when login is empty', function(){
+         $(sel.email).setValue(['a', '\uE003']);
+         $(sel.pass).setValue(randomString(exd.expMinLength));
+         browser.click(sel.loginBtn);
+         browser.waitForVisible(sel.loginBtn, 3000);
+         assert.isTrue($(sel.alertSps).isVisible());
     });
 
     it('Text - Specify email and password - when login is wrong', function(){
@@ -44,7 +46,7 @@ describe(exd.suite, function () {
         browser.setValue(sel.email, user.email +'a');
         browser.setValue(sel.pass, user.pass);
         browser.click(sel.loginBtn);
-        assert.isTrue(browser.waitForVisible(sel.alertDntEx, 3000));
+        assert.isTrue(browser.waitForVisible(sel.alertDntEx,5000));
     });
 });
 
@@ -73,7 +75,8 @@ describe(exd.suite, function () {
      });
 
      it('Text - Specify email and password - when password is empty', function(){
-         browser.clearElement(sel.pass);
+         $(sel.email).setValue(randomString(exd.expMinLength));
+         $(sel.email).setValue(['a', '\uE003']);
          browser.click(sel.loginBtn);
          assert.isTrue(browser.waitForVisible(sel.alertSps, 3000));
      });
@@ -156,4 +159,3 @@ describe('Registration page exists', function () {
         assert.equal(browser.waitForVisible(sel.btnBack, 1500), true, 'Button Registration is not clicked');
     })
 });
-
