@@ -19,7 +19,6 @@ describe('GET BUG', () => {
   it('Positive', () => {
     return getBug(id)
       .then(res => {
-        console.log(res._id);
         assert.equal(res._id, id);
       })
   });
