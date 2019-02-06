@@ -3,7 +3,21 @@
     "suite": "Client",
     "pageTitle": "Bug Tracker"
   },
-
+  "fPasswordFunc": {
+    "suite": "f-password-func",
+    "remindPass": "Please specify an email registered in the system",
+    "userIsNotR": "User with this email is not registered in the system",
+    "correctEmail": "A password reminder has been sent to your email address. Please check your Inbox.",
+    "messagesDesignCssProp": {
+      "font-size": "16px",
+      "font-family": "segoe ui",
+      "font-weight": "400",
+      "font-color": "rgba(114,28,36,1)",
+      "text-align": "center",
+      "background-color": "rgba(248,215,218,1)",
+      "border-color": "rgba(245,198,203,1)"
+    }
+  },
   "loginFunctionality": {
     "suite": "Login Functionality",
     "expMinLength": 1,
@@ -20,12 +34,31 @@
     }
   },
 
-  "registrationDesign": {
-    "btnNames": ["< Back", "Register"],
-    "inputs": ["First Name", "Last Name", "Email", "Confirm Email", "Password", "Confirm Password"],
+  "registration": {
+    "btnsNames": {
+      "Back": "< Back",
+      "Register": "Register"
+    },
+    "inputsPlaceholders": {
+      "FirstName": "First Name *",
+      "LastName": "Last Name *",
+      "Email": "Email *",
+      "ConfirmEmail": "Confirm Email *",
+      "Password": "Password *",
+      "ConfirmPassword": "Confirm Password *"
+    },
     "placeholders": ["First Name *", "Last Name *", "Email *", "Confirm Email *", "Password *", "Confirm Password *"],
-    "texts": ["* Required field"],
-    "maxLength": [20, 45],
+    "texts": {
+      "RequireField": "* Required field"
+    },
+    "maxLength": {
+      "FirstName": 20,
+      "LastName": 20,
+      "Email": 45,
+      "ConfirmEmail": 45,
+      "Password": 45,
+      "ConfirmPassword": 45
+    },
     "inputCssProp": {
       "font-size": "16px",
       "font-weight": "400",
@@ -51,7 +84,20 @@
       "font-family": "segoe ui",
       "color": "#212529"
     },
-    "btnAligned": ["left", "middle"]
+    "errorCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#721c24",
+      "background-color": "#f8d7da",
+      "border-color": "#f5c6cb"
+    },
+    "btnAligned": {
+      "Back": "left",
+      "Register": "middle"
+    },
+    "errorText": "Please fill all the fields",
+    "bullet": "disc"
   },
 
   "globalFooter": {
@@ -121,6 +167,17 @@
         "background-color": "rgba(19,132,150,1)"
       }
     }
+  },
+  "bfpvErrorMessageCSS": {
+    "border-bottom-color": "#f5c6cb",
+    "font-family": "segoe ui",
+    "font-size": "16px",
+    "font-weight": "400",
+    "color": "#721c24",
+    "text-align": "center"
+  },
+  "bfpValid": {
+    "errorMsg": "Please fill all the required fields"
   }
 
 }

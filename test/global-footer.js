@@ -14,7 +14,7 @@ describe(exd.suite[1], function () {
 
     it('Global Footer exists', function () {
         browser.url('/');
-        assert.isTrue($(selCl.footer).isVisible());//весь
+        assert.isTrue($(selCl.footer).isVisible());
     });
 
     it('Footer only has text as designed', function(){
