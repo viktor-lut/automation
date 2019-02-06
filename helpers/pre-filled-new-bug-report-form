@@ -1,6 +1,5 @@
 const gSel = require('./../test-data/selectors');
 const formSel = gSel.bugReportForm;
-const randomString = require('./../helpers/randomString');
 let x = [formSel.summary, formSel.str, formSel.actual, formSel.expected];
 let value = 'test'.repeat(76);
 module.exports =

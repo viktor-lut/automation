@@ -1,6 +1,8 @@
 const { assert } = require('chai');
 const login = require('./../helpers/login');
+const verificationText = require('./../helpers/verificationText');
 const fillForm = require('./../helpers/pre-filled-new-bug-report-form');
+const getText = require('./../helpers/verificationText');
 const exd = require('./../test-data/expected').bugReportForm;
 const gSel = require('./../test-data/selectors');
 const bugSel = gSel.bugList;
@@ -8,6 +10,7 @@ const formSel = gSel.bugReportForm;
 let a = [formSel.summary, formSel.str, formSel.actual, formSel.expected, formSel.assignee,
             formSel.priority, formSel.severity, formSel.repro, formSel.version, formSel.submit];
 
+/*
 describe(exd.suite, function () {
 
     login();
@@ -30,9 +33,22 @@ describe(exd.suite, function () {
 
         assert.equal(browser.isVisible(formSel.edit), true, 'You are not on Bug report form');
     })
+});
+*/
 
-    //it('Global Header exists', function () {
-        //     assert.equal($(".custom-header").isVisible(), true);
-        // })
+describe('Bug Report Form | Disabled State', function () {
 
-    });
+    login();
+
+    it('Verify that page has the list of “Title - Value” pairs, ' +
+        'which contain the information provided during bug-report creation.', function () {
+        browser.waitForVisible('.hover-icon');
+        $$('.hover-icon')[0].click();
+        browser.waitForVisible(formSel.edit);
+        $(formSel.summary).getText();
+        $$(formSel.summaryVal)[0].getText();
+
+
+        
+    })
+})
