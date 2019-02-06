@@ -1,13 +1,13 @@
 exports.config = {
 
   specs: [
-    // './test/client.js',
-    // './test/f-password-func.js',
-    // './test/login-functionality.js',
-    // './test/registration-design.js',
-    // './test/new-bug-report.js',
-    // './test/global-footer.js',
-    './test/password-reminder-email.js'
+     './test/client.js',
+     './test/f-password-func.js',
+     './test/login-functionality.js',
+     './test/registration-design.js',
+     './test/new-bug-report.js',
+     './test/global-footer.js',
+     './test/password-reminder-email.js'
   ],
 
   exclude: [
