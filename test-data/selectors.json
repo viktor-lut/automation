@@ -98,7 +98,6 @@
     "always": "div=Always",
     "version": "#version",
     "sprint": "div=0.2",
-    "submit": "#submit",
     "edit": "#edit",
     "summary": ".text-bold",
     "summaryVal": ".text-gray"

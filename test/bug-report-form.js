@@ -1,40 +1,35 @@
 const { assert } = require('chai');
 const login = require('./../helpers/login');
-const verificationText = require('./../helpers/verificationText');
-const fillForm = require('./../helpers/pre-filled-new-bug-report-form');
-const getText = require('./../helpers/verificationText');
-const exd = require('./../test-data/expected').bugReportForm;
-const gSel = require('./../test-data/selectors');
-const bugSel = gSel.bugList;
-const formSel = gSel.bugReportForm;
-let a = [formSel.summary, formSel.str, formSel.actual, formSel.expected, formSel.assignee,
-            formSel.priority, formSel.severity, formSel.repro, formSel.version, formSel.submit];
+const fillBugRepForm = require('./../helpers/fillBugRepForm');
+const fillInputs = require('./../helpers/fillInputs');
+const { verificationCssValue, verificationText } = require('./../helpers/test-helpers');
+const exd = require("./../test-data/expected").bugReportForm;
+const { bugList, newBugReport, bugReportForm } = require("./../test-data/selectors");
+let a = [bugReportForm.summary, bugReportForm.str, bugReportForm.actual, bugReportForm.expected, bugReportForm.assignee,
+            bugReportForm.priority, bugReportForm.severity, bugReportForm.repro, bugReportForm.version, newBugReport.submit];
 
-/*
-describe(exd.suite, function () {
+/*describe(exd.suite, function () {
 
     login();
 
     it('Verify that all Bug form page elements are visible', function () {
 
-        browser.click(bugSel.newBug);
-        browser.waitForVisible(formSel.summary);
+        browser.click(bugList.newBug);
+        browser.waitForVisible(bugReportForm.summary);
         for (let i = 0; i < a.length; i++) {
             browser.isVisible(a[i]);
         }
     })
 
-    fillForm();
-
+    fillBugRepForm();
     it('Verify that when submitting new bug report, Bug Report Form for just created bug will open automatically.', function () {
 
-        browser.click(formSel.submit);
-        browser.waitForVisible(formSel.edit);
+        browser.click(newBugReport.submit);
+        browser.waitForVisible(bugReportForm.edit);
 
-        assert.equal(browser.isVisible(formSel.edit), true, 'You are not on Bug report form');
+        assert.equal(browser.isVisible(bugReportForm.edit), true, 'You are not on Bug report form');
     })
-});
-*/
+});*/
 
 describe('Bug Report Form | Disabled State', function () {
 
@@ -44,9 +39,9 @@ describe('Bug Report Form | Disabled State', function () {
         'which contain the information provided during bug-report creation.', function () {
         browser.waitForVisible('.hover-icon');
         $$('.hover-icon')[0].click();
-        browser.waitForVisible(formSel.edit);
-        $(formSel.summary).getText();
-        $$(formSel.summaryVal)[0].getText();
+        browser.waitForVisible(bugReportForm.edit);
+        $(bugReportForm.summary).getText();
+        $$(bugReportForm.summaryVal)[0].getText();
 
 
         
