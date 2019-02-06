@@ -1,3 +1,4 @@
+
 exports.config = {
 
   specs: [
@@ -12,7 +13,8 @@ exports.config = {
     './test/registration-functionality.js',
     './test/new-bug-report.js',
     './test/global-footer.js',
-    './test/navigation-bar.js'
+    './test/navigation-bar.js',
+    './test/bug-form-page-validation.js'
   ],
 
   maxInstances: 10,

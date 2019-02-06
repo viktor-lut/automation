@@ -73,6 +73,14 @@
     "smallFooter": ".small-text"
   },
 
+  "bfpValid": {
+    "firstBug": "//*[@id=\"root\"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span",
+    "editBtn": "#edit",
+    "submitBtn": "#submit_top",
+    "sum": "#summary",
+    "errorMsg": "//*[@id=\"root\"]/div/div[2]/div/div[2]/div[2]/div[2]/div"
+  },
+
   "navigationBar": {
     "bar": ".site-content .card-footer",
     "newBugButton": "button#new_bug",

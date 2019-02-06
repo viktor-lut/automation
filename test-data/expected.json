@@ -168,13 +168,21 @@
       }
     }
   },
+  "bfpvErrorMessageCSS": {
+    "border-bottom-color": "#f5c6cb",
+    "font-family": "segoe ui",
+    "font-size": "16px",
+    "font-weight": "400",
+    "color": "#721c24",
+    "text-align": "center"
+  },
+  "bfpValid": {
+    "errorMsg": "Please fill all the required fields"
+  },
 
     "bugReportForm": {
       "suite": "Bug Report Form",
       "summaryD": "Summary:"
-
-
-
     }
 
 }
