@@ -23,6 +23,7 @@
     "newBug": "#new_bug"
   },
 
+
   "newBugReport": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear",
@@ -33,20 +34,53 @@
     "requiredFieldTxt": ".text-sm-left"
   },
 
-  "registrationDesign": {
+  "registration": {
     "page": "#root",
     "buttonGroupSel": "button",
     "inputGroupSel": "input",
     "textGroupSel": "p",
-    "buttonIds": ["#back", "#registration"],
-    "inputIds": ["#fname", "#lname", "#email", "#email_confirm", "#pass", "#pass_confirm"],
-    "textSel": ["p=* Required field"]
+    "buttonIds": {
+      "Back": "#back",
+      "Register": "#registration"},
+    "inputIds": {
+      "FirstName": "#fname",
+      "LastName": "#lname",
+      "Email": "#email",
+      "ConfirmEmail": "#email_confirm",
+      "Password": "#pass",
+      "ConfirmPassword": "#pass_confirm"},
+    "textSel": {
+      "RequireField": "p=* Required field"
+    },
+    "error": "#error"
+  },
+
+
+  "fPasswordFunc": {
+    "forgot": "#forgot",
+    "remind": "#remind",
+    "errorMessage": "#error",
+    "backButton": "#back",
+    "email": "#email",
+    "emptyField": "div*=Please",
+    "incorrectMail": "div*=User",
+    "correctMail": "div*=sent"
+
   },
 
   "globalFooter": {
     "globFooter": ".custom-footer",
     "mainFooter": ".custom-footer div",
     "smallFooter": ".small-text"
-  }
+  },
 
+  "navigationBar": {
+    "bar": ".site-content .card-footer",
+    "newBugButton": "button#new_bug",
+    "newBugPage": ".site-content .mt-2",
+    "allIssuesButton": "button#all_issues",
+    "allIssuesPage": ".small-text",
+    "logoutButton": "button#logout",
+    "logoutPage": ".site-content .container.p-5"
+  }
 }
