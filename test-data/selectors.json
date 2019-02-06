@@ -23,7 +23,6 @@
     "newBug": "#new_bug"
   },
 
-
   "newBugReport": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear",
@@ -72,6 +71,14 @@
     "globFooter": ".custom-footer",
     "mainFooter": ".custom-footer div",
     "smallFooter": ".small-text"
+  },
+
+  "bfpValid": {
+    "firstBug": "//*[@id=\"root\"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span",
+    "editBtn": "#edit",
+    "submitBtn": "#submit_top",
+    "sum": "#summary",
+    "errorMsg": "//*[@id=\"root\"]/div/div[2]/div/div[2]/div[2]/div[2]/div"
   },
 
   "navigationBar": {
