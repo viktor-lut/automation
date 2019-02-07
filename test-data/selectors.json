@@ -82,5 +82,15 @@
     "allIssuesPage": ".small-text",
     "logoutButton": "button#logout",
     "logoutPage": ".site-content .container.p-5"
+  },
+
+  "loginPageDesign": {
+    "fields": {
+      "Email": "#email",
+      "Password": "#pass"},
+    "RequireField": ".text-sm-left",
+    "buttonIds": {
+      "Login": "#login",
+      "Registration": "#registration"}
   }
 }

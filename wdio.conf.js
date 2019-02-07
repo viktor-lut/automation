@@ -1,14 +1,6 @@
 exports.config = {
 
   specs: [
-    './test/client.js',
-    './test/f-password-func.js',
-    './test/login-functionality.js',
-    './test/registration-design.js',
-    './test/registration-functionality.js',
-    './test/new-bug-report.js',
-    './test/global-footer.js',
-    './test/navigation-bar.js'
     './test/login-page-design.js'
   ],
 
