@@ -1,0 +1,31 @@
+{
+  "bug": {
+    "bug": {
+      "summary": "summary",
+      "str": "str",
+      "actual": "actual",
+      "expected": "expected",
+      "attachment": "attachment",
+      "priority": "priority",
+      "severity": "severity",
+      "reproducible": "reproducible",
+      "version": "version",
+      "assignee": "Test Testing",
+      "status": "open",
+      "comments": [
+        {
+          "id": "fds67w7ung",
+          "commentator": "Test Testing",
+          "comment": "comment"
+        }
+      ],
+      "reporter": {
+        "fname": "Test",
+        "lname": "Testing",
+        "email": "testreacttest@gmail.com"
+      }
+    }
+  },
+
+  "postResMessage": "Bug saved to /bugs"
+}
