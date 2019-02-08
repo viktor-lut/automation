@@ -22,8 +22,12 @@
   "loginPageDesign": {
     "inputsPlaceholders": {
       "Email": "Email *",
-      "Password": "Password *"},
-      "RequireField": "* Required field",
+      "Password": "Password *"
+    },
+    "texts": {
+      "RequiredField": "* Required field",
+      "ForgotPassLink": "Forgot Password?"
+    },
 
     "maxLength": {
       "Email": 45,
@@ -41,10 +45,27 @@
     },
 
     "txtCssProp": {
-      "font-size": "16px",
-      "font-weight": "400",
-      "font-family": "segoe ui",
-      "color": "#212529"
+      "RequiredField": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#212529"},
+      "ForgotPassLink": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#007bff"},
+        "hover": {
+          "color": "#0056b3",
+          "cursor": "pointer",
+          "text-decoration-line": "underline"
+        }
+
+    },
+
+    "txtAligned": {
+      "RequiredField": "left",
+      "ForgotPassLink": "right"
     },
 
     "btnsNames": {
@@ -52,26 +73,31 @@
       "Registration": "Registration"
     },
 
-    "loginBtnCssProp": {
-      "font-size": "16px",
-      "font-weight": "400",
-      "font-family": "segoe ui",
-      "color": "#ffffff",
-      "background-color": "#17a2b8",
-      "hover": {
-        "background-color": "#138496"
+    "btnCssProp": {
+      "Login": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#ffffff",
+        "background-color": "#17a2b8",
+        "hover": {
+          "background-color": "#138496"
+        }
+      },
+      "Registration": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#ffffff",
+        "background-color": "#6c757d",
+        "hover": {
+          "background-color": "#5a6268"
+        }
       }
     },
-
-    "RegBtnCssProp": {
-      "font-size": "16px",
-      "font-weight": "400",
-      "font-family": "segoe ui",
-      "color": "#ffffff",
-      "background-color": "#6c757d",
-      "hover": {
-        "background-color": "#5a6268"
-      }
+    "btnAligned": {
+      "Login": "left",
+      "Registration": "right"
     }
   },
 

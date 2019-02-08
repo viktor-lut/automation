@@ -92,10 +92,13 @@
   },
 
   "loginPageDesign": {
+    "page": "#root",
     "fields": {
       "Email": "#email",
       "Password": "#pass"},
-    "RequireField": ".text-sm-left",
+    "textSel": {
+      "RequiredField": ".text-sm-left",
+      "ForgotPassLink": "#forgot"},
     "buttonIds": {
       "Login": "#login",
       "Registration": "#registration"}
