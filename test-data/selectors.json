@@ -89,5 +89,11 @@
     "allIssuesPage": ".small-text",
     "logoutButton": "button#logout",
     "logoutPage": ".site-content .container.p-5"
+  },
+  "passwordReminderEmail": {
+    "email": "#identifierId",
+    "next": ".CwaK9",
+    "pass": "input.whsOnd.zHQkBf"
+
   }
 }

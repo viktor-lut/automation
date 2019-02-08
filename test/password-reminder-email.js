@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-
+const sel = require('./../test-data/selectors').passwordReminderEmail;
 
 describe('General', function () {
 
@@ -7,17 +7,15 @@ describe('General', function () {
 
         browser.url('https://mail.google.com');
         browser.waitForVisible("#headingText", 3000);
-        $("#identifierId").setValue("testreacttest@gmail.com");
-        const next = $(".CwaK9");
-        next.click();
+        $(sel.email).setValue("testreacttest@gmail.com");
+        $(sel.next).click();
         browser.waitForVisible("#headingText");
         browser.pause(1000);
-        const pass = $("input.whsOnd.zHQkBf");
-        pass.setValue(['t','e','s','t','T','e','s','t']);
+        $(sel.pass).setValue(['t','e','s','t','T','e','s','t']);
         browser.pause(500);
 
-        console.log(pass.getValue());
-        next.click();
+        console.log($(sel.pass).getValue());
+        $(sel.next).click();
 
        // const gmail = $("div[title='Gmail']");
        // const inbox = $( ".aHS-bnt");
