@@ -63,7 +63,7 @@ describe('Navigation Bar General', function () {
 
     it('navigates to New Bug Report', function () {
         browser.click(selBar.newBugButton);
-        browser.pause(500);
+        browser.waitForVisible(selBar.newBugButton);
         assert.isTrue($(selBar.newBugPage).isVisible());
     });
     //  all issues
@@ -105,7 +105,7 @@ describe('Navigation Bar General', function () {
 
     it('navigates to all Issues Report', function () {
         browser.click(selBar.allIssuesButton);
-        browser.pause(500);
+        browser.waitForVisible(selBar.allIssuesButton);
         assert.isTrue($(selBar.allIssuesPage).isVisible());
     });
 
@@ -148,7 +148,7 @@ describe('Navigation Bar General', function () {
 
     it('navigates to logout Report', function () {
         browser.click(selBar.logoutButton);
-        browser.pause(500);
+        browser.waitForVisible(selBar.logoutPage);
         assert.isTrue($(selBar.logoutPage).isVisible());
     });
 });
