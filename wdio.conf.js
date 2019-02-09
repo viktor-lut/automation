@@ -1,7 +1,7 @@
-
 exports.config = {
 
   specs: [
+    './test/login-page-design.js',
     './test/client.js',
     './test/f-password-func.js',
     './test/login-functionality.js',
