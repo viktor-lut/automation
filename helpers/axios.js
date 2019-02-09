@@ -14,7 +14,10 @@ module.exports = {
 
   getBug(id){
     return axios
-      .get('https://small-express-server.herokuapp.com/bugs/' + id)
+      .get(id === undefined ?
+        'https://small-express-server.herokuapp.com/bugs/'
+        :
+        'https://small-express-server.herokuapp.com/bugs/' + id)
       .then((res) => res.data)
       .catch(err => {
         console.log(err.data);
