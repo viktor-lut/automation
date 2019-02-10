@@ -76,8 +76,8 @@ describe(exd.suite, function () {
      });
 
      it('Text - Specify email and password - when password is empty', function(){
+         $(loginFunctionality.pass).setValue(['a', '\uE003']);
          $(loginFunctionality.email).setValue(randomString(exd.expMinLength));
-         $(loginFunctionality.email).setValue(['a', '\uE003']);
          browser.click(loginFunctionality.loginBtn);
          assert.isTrue(browser.waitForVisible(loginFunctionality.alertSps, 3000));
      });
