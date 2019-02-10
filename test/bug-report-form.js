@@ -52,8 +52,7 @@ describe('Bug Report Form | Disabled State', function () {
 
     });
 
-    let arr = $$('.text-gray');
-    arr.map(el => verificationText(el, value));
+
 
 
 

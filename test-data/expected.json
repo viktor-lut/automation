@@ -18,6 +18,89 @@
       "border-color": "rgba(245,198,203,1)"
     }
   },
+
+  "loginPageDesign": {
+    "inputsPlaceholders": {
+      "Email": "Email *",
+      "Password": "Password *"
+    },
+    "texts": {
+      "RequiredField": "* Required field",
+      "ForgotPassLink": "Forgot Password?"
+    },
+
+    "maxLength": {
+      "Email": 45,
+      "Password": 45
+    },
+
+    "inputCssProp": {
+      "font-size": "16px",
+      "font-weight": "400",
+      "font-family": "segoe ui",
+      "color": "#495057",
+      "focus": {
+        "box-shadow": "rgba(0,123,255,0.25)0px0px0px3.2px"
+      }
+    },
+
+    "txtCssProp": {
+      "RequiredField": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#212529"},
+      "ForgotPassLink": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#007bff"},
+        "hover": {
+          "color": "#0056b3",
+          "cursor": "pointer",
+          "text-decoration-line": "underline"
+        }
+
+    },
+
+    "txtAligned": {
+      "RequiredField": "left",
+      "ForgotPassLink": "right"
+    },
+
+    "btnsNames": {
+      "Login": "Login",
+      "Registration": "Registration"
+    },
+
+    "btnCssProp": {
+      "Login": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#ffffff",
+        "background-color": "#17a2b8",
+        "hover": {
+          "background-color": "#138496"
+        }
+      },
+      "Registration": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#ffffff",
+        "background-color": "#6c757d",
+        "hover": {
+          "background-color": "#5a6268"
+        }
+      }
+    },
+    "btnAligned": {
+      "Login": "left",
+      "Registration": "right"
+    }
+  },
+
   "loginFunctionality": {
     "suite": "Login Functionality",
     "expMinLength": 1,
