@@ -182,7 +182,26 @@
 
     "bugReportForm": {
       "suite": "Bug Report Form",
-      "summaryD": "Summary:"
+      "summaryTitle": "Summary:",
+      "STRTitle": "Steps to Reproduce:",
+      "actualTitle": "Actual Result:",
+      "expectedTitle": "Expected Result:",
+      "attachmentTitle": "Attachment:",
+      "attachmentVal": "http://prntscr.com/min36w",
+      "assigneeTitle": "Assignee:",
+      "assigneeVal": "Anastasia Shibanova",
+      "reporterTitle": "Reporter:",
+      "reporterVal": "Test Testing",
+      "versionTitle": "Version:",
+      "versionVal": "0.2",
+      "priorityTitle": "Priority:",
+      "priorityVal": "Low",
+      "severityTitle": "Severity:",
+      "severityVal": "Minor",
+      "reproTitle": "Repro:",
+      "reproVal": "Always"
+
+
     }
 
 }

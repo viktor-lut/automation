@@ -92,7 +92,7 @@
   },
 
   "bugReportForm": {
-    "summary": "#summary",
+    "sum": "#summary",
     "str": "#str",
     "actual": "#actual",
     "expected": "#expected",
@@ -107,8 +107,8 @@
     "version": "#version",
     "sprint": "div=0.2",
     "edit": "#edit",
-    "summary": ".text-bold",
-    "summaryVal": ".text-gray"
+    "inputBold": ".text-bold",
+    "inputGray": ".text-gray"
 
   }
 }

@@ -1,6 +1,5 @@
-const gSel = require('./../test-data/selectors');
-const formSel = gSel.bugReportForm;
-let x = [formSel.summary, formSel.str, formSel.actual, formSel.expected];
+const { bugReportForm } = require('./../test-data/selectors');
+let x = [bugReportForm.sum, bugReportForm.str, bugReportForm.actual, bugReportForm.expected];
 let value = 'test'.repeat(76);
 module.exports =
     function () {
@@ -9,24 +8,24 @@ module.exports =
                 browser.setValue(x[i], value);
             }
 
-            browser.click(formSel.assignee);
-            browser.waitForVisible(formSel.testUser, 200);
-            browser.click(formSel.testUser);
+            browser.click(bugReportForm.assignee);
+            browser.waitForVisible(bugReportForm.testUser, 200);
+            browser.click(bugReportForm.testUser);
 
-            browser.click(formSel.priority);
-            browser.waitForVisible(formSel.low, 200);
-            browser.click(formSel.low);
+            browser.click(bugReportForm.priority);
+            browser.waitForVisible(bugReportForm.low, 200);
+            browser.click(bugReportForm.low);
 
-            browser.click(formSel.severity);
-            browser.waitForVisible(formSel.minor, 200);
-            browser.click(formSel.minor);
+            browser.click(bugReportForm.severity);
+            browser.waitForVisible(bugReportForm.minor, 200);
+            browser.click(bugReportForm.minor);
 
-            browser.click(formSel.repro);
-            browser.waitForVisible(formSel.always, 200);
-            browser.click(formSel.always);
+            browser.click(bugReportForm.repro);
+            browser.waitForVisible(bugReportForm.always, 200);
+            browser.click(bugReportForm.always);
 
-            browser.click(formSel.version);
-            browser.waitForVisible(formSel.sprint, 200);
-            browser.click(formSel.sprint);
+            browser.click(bugReportForm.version);
+            browser.waitForVisible(bugReportForm.sprint, 200);
+            browser.click(bugReportForm.sprint);
         })
     };
