@@ -1,7 +1,7 @@
 const { getBug } = require('../../../helpers/axios');
 const { assert } = require('chai');
 
-describe('GET ALL BUGS', () => {
+describe('POSITIVE', () => {
   it('GET ALL BUGS', () => {
     return getBug()
       .then(res => {

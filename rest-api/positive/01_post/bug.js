@@ -3,8 +3,8 @@ const { assert } = require('chai');
 const { bug, postResMessage } = require('../../../test-data/api');
 const fs = require('fs');
 
-describe('POST', () => {
-  it('Positive', () => {
+describe('POSITIVE', () => {
+  it('POST BUG', () => {
     return postBug()
       .then(res => {
         fs.writeFile(`${__dirname}/../../../test-data/id.json`,

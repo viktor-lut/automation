@@ -5,9 +5,7 @@ const selCl = require('./../test-data/selectors').client;
 const footer = require('./global/footer');
 
 describe(exd.suite[0], function () {
-    footer();
-
-
+    footer()
 });
 
 describe(exd.suite[1], function () {
@@ -23,7 +21,7 @@ describe(exd.suite[1], function () {
 
     it('Small footer text has text as designed', function(){
         assert.equal($(sel.smallFooter).getText(), exd.smallFooterText, "The Small footer text is not correct" );
-    })
+    });
 
     it('Footer have small footer text below the main footer text', function(){
         let smallFooterLocation = $(sel.smallFooter).getLocation('y');
