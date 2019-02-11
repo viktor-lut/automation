@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "rm -rf allure-report allure-results && wdio wdio.conf.js",
-    "report": "allure generate && allure open",
-    "api": "mocha ./rest-api/api.js"
+    "report": "allure generate && allure open"
   },
   "repository": {
     "type": "git",
@@ -22,6 +21,7 @@
     "allure-commandline": "^2.8.1",
     "axios": "^0.18.0",
     "chai": "^4.2.0",
+    "fs": "0.0.1-security",
     "mocha": "^5.2.0",
     "wdio-allure-reporter": "^0.6.3",
     "wdio-mocha-framework": "^0.6.4",

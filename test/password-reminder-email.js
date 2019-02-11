@@ -9,7 +9,7 @@ describe('General', function () {
         browser.waitForVisible("#headingText", 3000);
         $(sel.email).setValue("testreacttest@gmail.com");
         $(sel.next).click();
-        browser.waitForVisible("#headingText");
+        browser.waitForVisible("#headingText", 3000);
         browser.pause(1000);
         $(sel.pass).setValue(['t','e','s','t','T','e','s','t']);
         browser.pause(500);
@@ -38,9 +38,9 @@ describe('General', function () {
       const element = $("#gb");
       const inbox = $( ".aHS-bnt");
       const starred = $( ".J-Ke.n0");
-      console.log('**before gb**');
-      browser.waitForVisible($(".gb_7d.gb_Ce.gb_fe"),9000);
-      console.log('**after gb**');
+      console.log('**before**');
+      browser.waitForVisible($(".T-I.J-J5-Ji.T-I-KE.L3"),9000);
+      console.log('**after**');
       // starred.click();
       // inbox.click();
 
