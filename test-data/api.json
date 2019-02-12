@@ -1,0 +1,31 @@
+{
+  "bug": {
+    "bug": {
+      "summary": "Lorem ipsum dolor sit amet, at porro periculis mea",
+      "str": "Lorem ipsum dolor sit amet, at porro periculis mea,\n mel et nostro suscipiantur complectitur, cu paulo euismod eleifend pro.\n No eam quas sensibus, platonem tincidunt eos id.\n Mea aliquip electram scriptorem at, alii virtute mei id.\n Est scripta cotidieque ex,\n diceret splendide eloquentiam ex pro.\n Mel no magna vivendum.",
+      "actual": "Lorem ipsum dolor sit amet, at porro periculis mea",
+      "expected": "Lorem ipsum dolor sit amet, at porro periculis mea",
+      "attachment": "https://i.giphy.com/media/JIX9t2j0ZTN9S/giphy.webp",
+      "priority": "Low",
+      "severity": "Minor",
+      "reproducible": "Always",
+      "version": "0.3.3",
+      "assignee": "Test Testing",
+      "status": "Open",
+      "comments": [
+        {
+          "id": "fds67w7ung",
+          "commentator": "Test Testing",
+          "comment": "Lorem ipsum dolor sit amet, at porro periculis mea,\n mel et nostro suscipiantur complectitur, cu paulo euismod eleifend pro.\n No eam quas sensibus, platonem tincidunt eos id.\n Mea aliquip electram scriptorem at, alii virtute mei id.\n Est scripta cotidieque ex,\n diceret splendide eloquentiam ex pro.\n Mel no magna vivendum."
+        }
+      ],
+      "reporter": {
+        "fname": "Test",
+        "lname": "Testing",
+        "email": "testreacttest@gmail.com"
+      }
+    }
+  },
+
+  "postResMessage": "Bug saved to /bugs"
+}

@@ -23,7 +23,6 @@
     "newBug": "#new_bug"
   },
 
-
   "newBugReport": {
     "submitBtn": "#submit",
     "clearFormBtn": "#clear",
@@ -74,6 +73,14 @@
     "smallFooter": ".small-text"
   },
 
+  "bfpValid": {
+    "firstBug": "//*[@id=\"root\"]/div/div[2]/div/div[2]/table/tbody/tr[1]/th/span",
+    "editBtn": "#edit",
+    "submitBtn": "#submit_top",
+    "sum": "#summary",
+    "errorMsg": "//*[@id=\"root\"]/div/div[2]/div/div[2]/div[2]/div[2]/div"
+  },
+
   "navigationBar": {
     "bar": ".site-content .card-footer",
     "newBugButton": "button#new_bug",
@@ -82,5 +89,18 @@
     "allIssuesPage": ".small-text",
     "logoutButton": "button#logout",
     "logoutPage": ".site-content .container.p-5"
+  },
+
+  "loginPageDesign": {
+    "page": "#root",
+    "fields": {
+      "Email": "#email",
+      "Password": "#pass"},
+    "textSel": {
+      "RequiredField": ".text-sm-left",
+      "ForgotPassLink": "#forgot"},
+    "buttonIds": {
+      "Login": "#login",
+      "Registration": "#registration"}
   }
 }
