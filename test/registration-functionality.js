@@ -2,9 +2,10 @@ const { assert } = require("chai");
 const { registration, loginFunctionality } = require("./../test-data/selectors");
 const exp = require("./../test-data/expected").registration;
 const users = require("./../test-data/users");
-const { verificationInputLength, verificationCssValue} = require("./../helpers/test-helpers");
-const fillInputs = require("../helpers/fillInputs");
-const getErrorWhenEmptyField = require("./../helpers/getErrorWhenEmptyField");
+const { verificationInputLength, verificationCssValue } = require("./../helpers/test-helpers");
+const fillInputs = require("./../helpers/fillInputs");
+const clearInputs = require("./../helpers/clearInputs");
+const clickAndGetText = require("./../helpers/clickAndGetText");
 const randomString = require("./../helpers/randomString");
 
 
@@ -21,7 +22,13 @@ describe("Page opening", function () {
 
 });
 
-describe(  "Error message verification", function () {
+describe(  "Error message", function () {
+
+    it('text if email is already registered', function () {
+        fillInputs(Object.values(registration.inputIds), ["Test", "Test", users.email, users.email, users.pass, users.pass]);
+        const errorText = clickAndGetText(registration.buttonIds.Register, registration.error);
+        assert.equal(errorText, exp.errorText.emailRegistered);
+    });
 
     Object.keys(exp.inputsPlaceholders).map(el => {
 
@@ -29,24 +36,35 @@ describe(  "Error message verification", function () {
         if (!(elLowerCase.includes("conf"))) {
             let name = el;
             let s = '';
-            let emptyFieldSelArr = [registration.inputIds[el]];
-            let isConfirm = elLowerCase.includes("email") || elLowerCase.includes("pass");
-            if (isConfirm) {
+            let inputSelectors = [registration.inputIds[el]];
+            const isEmailConfirm = elLowerCase.includes("email");
+            const isPassConfirm = elLowerCase.includes("pass");
+            if (isEmailConfirm || isPassConfirm) {
                 name += " and Confirm" + el;
                 s = 's';
-                emptyFieldSelArr.push(registration.inputIds[el] + "_confirm");
+                inputSelectors.push(registration.inputIds[el] + "_confirm");
+                let inputValues = ["Test", "Test", users.email, 'a' + users.email, users.pass, users.pass];
+                let expErrorText = exp.errorText.emailsNotMatched;
+                if (isPassConfirm) {
+                    inputValues = ["Test", "Test", users.email, users.email, users.pass, 'a' + users.pass];
+                    expErrorText = exp.errorText.passNotMatched;
+                }
+
+                it(`text if ${name} field${s} do not match`, function () {
+                    fillInputs(Object.values(registration.inputIds), inputValues);
+                    const errorText = clickAndGetText(registration.buttonIds.Register, registration.error);
+                    assert.equal(errorText, expErrorText);
+                });
+
             }
 
-            it(`text of the error message when ${name} field${s} is empty`, function () {
-                browser.click(registration.buttonIds.Back);
-                browser.waitForVisible(loginFunctionality.loginBtn, 3000);
-                browser.click(loginFunctionality.registrationBtn);
-                browser.waitForVisible(registration.buttonIds.Back, 3000);
-                fillInputs(Object.values(registration.inputIds), ["Test", "Test", users.email, users.email, users.pass, users.pass]);
-                getErrorWhenEmptyField(emptyFieldSelArr, registration.buttonIds.Register, registration.error);
-                const errorText = browser.getText(registration.error);
-                assert.equal(errorText, exp.errorText);
+            it(`text if ${name} field${s} is empty`, function () {
+                const inputValues = clearInputs(inputSelectors);
+                const errorText = clickAndGetText(registration.buttonIds.Register, registration.error);
+                fillInputs(inputSelectors, inputValues);
+                assert.equal(errorText, exp.errorText.emptyField);
             });
+
 
         }
 
