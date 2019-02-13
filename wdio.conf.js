@@ -1,67 +1,69 @@
 exports.config = {
 
-  specs: [
-    './test/bug-report-form.js'
-  ],
+    specs: [
+        //'rest-api/negative/01_post/missing-bug.js'
+        './rest-api/**/**/*.js'
+    ],
 
-  exclude: [
-'./test/login-page-design.js',
-    './test/client.js',
-    './test/f-password-func.js',
-    './test/login-functionality.js',
-    './test/registration-design.js',
-    './test/registration-functionality.js',
-    './test/new-bug-report.js',
-    './test/global-footer.js',
-    './test/navigation-bar.js',
-    './test/bug-form-page-validation.js',
-    './rest-api/**/**/*.js'
-  ],
+    exclude: [
+        './test/login-page-design.js',
+        './test/client.js',
+        './test/f-password-func.js',
+        './test/login-functionality.js',
+        './test/registration-design.js',
+        './test/registration-functionality.js',
+        './test/new-bug-report.js',
+        './test/global-footer.js',
+        './test/navigation-bar.js',
+        './test/bug-form-page-validation.js',
+        './rest-api/**/**/*.js',
+        './test/bug-report-form.js'
+    ],
 
-  maxInstances: 10,
+    maxInstances: 10,
 
-  capabilities: [
-    {
-      maxInstances: 1,
+    capabilities: [
+        {
+            maxInstances: 1,
 
-      browserName: 'chrome'
-    }
-  ],
+            browserName: 'chrome'
+        }
+    ],
 
-  sync: true,
+    sync: true,
 
-  logLevel: 'silent',
+    logLevel: 'silent',
 
-  coloredLogs: true,
+    coloredLogs: true,
 
-  deprecationWarnings: false,
+    deprecationWarnings: false,
 
-  bail: 0,
+    bail: 0,
 
-  screenshotPath: './errorShots/',
+    screenshotPath: './errorShots/',
 
-  baseUrl: 'https://reactbugtracker.com/',
+    baseUrl: 'https://reactbugtracker.com/',
 
-  waitforTimeout: 20000,
+    waitforTimeout: 20000,
 
-  connectionRetryTimeout: 90000,
+    connectionRetryTimeout: 90000,
 
-  connectionRetryCount: 3,
+    connectionRetryCount: 3,
 
-  services: ['selenium-standalone'],
+    services: ['selenium-standalone'],
 
-  framework: 'mocha',
+    framework: 'mocha',
 
-  reporters: ['dot', 'spec', 'allure'],
-  reporterOptions: {
-    allure: {
-      outputDir: 'allure-results'
-    }
-  },
+    reporters: ['dot', 'spec', 'allure'],
+    reporterOptions: {
+        allure: {
+            outputDir: 'allure-results'
+        }
+    },
 
-  mochaOpts: {
-    ui: 'bdd',
-    timeout: 20000
-  },
+    mochaOpts: {
+        ui: 'bdd',
+        timeout: 20000
+    },
 
 }

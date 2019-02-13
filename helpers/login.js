@@ -11,8 +11,8 @@ module.exports =
       browser.click(loginFunctionality.loginBtn);
       browser.waitForVisible(bugList.newBug);
       if (openBug) {
-          browser.waitForVisible('.hover-icon');
-          $$('.hover-icon')[0].click();
+          browser.waitForVisible('span*=Lorem');
+          $('span*=Lorem').click();
           browser.waitForVisible(bugReportForm.edit);
       };
     });

@@ -39,28 +39,26 @@ describe(exd.suite, function () {
 describe('Bug Report Form | Disabled State', function () {
 
     login(true);
+
     verificationText(bugReportForm.summaryTitle, exd.summaryTitle);
 
     /*it('Verify that page has the list of “Title - Value” pairs, ' +
         'which contain the information provided during bug-report creation.', function () {
-         browser.waitForVisible('.hover-icon');
-         $$('.hover-icon')[0].click();
-         browser.waitForVisible(bugReportForm.edit);
-
-
-        assert.equal($(bugReportForm.summaryTitle).getText(), exd.summaryTitle, 'Summary title is incorrect');
-        assert.equal($(bugReportForm.summaryValue).getText(), value, 'Summary value is incorrect');
-        assert.equal($(bugReportForm.STRTitle).getText(), exd.STRTitle, 'STR title is incorrect');
-        assert.equal($(bugReportForm.STRValue).getText(), value, 'STR value is incorrect');
-        assert.equal($(bugReportForm.actualTitle).getText(), exd.actualTitle, 'Actual result title is incorrect');
-        assert.equal($(bugReportForm.actualValue).getText(), value, 'Actual result value is incorrect');
-
-
-    });
-
-
-
 
 */
+
+        // assert.equal($(bugReportForm.summaryTitle).getText(), exd.summaryTitle, 'Summary title is incorrect');
+        // assert.equal($(bugReportForm.summaryValue).getText(), value, 'Summary value is incorrect');
+        // assert.equal($(bugReportForm.STRTitle).getText(), exd.STRTitle, 'STR title is incorrect');
+        // assert.equal($(bugReportForm.STRValue).getText(), value, 'STR value is incorrect');
+        // assert.equal($(bugReportForm.actualTitle).getText(), exd.actualTitle, 'Actual result title is incorrect');
+        // assert.equal($(bugReportForm.actualValue).getText(), value, 'Actual result value is incorrect');
+
+
+    // });
+
+
+
+
 
 })
