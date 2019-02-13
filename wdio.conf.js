@@ -1,4 +1,3 @@
-
 exports.config = {
 
   specs: [
@@ -6,6 +5,7 @@ exports.config = {
   ],
 
   exclude: [
+'./test/login-page-design.js',
     './test/client.js',
     './test/f-password-func.js',
     './test/login-functionality.js',
@@ -14,8 +14,8 @@ exports.config = {
     './test/new-bug-report.js',
     './test/global-footer.js',
     './test/navigation-bar.js',
-    './test/login-page-design.js',
-    './test/bug-form-page-validation.js'
+    './test/bug-form-page-validation.js',
+    './rest-api/**/**/*.js'
   ],
 
   maxInstances: 10,

@@ -9,7 +9,7 @@ let a = [bugReportForm.sum, bugReportForm.str, bugReportForm.actual, bugReportFo
             bugReportForm.priority, bugReportForm.severity, bugReportForm.repro, bugReportForm.version, newBugReport.submit];
 let value = 'test'.repeat(76);
 
-/*describe(exd.suite, function () {
+describe(exd.suite, function () {
 
     login();
 
@@ -18,27 +18,27 @@ let value = 'test'.repeat(76);
 
         browser.click(bugList.newBug);
         browser.waitForVisible(bugReportForm.sum);
-        for (let i = 0; i < a.length; i++) {
+        /*for (let i = 0; i < a.length; i++) {
             browser.isVisible(a[i]);
-        }
+        }*/
     })
 
-    fillBugRepForm();
+
+
     it('Verify that when submitting new bug report, Bug Report Form for just created bug will open automatically.', function () {
 
+        fillBugRepForm();
+        console.log(2);
         browser.click(newBugReport.submitBtn);
         browser.waitForVisible(bugReportForm.edit);
 
         assert.equal(browser.isVisible(bugReportForm.edit), true, 'You are not on Bug report form');
     })
-});*/
+});
 
 describe('Bug Report Form | Disabled State', function () {
 
-    login();
-    browser.waitForVisible('.hover-icon');
-    $$('.hover-icon')[0].click();
-    browser.waitForVisible(bugReportForm.edit);
+    login(true);
     verificationText(bugReportForm.summaryTitle, exd.summaryTitle);
 
     /*it('Verify that page has the list of “Title - Value” pairs, ' +

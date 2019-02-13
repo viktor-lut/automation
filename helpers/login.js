@@ -1,15 +1,19 @@
-const sel = require('./../test-data/selectors').loginFunctionality;
-const selB = require('./../test-data/selectors').bugList;
+const { loginFunctionality, bugList, bugReportForm } = require('./../test-data/selectors');
 const user = require('./../test-data/users');
 
 module.exports =
-  function () {
+  function (openBug) {
     return it('PREREQUISITE: Login', function () {
       browser.url('/');
-      browser.waitForVisible(sel.email);
-      browser.setValue(sel.email, user.email);
-      browser.setValue(sel.pass, user.pass);
-      browser.click(sel.loginBtn);
-      browser.waitForVisible(selB.newBug);
+      browser.waitForVisible(loginFunctionality.email);
+      browser.setValue(loginFunctionality.email, user.email);
+      browser.setValue(loginFunctionality.pass, user.pass);
+      browser.click(loginFunctionality.loginBtn);
+      browser.waitForVisible(bugList.newBug);
+      if (openBug) {
+          browser.waitForVisible('.hover-icon');
+          $$('.hover-icon')[0].click();
+          browser.waitForVisible(bugReportForm.edit);
+      };
     });
   };
