@@ -6,7 +6,7 @@ describe('POSITIVE', () => {
   it('REMOVE BUG', () => {
     return removeBug(id)
       .then(res => {
-        assert.equal(res.n, 1);
+        assert.equal(res.result, 1);
       })
   });
 });

@@ -13,8 +13,8 @@ exports.config = {
     './test/navigation-bar.js',
     './test/bug-form-page-validation.js',
     './rest-api/**/**/*.js',
-    './test/password-reminder-email.js'
-
+    './test/password-reminder-email.js',
+    './test/global-header.js'
   ],
 
   exclude: [
