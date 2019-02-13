@@ -267,7 +267,7 @@
       "suite": "Bug Report Form",
       "summaryTitle": "Summary:",
       "STRTitle": "Steps to Reproduce:",
-      "actualTitle": "Actual Result:",
+      "actualTitle": "Actual Result",
       "expectedTitle": "Expected Result:",
       "attachmentTitle": "Attachment:",
       "attachmentVal": "http://prntscr.com/min36w",

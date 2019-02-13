@@ -109,6 +109,7 @@
     "str": "#str",
     "actual": "#actual",
     "expected": "#expected",
+    "attachment": "#attach",
     "assignee": "#assignee",
     "testUser": "div=Anastasia Shibanova",
     "priority": "#priority",
@@ -120,8 +121,15 @@
     "version": "#version",
     "sprint": "div=0.2",
     "edit": "#edit",
-    "inputBold": ".text-bold",
-    "inputGray": ".text-gray"
+    "summaryTitle": "#summary p.text-bold",
+    "summaryValue": "#summary span.text-gray",
+    "STRTitle": "#str p.text-bold",
+    "STRValue": "#str .text-area",
+    "actualTitle": "#actual p.text-bold",
+    "actualValue": "#actual span.text-gray",
+    "expectedTitle": "#expected p.text-bold",
+    "expectedValue": "#expected span.text-gray"
+
 
   }
 }

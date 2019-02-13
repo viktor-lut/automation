@@ -2,6 +2,10 @@
 exports.config = {
 
   specs: [
+    './test/bug-report-form.js'
+  ],
+
+  exclude: [
     './test/client.js',
     './test/f-password-func.js',
     './test/login-functionality.js',
@@ -11,12 +15,7 @@ exports.config = {
     './test/global-footer.js',
     './test/navigation-bar.js',
     './test/login-page-design.js',
-    './test/bug-form-page-validation.js',
-    './test/bug-report-form.js'
-  ],
-
-  exclude: [
-
+    './test/bug-form-page-validation.js'
   ],
 
   maxInstances: 10,
