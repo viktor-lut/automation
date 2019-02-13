@@ -27,5 +27,8 @@
     }
   },
 
-  "postResMessage": "Bug saved to /bugs"
+  "postResMessage": "Bug saved to /bugs",
+
+  "postNegMessage": "request.body.bug === undefined"
+
 }

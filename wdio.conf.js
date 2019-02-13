@@ -11,7 +11,8 @@ exports.config = {
     './test/global-footer.js',
     './test/navigation-bar.js',
     './test/bug-form-page-validation.js',
-    './rest-api/**/**/*.js'
+    './rest-api/**/**/*.js',
+    './test/global-header.js'
   ],
 
   exclude: [
