@@ -1,15 +1,14 @@
 const axios = require('axios');
-const data = require('../test-data/api');
 
 module.exports = {
 
-  postBug(){
+  postBug(bug){
     return axios
-      .post('https://small-express-server.herokuapp.com/bugs', data.bug)
+      .post('https://small-express-server.herokuapp.com/bugs', bug)
       .then((res) => res.data)
-      .catch(err => {
-        console.log(err.data);
-      });
+      .catch(err =>
+        err.response.data
+      );
   },
 
   getBug(id){

@@ -5,7 +5,7 @@ const fs = require('fs');
 
 describe('POSITIVE', () => {
   it('POST BUG', () => {
-    return postBug()
+    return postBug(bug)
       .then(res => {
         fs.writeFile(`${__dirname}/../../../test-data/id.json`,
           JSON.stringify(res.bug._id),
