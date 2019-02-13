@@ -2,9 +2,10 @@ const { assert } = require('chai');
 
 const exd = require('./../test-data/expected').loginFunctionality;
 
-const {loginFunctionality, bugList, registration} = require('./../test-data/selectors');
+const {  loginFunctionality, bugList, registration } = require('./../test-data/selectors');
 const randomString = require('./../helpers/randomString');
-const {verificationCssValue} = require('./../helpers/test-helpers');
+const { verificationCssValue } = require('./../helpers/test-helpers');
+
 
 const user = require('./../test-data/users');
 
