@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "rm -rf allure-report allure-results && wdio wdio.conf.js",
-    "report": "allure generate && allure open",
-    "api": "mocha ./rest-api/**/**/*.js"
+    "report": "allure generate && allure open"
   },
   "repository": {
     "type": "git",
