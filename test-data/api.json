@@ -31,6 +31,10 @@
 
   "postNegMessage": "request.body.bug === undefined",
 
-  "updateResMessage": "Bug updated"
+  "updateResMessage": "Bug updated",
+
+  "updateMissingBugMessage": "request.body.bug === undefined"
+
+
 
 }

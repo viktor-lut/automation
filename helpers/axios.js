@@ -34,11 +34,11 @@ module.exports = {
 
   updateBug(id, bug){
     return axios
-        .patch('https://small-express-server.herokuapp.com/bugs/' + id, bug)
-        .then((res) => res.data)
-        .catch(err =>
-            console.log(err.response.data)
-        );
+      .patch('https://small-express-server.herokuapp.com/bugs/' + id, bug)
+      .then((res) => res.data)
+      .catch(err =>
+         err.response.data
+      );
   },
 
 };
