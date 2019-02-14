@@ -30,6 +30,15 @@ module.exports = {
       .catch(err => {
         console.log(err.data);
       });
-  }
+  },
+
+  updateBug(id, bug){
+    return axios
+        .patch('https://small-express-server.herokuapp.com/bugs/' + id, bug)
+        .then((res) => res.data)
+        .catch(err =>
+            console.log(err.response.data)
+        );
+  },
 
 };

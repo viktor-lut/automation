@@ -29,6 +29,8 @@
 
   "postResMessage": "Bug saved to /bugs",
 
-  "postNegMessage": "request.body.bug === undefined"
+  "postNegMessage": "request.body.bug === undefined",
+
+  "updateResMessage": "Bug updated"
 
 }
