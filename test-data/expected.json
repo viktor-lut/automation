@@ -179,7 +179,12 @@
       "Back": "left",
       "Register": "middle"
     },
-    "errorText": "Please fill all the fields",
+    "errorText": {
+      "emptyField": "Please fill all the fields",
+      "emailsNotMatched": "Emails do not match",
+      "passNotMatched": "Passwords do not match",
+      "emailRegistered": "User with this email already exists"
+    },
     "bullet": "disc"
   },
 
