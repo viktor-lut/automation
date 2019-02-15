@@ -13,6 +13,7 @@ exports.config = {
     './test/new-bug-report.js',
     './test/navigation-bar.js',
     './rest-api/**/**/*.js'
+
   ],
 
   exclude: [
