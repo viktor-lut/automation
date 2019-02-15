@@ -14,7 +14,6 @@ exports.config = {
     './test/navigation-bar.js',
     './rest-api/**/**/*.js'
 
-
   ],
 
   exclude: [

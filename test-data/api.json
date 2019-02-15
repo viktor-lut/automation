@@ -33,7 +33,14 @@
 
   "updateResMessage": "Bug updated",
 
-  "updateMissingBugMessage": "request.body.bug === undefined"
+  "missingBugMessage": "request.body.bug === undefined",
+
+  "incorrectIDMessage": {
+    "message": "No bug report with specified id",
+    "error": "Cast to ObjectId failed for value \"{incorrect id}\" at path \"_id\" for model \"BugReport\"",
+    "value": "{incorrect id}"
+  }
+
 
 
 
