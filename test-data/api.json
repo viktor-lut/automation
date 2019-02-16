@@ -28,6 +28,7 @@
   },
 
   "postResMessage": "Bug saved to /bugs",
+  "postUserResMessage": "User saved to /users",
 
   "postNegMessage": "request.body.bug === undefined",
 
@@ -39,7 +40,26 @@
     "message": "No bug report with specified id",
     "error": "Cast to ObjectId failed for value \"{incorrect id}\" at path \"_id\" for model \"BugReport\"",
     "value": "{incorrect id}"
+  },
+
+  "user": {
+    "fname": "x",
+    "lname": "x",
+    "email": "x@gmail.com",
+    "pass": "x",
+    "admin": false
+  },
+
+  "comparisonDataUser": {
+    "_id": "type",
+    "fname": true,
+    "lname": true,
+    "email": true,
+    "pass": "type",
+    "admin": true,
+    "__v": false
   }
+
 
 
 

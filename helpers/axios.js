@@ -41,4 +41,22 @@ module.exports = {
       );
   },
 
+  postUser(user){
+    return axios
+        .post('https://small-express-server.herokuapp.com/users', user)
+        .then((res) => res.data)
+        .catch(err =>
+            err.response.data
+        );
+  },
+
+  removeUser(id){
+    return axios
+        .delete('https://small-express-server.herokuapp.com/users/' + id)
+        .then((res) => res.data)
+        .catch(err => {
+          console.log(err.data);
+        });
+  },
+
 };

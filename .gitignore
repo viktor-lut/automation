@@ -6,3 +6,5 @@ allure-results
 allure-report
 bash.exe.stackdump
 test-data/id.json
+test-data/idUser.json
+helpers/objectCompare.js
