@@ -1,19 +1,19 @@
 exports.config = {
 
   specs: [
-    './test/client.js',
-    './test/global-header.js',
-    './test/global-footer.js',
-    './test/login-page-design.js',
-    './test/login-functionality.js',
-    './test/f-password-func.js',
-    './test/registration-design.js',
-    './test/registration-functionality.js',
-    './test/bug-form-page-validation.js',
-    './test/new-bug-report.js',
-    './test/navigation-bar.js',
-    './rest-api/**/**/*.js'
-
+    // './test/client.js',
+    // './test/global-header.js',
+    // './test/global-footer.js',
+    // './test/login-page-design.js',
+    // './test/login-functionality.js',
+    // './test/f-password-func.js',
+    // './test/registration-design.js',
+    // './test/registration-functionality.js',
+    // './test/bug-form-page-validation.js',
+    // './test/new-bug-report.js',
+    // './test/navigation-bar.js',
+    // './rest-api/**/**/*.js',
+    './rest-api/positive/02_get/all-users.js'
   ],
 
   exclude: [

@@ -23,6 +23,18 @@ module.exports = {
       });
   },
 
+  getUser(id){
+    return axios
+        .get(id === undefined ?
+            'https://small-express-server.herokuapp.com/users/'
+            :
+            'https://small-express-server.herokuapp.com/users/' + id)
+        .then((res) => res.data)
+        .catch(err => {
+          console.log(err.data);
+        });
+  },
+
   removeBug(id){
     return axios
       .delete('https://small-express-server.herokuapp.com/bugs/' + id)
