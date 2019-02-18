@@ -11,9 +11,12 @@ module.exports = {
       );
   },
 
-  getUrl(){
+  getUrl(incUrl){
     return axios
-        .get('https://small-express-server.herokuapp.com')
+        .get(incUrl === undefined ?
+            'https://small-express-server.herokuapp.com'
+            :
+            'https://small-express-server.herokuapp.com/' + incUrl)
         .then(res => res)
         .catch(err => err.response.data);
   },
