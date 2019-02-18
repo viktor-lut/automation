@@ -13,7 +13,7 @@ exports.config = {
     // './test/new-bug-report.js',
     // './test/navigation-bar.js',
     // './rest-api/**/**/*.js',
-    './rest-api/positive/02_get/all-users.js'
+    './rest-api/positive/02_get/base_url.js'
   ],
 
   exclude: [

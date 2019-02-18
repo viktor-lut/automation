@@ -11,6 +11,13 @@ module.exports = {
       );
   },
 
+  getUrl(){
+    return axios
+        .get('https://small-express-server.herokuapp.com')
+        .then(res => res)
+        .catch(err => err.response.data);
+  },
+
   getBug(id){
     return axios
       .get(id === undefined ?
