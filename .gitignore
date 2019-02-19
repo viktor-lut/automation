@@ -5,3 +5,4 @@ errorShots
 allure-results
 allure-report
 bash.exe.stackdump
+test-data/id.json

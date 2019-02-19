@@ -29,6 +29,19 @@
 
   "postResMessage": "Bug saved to /bugs",
 
-  "postNegMessage": "request.body.bug === undefined"
+  "postNegMessage": "request.body.bug === undefined",
+
+  "updateResMessage": "Bug updated",
+
+  "missingBugMessage": "request.body.bug === undefined",
+
+  "incorrectIDMessage": {
+    "message": "No bug report with specified id",
+    "error": "Cast to ObjectId failed for value \"{incorrect id}\" at path \"_id\" for model \"BugReport\"",
+    "value": "{incorrect id}"
+  }
+
+
+
 
 }
