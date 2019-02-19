@@ -1,8 +1,7 @@
 const {bugReportForm} = require('./../test-data/selectors');
 let x = [bugReportForm.sum, bugReportForm.str, bugReportForm.actual, bugReportForm.expected];
-const value = require('./randomString.js');
 let attach = 'http://prntscr.com/min36w';
-const {bug} = require('./../test-data/api');
+const { bug } = require('./../test-data/api');
 
 module.exports =
     function () {
@@ -34,5 +33,4 @@ module.exports =
         browser.click(bugReportForm.version);
         browser.waitForVisible(bugReportForm.sprint, 200);
         browser.click(bugReportForm.sprint);
-        console.log(1);
     };

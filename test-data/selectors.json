@@ -121,14 +121,34 @@
     "version": "#version",
     "sprint": "div=0.2",
     "edit": "#edit",
-    "summaryTitle": "#summary p.text-bold",
-    "summaryValue": "#summary span.text-gray",
-    "STRTitle": "#str p.text-bold",
-    "STRValue": "#str .text-area",
-    "actualTitle": "#actual p.text-bold",
-    "actualValue": "#actual span.text-gray",
-    "expectedTitle": "#expected p.text-bold",
-    "expectedValue": "#expected span.text-gray"
+
+    "titles": {
+      "summaryTitle": "#summary p.text-bold",
+      "STRTitle": "#str p.text-bold",
+      "actualTitle": "#actual p.text-bold",
+      "expectedTitle": "#expected p.text-bold",
+      "attachmentTitle": "#attachment p.text-bold",
+      "assigneeTitle": "#assignee p.text-bold",
+      "reporterTitle": "#reporter p.text-bold",
+      "versionTitle": "#version p.text-bold",
+      "priorityTitle": "#priority p.text-bold",
+      "severityTitle": "#severity p.text-bold",
+      "reproTitle": "#repro p.text-bold"
+    },
+
+    "values": {
+      "summaryValue": "#summary span.text-gray",
+      "STRValue": "#str .text-area",
+      "actualValue": "#actual span.text-gray",
+      "expectedValue": "#expected span.text-gray",
+      "attachmentVal": "#attachment a",
+      "assigneeVal": "#assignee span,text-gray",
+      "reporterVal": "#reporter span.text-gray",
+      "versionVal": "#version span.text-gray",
+      "priorityVal": "#priority span.text-gray",
+      "severityVal": "#severity span.text-gray",
+      "reproVal": "#repro span.text-gray"
+    }
 
 
   }

@@ -265,25 +265,48 @@
 
     "bugReportForm": {
       "suite": "Bug Report Form",
-      "summaryTitle": "Summary:",
-      "STRTitle": "Steps to Reproduce:",
-      "actualTitle": "Actual Result:",
-      "expectedTitle": "Expected Result:",
-      "attachmentTitle": "Attachment:",
-      "attachmentVal": "http://prntscr.com/min36w",
-      "assigneeTitle": "Assignee:",
-      "assigneeVal": "Anastasia Shibanova",
-      "reporterTitle": "Reporter:",
-      "reporterVal": "Test Testing",
-      "versionTitle": "Version:",
-      "versionVal": "0.2",
-      "priorityTitle": "Priority:",
-      "priorityVal": "Low",
-      "severityTitle": "Severity:",
-      "severityVal": "Minor",
-      "reproTitle": "Repro:",
-      "reproVal": "Always"
 
+      "titles": {
+        "summaryTitle": "Summary:",
+        "STRTitle": "Steps to Reproduce:",
+        "actualTitle": "Actual Result:",
+        "expectedTitle": "Expected result:",
+        "attachmentTitle": "Attachment:",
+        "assigneeTitle": "Assignee:",
+        "reporterTitle": "Reporter:",
+        "versionTitle": "Version:",
+        "priorityTitle": "Priority:",
+        "severityTitle": "Severity:",
+        "reproTitle": "Repro:"
+      },
+
+      "titlesCssProp": {
+        "font-size": "16px",
+        "font-weight": "700",
+        "font-family": "segoe ui",
+        "color": "#212529"
+      },
+
+      "values": {
+        "summaryValue": "Lorem ipsum dolor sit amet, at porro periculis mea",
+        "STRValue": "Lorem ipsum dolor sit amet, at porro periculis mea,\n mel et nostro suscipiantur complectitur, cu paulo euismod eleifend pro.\n No eam quas sensibus, platonem tincidunt eos id.\n Mea aliquip electram scriptorem at, alii virtute mei id.\n Est scripta cotidieque ex,\n diceret splendide eloquentiam ex pro.\n Mel no magna vivendum.",
+        "actualValue": "Lorem ipsum dolor sit amet, at porro periculis mea",
+        "expectedValue": "Lorem ipsum dolor sit amet, at porro periculis mea",
+        "attachmentVal": "http://prntscr.com/min36w",
+        "assigneeVal": "Anastasia Shibanova",
+        "reporterVal": "Test Testing",
+        "versionVal": "0.2",
+        "priorityVal": "Low",
+        "severityVal": "Minor",
+        "reproVal": "Always"
+      },
+
+      "valuesCssProp": {
+        "font-size": "16px",
+        "font-weight": "400",
+        "font-family": "segoe ui",
+        "color": "#0000007d"
+      }
 
     }
 
