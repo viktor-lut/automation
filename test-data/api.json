@@ -39,6 +39,12 @@
     "message": "No bug report with specified id",
     "error": "Cast to ObjectId failed for value \"{incorrect id}\" at path \"_id\" for model \"BugReport\"",
     "value": "{incorrect id}"
+  },
+
+  "incorrectIdMessage": {
+    "message": "No bug report with specified id",
+    "error": "Cast to ObjectId failed for value \"50000000000000005test\" at path \"_id\" for model \"BugReport\"",
+    "value": "50000000000000005test"
   }
 
 

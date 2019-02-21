@@ -13,7 +13,8 @@ exports.config = {
     // './test/new-bug-report.js',
     // './test/navigation-bar.js',
     // './test/bug-report-form.js',
-    './rest-api/**/**/*.js'
+    //'./rest-api/**/**/*.js',
+    //'./rest-api/negative/02_get/particular-bug-incorrect-id.js'
 
   ],
 

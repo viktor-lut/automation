@@ -11,16 +11,28 @@ module.exports = {
       );
   },
 
+
   getBug(id){
     return axios
-      .get(id === undefined ?
+        .get(id === undefined ?
+            'https://small-express-server.herokuapp.com/bugs/'
+            :
+            'https://small-express-server.herokuapp.com/bugs/' + id)
+        .then((res) => res.data)
+        .catch(err => {
+          console.log(err.data);
+        });
+  },
+
+
+  getBug(incorrectId){
+    return axios
+      .get(incorrectId === undefined ?
         'https://small-express-server.herokuapp.com/bugs/'
         :
-        'https://small-express-server.herokuapp.com/bugs/' + id)
-      .then((res) => res.data)
-      .catch(err => {
-        console.log(err.data);
-      });
+        'https://small-express-server.herokuapp.com/bugs/' + incorrectId)
+      .then((res) => res.response.data)
+      .catch((err) => err.response.data);
   },
 
   removeBug(id){
