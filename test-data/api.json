@@ -45,9 +45,24 @@
     "error": {
       "message": "Not found"
     }
+  },
+
+  "incorrectUrl": "anyword",
+
+  "messageCorUserCredentials": "matched",
+
+  "incorrectUser": {
+    "error": "Incorrect query"
+  },
+
+  "incorrectUserId": {
+    "message": "No user with specified id",
+  "error": "Cast to ObjectId failed for value 5c476d2078dda400206af285a at path _id for model ProdUsers",
+  "value": "5c476d2078dda400206af285a"
+    },
+
+  "correctIdWithNoPass": {
+    "error": "Incorrect request"
   }
-
-
-
-
 }
+

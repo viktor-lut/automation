@@ -12,7 +12,7 @@ exports.config = {
     './test/bug-form-page-validation.js',
     './test/new-bug-report.js',
     './test/navigation-bar.js',
-    './rest-api/**/**/*.js',
+    './rest-api/**/**/*.js'
   ],
 
   exclude: [

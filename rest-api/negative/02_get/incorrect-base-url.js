@@ -1,10 +1,10 @@
 const { getUrl } = require('../../../helpers/axios');
 const { assert } = require('chai');
 const {correctUrlMessage} = require('../../../test-data/api');
-let incorrectUrl = 'anyword';
+const {incorrectUrl} = require('../../../test-data/api');
 
-describe('POSITIVE URL', () => {
-    it('GET Base URL', () => {
+describe('NEGATIVE URL', () => {
+    it('GET Wrong Base URL', () => {
         return getUrl(incorrectUrl)
             .then(res => {
                 assert.isTrue(res.error.message === correctUrlMessage.error.message);

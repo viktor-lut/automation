@@ -33,16 +33,17 @@ module.exports = {
       });
   },
 
-  getUser(id){
+  getUser(id, email, pass){
     return axios
         .get(id === undefined ?
-            'https://small-express-server.herokuapp.com/users/'
+            'https://small-express-server.herokuapp.com/users/':
+            ( email !== undefined  && pass !== undefined ?
+                    'https://small-express-server.herokuapp.com/users/' + id + '/?email='+ email + '&pass=' + pass
             :
-            'https://small-express-server.herokuapp.com/users/' + id)
+                    'https://small-express-server.herokuapp.com/users/' + id
+            ))
         .then((res) => res.data)
-        .catch(err => {
-          console.log(err.data);
-        });
+        .catch(err => err.response.data);
   },
 
   removeBug(id){

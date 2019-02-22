@@ -32,7 +32,7 @@ describe('POSITIVE GET ALL USERS', () => {
     });
 
     it('Admin type', () => {
-        assert.isTrue(typeof(response[0].admin) === 'boolean', 'admin is not a string');
+        assert.isTrue(typeof(response[0].admin) === 'boolean', 'admin is not a boolean');
     });
     
 });
