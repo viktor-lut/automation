@@ -9,18 +9,18 @@ https://git-scm.com/
 https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 #### 1.4. Install Xcode:
 https://developer.apple.com/xcode/
-#### 1.4. Install Node Version Manager (nvm):
+#### 1.5. Install Node Version Manager (nvm):
 `curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
 
 ===
 
 Additional Windows prerequisite:
-#### 1.5. Install all the required tools and configurations using Microsoft's windows-build-tools:
+#### 1.6. Install all the required tools and configurations using Microsoft's windows-build-tools:
 Open Command Prompt **as administrator** and run the following script:
 ````
 npm install --global --production windows-build-tools
 ````
-#### 1.6. Use Git Bash instead of using Windows Command Prompt.
+#### 1.7. Use Git Bash instead of using Windows Command Prompt.
 ````
 TODO: link here
 ````
