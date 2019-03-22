@@ -9,6 +9,9 @@ https://git-scm.com/
 https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 #### 1.4. Install Xcode:
 https://developer.apple.com/xcode/
+#### 1.4. Install Node Version Manager (nvm):
+https://developer.apple.com/xcode/
+`curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
 
 ===
 
