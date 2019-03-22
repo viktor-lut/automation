@@ -7,7 +7,7 @@ https://nodejs.org/en/
 https://git-scm.com/
 #### 1.3. Install Java:
 https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-#### 1.4. Install Java:
+#### 1.4. Install Xcode:
 https://developer.apple.com/xcode/
 
 ===
