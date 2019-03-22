@@ -6,7 +6,9 @@ https://nodejs.org/en/
 #### 1.2. Install Git:
 https://git-scm.com/
 #### 1.3. Install Java:
-https://www.java.com/en/download/
+https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+#### 1.4. Install Java:
+https://developer.apple.com/xcode/
 
 ===
 
@@ -16,7 +18,7 @@ Open Command Prompt **as administrator** and run the following script:
 ````
 npm install --global --production windows-build-tools
 ````
-#### 1.5. Use Git Bash instead of using Windows Command Prompt.
+#### 1.6. Use Git Bash instead of using Windows Command Prompt.
 ````
 TODO: link here
 ````
