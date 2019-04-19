@@ -253,7 +253,7 @@ You should see the message with one suite, one sub-suite, and one test passed:
 ````
 
 ## 10. Adding more tests:
-Add the old code by the following one in `test.js`:
+Replace the old code by the following one in `test.js`:
 ````
 import assert from 'assert';
 
