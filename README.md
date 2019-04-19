@@ -188,7 +188,7 @@ describe('Client', function () { //define suite title by passing a string
       browser.url('/'); //open baseUrl + string passed in .url() function
       let title = browser.getTitle(); //get page title and assign it to the "title" variable
       browser.pause(2000); //just pause to visually see that something is happening on the page
-      assert.equal(title, 'Bug Tracker'); //compare "title" (actual) and "Bug Tracker" (expected)
+      assert.equal(title, 'Bug Tracker'); //compare {title} (actual) and "Bug Tracker" (expected)
     })
 
   });
@@ -252,8 +252,57 @@ You should see the message with one suite, one sub-suite, and one test passed:
 [chrome #0-0] 1 passing (3.4s)
 ````
 
-## 10. Extending test file
+## 10. Adding more tests:
+Add the old code by the following one in `test.js`:
+````
+import assert from 'assert';
 
+describe('Client', function () {
+
+  describe('Page Level', function () {
+
+    it('Get title', function () {
+      browser.url('/');
+      let title = browser.getTitle();
+      assert.equal(title, 'Bug Tracker');
+    })
+
+    it('Favicon', function () {
+      browser.url('/favicon.ico');
+      let icon = $('img');
+      let width = icon.getCSSProperty('width').parsed.value;
+      let height = icon.getCSSProperty('height').parsed.value;
+      let size = `${width}x${height}`;
+      assert.equal(size, '256x256');
+    })
+
+  });
+
+  describe('Elements exist', function () {
+
+    it('Header', function () {
+      browser.url('/');
+      let header = $('.custom-header').isDisplayed();
+      assert.equal(header, true);
+    })
+
+    it('App', function () {
+      let header = $('.site-content').isDisplayed();
+      assert.equal(header, true);
+    })
+
+    it('Footer', function () {
+      let header = $('.custom-footer').isDisplayed();
+      assert.equal(header, true);
+    })
+
+  });
+
+});
+````
+Now your code testing Client suite, Page Level and Elements Exist sub-suites, and five tests.
+More info regarding Webdriver I/O commands you can find here:
+https://webdriver.io/docs/api.html
 
 ## 11. Working with Git:
 ## TODO:
