@@ -5,30 +5,31 @@ Install the latest Node.js **Recommended For Most Users** from
 https://nodejs.org/en/
 #### 1.2. Install Git:
 https://git-scm.com/
-#### 1.3. Install Java:
-https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-#### 1.4. Install Xcode:
-https://developer.apple.com/xcode/
-#### 1.5. Install Node Version Manager (nvm):
-Open Terminal and run
-````
-touch ~/.bash_profile
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-````
-Re-open Terminal
+#### 1.3. Install Java SE Development Kit:
+https://www.oracle.com/technetwork/java/javase/downloads/jdk12-downloads-5295953.html
 
 ===
 
-Additional Windows prerequisite:
-#### 1.6. Install all the required tools and configurations using Microsoft's windows-build-tools:
+### Additional MacOS prerequisites:
+#### 1.4. Install Xcode:
+https://developer.apple.com/xcode/
+
+===
+
+### Additional Windows prerequisites:
+#### 1.5. Install all the required tools and configurations using Microsoft's windows-build-tools:
 Open Command Prompt **as administrator** and run the following script:
 ````
 npm install --global --production windows-build-tools
 ````
-#### 1.7. Use Git Bash instead of using Windows Command Prompt.
-````
-TODO: link here
-````
+#### 1.6. Install Python 2.7.
+https://www.python.org/downloads/release/python-2716/
+
+#### 1.7. Use Git Bash instead of using Windows Command Prompt (for WebStorm).
+1. Open WebStorm
+2. Go to File => Settings
+3. Go to Tools => Terminal
+4. Specify Shell Path to Git Bash e.g.`C:\Program Files\Git\bin\sh.exe`
 
 ## 2. Creating project
 #### 2.1. Create `project` folder:
@@ -46,144 +47,215 @@ cd test-automation-webdriverio
 ````
 #### 2.2. Initialize your project:
 ````
- npm init
+npm init -y
 ````
-Click 'Enter' for every item to accept default values or specify whatever you like.
 This action creates `package.json` file.
 
 ## 3. Modules installation and configuration
 #### 3.1. Install webDriver I/O:
 ````
- npm i --save-dev webdriverio@4.13.2
+npm i webdriverio
 ````
-#### 3.2. Install Selenium:
+#### 3.2. Install CLI:
 ````
- npm i --save-dev wdio-selenium-standalone-service
+npm i @wdio/cli
 ````
-#### 3.3. Create WebDriver I/O configuration:
+#### 3.3. Create WebDriver I/O configuration by running:
 ````
- ./node_modules/.bin/wdio config
+./node_modules/.bin/wdio config
 ````
-Click `Enter` for the following items:
+This script runs WDIO Configuration Helper which will help you to create configuration file.
 ````
-Where do you want to execute your tests?:
-On my local machine
+Where should your tests be launched
+> local
+**click Enter**
 ````
 ````
-Which framework do you want to use?:
-mocha
+Shall I install the runner plugin for you?
+> type Y
+**click Enter**
 ````
-Type `Y` and click `Enter` for the following:
 ````
-Shall I install the framework adapter for you? (Y/n):
-Y
+Where is your automation backend located?
+> On my local machine
+**click Enter**
 ````
-Type `./test/**/*.js` and click `Enter` for the following:
+````
+Which framework do you want to use?
+> mocha
+**click Enter**
+````
+````
+Shall I install the framework adapter for you?
+> type Y
+**click Enter**
+````
+````
+Do you want to run WebdriverIO commands synchronous or asynchronous?
+> sync
+**click Enter**
+````
 ````
 Where are your test specs located?
-./test/**/*.js
+> type ./test/*.js
+**click Enter**
 ````
-Just click `Enter` for the following items:
 ````
 Which reporter do you want to use?
-dot
+> dot (select by pressing Space)
+> spec (select by pressing Space)
+> allure (select by pressing Space)
+**click Enter**
+````
+````
+Shall I install the reporter library for you?
+> type Y
+**click Enter**
 ````
 ````
 Do you want to add a service to your test setup?
-selenium-standalone
+> selenium-standalone (select by pressing Space)
+**click Enter**
+````
+````
+Shall I install the services for you?
+> type Y
+**click Enter**
 ````
 ````
 Level of logging verbosity
-silent
+> silent
+**click Enter**
 ````
-````
-In which directory should screenshots gets saved if a command fails? (./errorShots/)
-````
-Type `https://reactbugtracker.com/` and click `Enter` for the following:
 ````
 What is the base url?
-https://reactbugtracker.com/
+> type https://reactbugtracker.com
+**click Enter**
 ````
 Wait till the end of the installation process.
 
-## 4. Creating the first test
-#### 4.1. Create `test` folder and open it:
+## 4. Update WebDriver I/O configuration:
+Open configuration file:
+````
+open wdio.conf.js
+````
+#### 4.1. Configure browser:
+````
+maxInstances: 1,
+browserName: 'chrome'
+````
+#### 4.2. Configure reporters:
+Add the following code under `reporters: ['dot','spec','allure'],`:
+````
+    reporterOptions: {
+        allure: {
+            outputDir: 'allure-results'
+        }
+    },
+````
+
+## 5. Modify test script:
+Open `package.json`:
+````
+open package.json
+````
+and modify `test` script to get the following:
+````
+"test": "wdio wdio.conf.js"
+````
+
+## 6. Creating the first test
+#### 6.1. Create `test` folder and open it:
 ````
 mkdir test
 cd test
 ````
 
-#### 4.2. Create `test.js` file and open it:
+#### 6.2. Create `test.js` file and open it:
 ````
 touch test.js
 open test.js
 ````
-#### 4.3. Add the first test:
+#### 6.3. Add the first test:
 ````
-const assert = require('assert');
+import assert from 'assert';
 
-describe('Page opening', function () {
-  it('get title', function(){
-    browser.url('/Bug-Tracker'); //open baseUrl + string passed in .url() function
-    let title = browser.getTitle(); //get page title and assign it to the "title" variable
-    browser.pause(5000); //just pause to visually see that something is happening on the page
-    console.log(title); //log "title" variable
-    assert.equal(title, 'Bug Tracker', 'Title is incorrect'); //compare that "title" variable equals to "Bug Tracker" and error-message if not
-  })
+describe('Client', function () { //define suite title by passing a string
+
+  describe('Page Level', function () { //define sub-suite title by passing a string
+
+    it('Get title', function () { //define test title by passing a string
+      browser.url('/'); //open baseUrl + string passed in .url() function
+      let title = browser.getTitle(); //get page title and assign it to the "title" variable
+      browser.pause(2000); //just pause to visually see that something is happening on the page
+      assert.equal(title, 'Bug Tracker'); //compare that "title" variable (actual) equals to "Bug Tracker" (expected)
+    })
+
+  });
+
 });
 ````
 
-## 5. WebDriver I/O initial configuration
-#### 5.1. Add a script for running WebDriver I/O tests:
-Open `package.json` and modify `test` script:
+## 8. Instal `Babel` to use JavaScript ES6 syntax
+#### 8.1. Go back to the root folder and install necessary modules:
 ````
-"test": "wdio wdio.conf.js"
+cd ..
+npm install @babel/core @babel/cli @babel/preset-env @babel/register
 ````
-Now you can start your tests using `npm test` script.
+#### 8.2. Create and open Babel Configuration file:
+````
+touch babel.config.js
+open babel.config.js
+````
+#### 8.3. Paste the following code:
+````
+module.exports = {
+    presets: [
+        ['@babel/preset-env', {
+            targets: {
+                node: 8
+            }
+        }]
+    ]
+}
+````
+#### 8.5 Update WebDriver I/O configuration adding Babel configuration:
+Open configuration file:
+````
+open wdio.conf.js
+````
+And add the following line to the `mochaOpts` objest:
+````
+compilers: ['js:@babel/register']
+````
+It should look like this at the end:
+````
+mochaOpts: {
+        ui: 'bdd',
+        timeout: 60000,
+        compilers: ['js:@babel/register']
+    },
+````
 
-## 6. Install additional reporters
-#### 6.1. Spec reporter:
-````
-npm install wdio-spec-reporter --save-dev
-````
-#### 6.2. Allure reporter:
-````
-npm install wdio-allure-reporter --save-dev
-````
-
-## 7. `wdio.conf.js` configuration
-#### 7.1. Configure browser:
-````
-maxInstances: 1,
-browserName: 'chrome'
-````
-#### 7.2. Configure reporters:
-uncomment `// services: [],`
-and then replace by:
-````
-services: ['selenium-standalone'],
-````
-#### 7.3. Configure services:
-uncomment `// reporters: ['dot'],`
-and then replace by:
-````
-reporters: ['dot', 'spec', 'allure'],
-  reporterOptions: {
-    allure: {
-      outputDir: 'allure-results'
-    }
-  },
-````
-
-## 8. Running the first test
-#### 8.1. Run the first test:
+## 9. Running the first test
+#### 9.1. Run the first test:
 ````
 npm test
 ````
 Wait until test is finished. 
-You should see the message that 1 test passed.
+You should see the message with one suite, one sub-suite, and one test passed:
+````
+[chrome #0-0] Client
+[chrome #0-0]     Page Level
+[chrome #0-0]        ✓ Get title
+[chrome #0-0]
+[chrome #0-0] 1 passing (3.4s)
+````
 
-## 9. Working with Git:
+## 10. Extending test file
+
+
+## 11. Working with Git:
 ## TODO:
 GIT
 .gitignore
