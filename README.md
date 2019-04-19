@@ -1,4 +1,4 @@
-# WebDriver I/O from scratch
+# WebDriver I/O v.5 from scratch
 ## 1. Prerequisites
 #### 1.1. Node.js:
 Install the latest Node.js **Recommended For Most Users** from
