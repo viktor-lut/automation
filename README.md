@@ -3,6 +3,7 @@
 2. [Creating project](#creating-project)
 
 # WebDriver I/O v.5 from scratch
+<a name="prerequisites"></a>
 ## 1. Prerequisites
 #### 1.1. Node.js:
 Install the latest Node.js **Recommended For Most Users** from
@@ -35,6 +36,7 @@ https://www.python.org/downloads/release/python-2716/
 3. Go to Tools => Terminal
 4. Specify Shell Path to Git Bash e.g.`C:\Program Files\Git\bin\sh.exe`
 
+<a name="creating-project"></a>
 ## 2. Creating project
 #### 2.1. Create `project` folder:
 Open terminal and navigate to desired folder where you're going to store all of your projects. For example `projects` folder:
