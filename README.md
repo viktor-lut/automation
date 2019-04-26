@@ -305,6 +305,36 @@ Add the following code under `reporters: ['dot','spec','allure'],`:
         }
     },
 ````
+#### 11.2. Install Allure Commandline globally:
+````
+npm i allure-commandline -g
+````
+#### 11.3. Create a script to generate and open a report:
+Add the following script to `package.json`:
+````
+"report": "allure generate --clean && allure open"
+````
+#### 11.4. Create a script to clean `allure-results` folder before running a test:
+Add the following script to `package.json`:
+````
+"clean": "rm -rf allure-results"
+````
+#### 11.5. Modify test script to include `clean` and `report` scripts:
+Replace the test script in `package.json` by the following code:
+````
+"test": "npm run clean && wdio wdio.conf.js && npm run report"
+````
+Now your scripts should look like this:
+````
+"test": "npm run clean && wdio wdio.conf.js && npm run report",
+"report": "allure generate --clean && allure open",
+"clean": "rm -rf allure-results"
+````
+
+
++ smoke
+
++ chai
 
 ## 12. Working with Git:
 ## TODO:
