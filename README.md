@@ -337,12 +337,14 @@ Now your scripts should look like this:
 "clean": "rm -rf allure-results"
 ````
 
+## 12. Adding Smoke suite:
+#### 12.1. Create :
 
 + smoke
 
 + chai
 
-## 12. Working with Git:
+## 10. Working with Git:
 ## TODO:
 GIT
 .gitignore
