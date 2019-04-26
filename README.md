@@ -250,7 +250,13 @@ You should see the message with one suite, one sub-suite, and one test passed:
 ````
 
 ## 10. Adding more tests:
-Replace the old code by the following one in `test.js`:
+#### 10.1. Rename `test.js` to make it more clear:
+````
+cd test
+mv test.js client.js
+open client.js
+````
+Replace the old code by the following one in `client.js`:
 ````
 import assert from 'assert';
 
@@ -297,11 +303,44 @@ describe('Client', function () {
 
 });
 ````
-Now your code testing Client suite, Page Level and Elements Exist sub-suites, and five tests.
+#### 10.2. Create one more test file `login.js`:
+````
+touch login.js
+open client.js
+cd ..
+````
+#### 10.3. Copy and paste the following code to `login.js`:
+````
+import assert from 'assert';
+let maxLenght = 45;
+
+describe('Login', function () {
+
+  describe('Email', function () {
+
+    it('Max Characters', function () {
+      browser.url('/');
+      let input = $('#email');
+      input.addValue('j'.repeat(maxLenght));
+      let actual = input.getValue().length;
+      input.clearValue();
+      assert.equal(actual, maxLenght);
+    })
+
+    it('Max Characters + 1', function () {
+      let input = $('#email');
+      input.addValue('j'.repeat(maxLenght + 1));
+      let actual = input.getValue().length;
+      assert.equal(actual, maxLenght);
+    })
+
+  });
+
+});
+````
+Now your code testing Client and Login suites.
 More info regarding Webdriver I/O commands you can find here:
 https://webdriver.io/docs/api.html
-
-##
 
 ## 11. Configuring Allure reporter:
 #### 11.1. Configure reporter in `wdio.conf.js`:
@@ -372,7 +411,7 @@ open smoke.js
 ````
 #### 13.3. Copy and paste the following code to the file:
 ````
-import assert from 'assert';
+import { assert } from 'chai';
 
 describe('Login', function () {
 
@@ -389,7 +428,7 @@ describe('Login', function () {
 });
 ````
 #### 13.4. Create folder for regression testing:
-Get back to `test`folder, create `reg` folder there, and move existing test files to it:
+Get back to `test` folder, create `reg` folder there, and move existing test files to it:
 ````
 cd ..
 mkdir reg
