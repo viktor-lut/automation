@@ -2,6 +2,19 @@
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Creating project](#creating-project)
+3. [Modules installation and configuration](#modules)
+4. [Updating WebDriver I/O configuration](#wdio-configuration)
+5. [Modifying test script](#test-scripts)
+6. [Creating the first test](#first-test)
+7. [Installation of `Babel` to use JavaScript ES6 syntax](#babel)
+8. [Running the first test](#first-test-run)
+9. [Adding more tests](#more-tests)
+10. [Configuring Allure reporter](#allure)
+11. [Installation of `chai` module](#chai)
+12. [Adding Smoke suite](#smoke)
+13. [Working with Git](#git)
+
+===
 
 <a name="prerequisites"></a>
 ## 1. Prerequisites
@@ -57,6 +70,7 @@ npm init -y
 ````
 This action creates `package.json` file.
 
+<a name="modules"></a>
 ## 3. Modules installation and configuration
 #### 3.1. Install webDriver I/O:
 ````
@@ -140,6 +154,7 @@ What is the base url?
 ````
 Wait till the end of the installation process.
 
+<a name="wdio-configuration"></a>
 ## 4. Update WebDriver I/O configuration:
 Open configuration file:
 ````
@@ -150,7 +165,7 @@ open wdio.conf.js
 maxInstances: 1,
 browserName: 'chrome'
 ````
-
+<a name="test-scripts"></a>
 ## 5. Modify test script:
 Open `package.json`:
 ````
@@ -160,7 +175,7 @@ and modify `test` script to get the following:
 ````
 "test": "wdio wdio.conf.js"
 ````
-
+<a name="first-test"></a>
 ## 6. Creating the first test
 #### 6.1. Create `test` folder and open it:
 ````
@@ -194,17 +209,18 @@ describe('Client', function () { //define suite title by passing a string
 });
 ````
 
-## 8. Instal `Babel` to use JavaScript ES6 syntax
-#### 8.1. Go back to the root folder and install necessary modules:
+<a name="babel"></a>
+## 7. Instal `Babel` to use JavaScript ES6 syntax
+#### 7.1. Go back to the root folder and install necessary modules:
 ````
 npm install @babel/core @babel/cli @babel/preset-env @babel/register
 ````
-#### 8.2. Create and open Babel Configuration file:
+#### 7.2. Create and open Babel Configuration file:
 ````
 touch babel.config.js
 open babel.config.js
 ````
-#### 8.3. Paste the following code:
+#### 7.3. Paste the following code:
 ````
 module.exports = {
     presets: [
@@ -216,7 +232,7 @@ module.exports = {
     ]
 }
 ````
-#### 8.5 Update WebDriver I/O configuration adding Babel configuration:
+#### 7.5 Update WebDriver I/O configuration adding Babel configuration:
 Open configuration file:
 ````
 open wdio.conf.js
@@ -234,8 +250,9 @@ mochaOpts: {
     },
 ````
 
-## 9. Running the first test
-#### 9.1. Run the first test:
+<a name="first-test-run"></a>
+## 8. Running the first test
+#### 8.1. Run the first test:
 ````
 npm test
 ````
@@ -249,8 +266,9 @@ You should see the message with one suite, one sub-suite, and one test passed:
 [chrome #0-0] 1 passing (3.4s)
 ````
 
-## 10. Adding more tests:
-#### 10.1. Rename `test.js` to make it more clear:
+<a name="more-tests"></a>
+## 9. Adding more tests:
+#### 9.1. Rename `test.js` to make it more clear:
 ````
 cd test
 mv test.js client.js
@@ -303,13 +321,13 @@ describe('Client', function () {
 
 });
 ````
-#### 10.2. Create one more test file `login.js`:
+#### 9.2. Create one more test file `login.js`:
 ````
 touch login.js
-open client.js
+open login.js
 cd ..
 ````
-#### 10.3. Copy and paste the following code to `login.js`:
+#### 9.3. Copy and paste the following code to `login.js`:
 ````
 import assert from 'assert';
 let maxLenght = 45;
@@ -338,12 +356,21 @@ describe('Login', function () {
 
 });
 ````
+#### 9.4. Edit the configuration including `login.js` and updating `client.js`:
+Open `wdio.conf.js` and update the `specs` array:
+````
+    specs: [
+        './test/client.js',
+        './test/login.js'
+    ],
+````
 Now your code testing Client and Login suites.
 More info regarding Webdriver I/O commands you can find here:
 https://webdriver.io/docs/api.html
 
-## 11. Configuring Allure reporter:
-#### 11.1. Configure reporter in `wdio.conf.js`:
+<a name="allure"></a>
+## 10. Configuring Allure reporter:
+#### 10.1. Configure reporter in `wdio.conf.js`:
 Add the following code under `reporters: ['dot','spec','allure'],`:
 ````
     reporterOptions: {
@@ -352,21 +379,21 @@ Add the following code under `reporters: ['dot','spec','allure'],`:
         }
     },
 ````
-#### 11.2. Install Allure Commandline globally:
+#### 10.2. Install Allure Commandline globally:
 ````
 npm i allure-commandline -g
 ````
-#### 11.3. Create a script to generate and open a report:
+#### 10.3. Create a script to generate and open a report:
 Add the following script to `package.json`:
 ````
 "report": "allure generate --clean && allure open"
 ````
-#### 11.4. Create a script to clean `allure-results` folder before running a test:
+#### 10.4. Create a script to clean `allure-results` folder before running a test:
 Add the following script to `package.json`:
 ````
 "clean": "rm -rf allure-results"
 ````
-#### 11.5. Modify test script to include `clean` and `report` scripts:
+#### 10.5. Modify test script to include `clean` and `report` scripts:
 Replace the test script in `package.json` by the following code:
 ````
 "test": "npm run clean && wdio wdio.conf.js && npm run report"
@@ -377,15 +404,16 @@ Now your scripts should look like this:
 "report": "allure generate --clean && allure open",
 "clean": "rm -rf allure-results"
 ````
-#### 11.6. Run `npm test` to try.
+#### 10.6. Run `npm test` to try.
 `allure-results` folder shoul be removed automatically before the test starts. Allure Report should appear once the testing finished. To kill the precess press `Ctrl+C`.
 
-## 12. Adding `chai` assertion library:
-#### 12.1. Install `chai` module:
+<a name="chai"></a>
+## 11. Adding `chai` assertion library:
+#### 11.1. Install `chai` module:
 ````
 npm i chai
 ````
-#### 12.2. Import new module into your files:
+#### 11.2. Import new module into your files:
 Replace the old assert import:
 ````
 import assert from 'assert';
@@ -397,19 +425,21 @@ import { assert } from 'chai';
 Please make sure you replaced it in all the test files. Now you can use all the methods described here:
 https://www.npmjs.com/package/chai
 
-## 13. Adding Smoke suite:
-#### 13.1. Go to `test` folder, create `smoke` folder, and open it:
+
+<a name="smoke"></a>
+## 12. Adding Smoke suite:
+#### 12.1. Go to `test` folder, create `smoke` folder, and open it:
 ````
 cd test
 mkdir smoke
 cd smoke
 ````
-#### 13.2. Create `smoke.js` file and open it:
+#### 12.2. Create `smoke.js` file and open it:
 ````
 touch smoke.js
 open smoke.js
 ````
-#### 13.3. Copy and paste the following code to the file:
+#### 12.3. Copy and paste the following code to the file:
 ````
 import { assert } from 'chai';
 
@@ -427,7 +457,7 @@ describe('Login', function () {
 
 });
 ````
-#### 13.4. Create folder for regression testing:
+#### 12.4. Create folder for regression testing:
 Get back to `test` folder, create `reg` folder there, and move existing test files to it:
 ````
 cd ..
@@ -436,7 +466,7 @@ mv client.js reg/client.js
 mv login.js reg/login.js
 cd ..
 ````
-#### 13.5. Update the configuration:
+#### 12.5. Update the configuration:
 Open `wdio.conf.js` file and update the test specs including the new folder path:
 ````
 specs: [
@@ -444,19 +474,19 @@ specs: [
         './test/reg/login.js'
     ],
 ````
-#### 13.6. Create smoke test configuration:
+#### 12.6. Create smoke test configuration:
 Copy and rename the existing Regression configuration (`wdio.conf.js`) to create a new configuration file (`smoke.conf.js`):
 ````
 cp wdio.conf.js smoke.conf.js
 ````
-#### 13.7. Update the configuration:
+#### 12.7. Update the configuration:
 Open the new configuration file `smoke.conf.js` and provide a path to the smoke test:
 ````
 specs: [
         './test/smoke/smoke.js'
     ],
 ````
-#### 13.8. Create and run `smoke` script:
+#### 12.8. Create and run `smoke` script:
 Open `package.json` and add `smoke` script:
 ````
 "smoke": "npm run clean && wdio smoke.conf.js && npm run report"
@@ -466,6 +496,8 @@ Once done, run the test:
 npm run smoke
 ````
 
+
+<a name="git"></a>
 ## xx. Working with Git:
 ## TODO:
 GIT
