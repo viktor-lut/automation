@@ -1,8 +1,8 @@
-# Table of Contents
+# WebDriver I/O v.5 from scratch
+## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Creating project](#creating-project)
 
-# WebDriver I/O v.5 from scratch
 <a name="prerequisites"></a>
 ## 1. Prerequisites
 #### 1.1. Node.js:
