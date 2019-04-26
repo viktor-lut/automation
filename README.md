@@ -172,6 +172,7 @@ cd test
 ````
 touch test.js
 open test.js
+cd ..
 ````
 #### 6.3. Add the first test:
 ````
@@ -196,7 +197,6 @@ describe('Client', function () { //define suite title by passing a string
 ## 8. Instal `Babel` to use JavaScript ES6 syntax
 #### 8.1. Go back to the root folder and install necessary modules:
 ````
-cd ..
 npm install @babel/core @babel/cli @babel/preset-env @babel/register
 ````
 #### 8.2. Create and open Babel Configuration file:
@@ -301,6 +301,8 @@ Now your code testing Client suite, Page Level and Elements Exist sub-suites, an
 More info regarding Webdriver I/O commands you can find here:
 https://webdriver.io/docs/api.html
 
+##
+
 ## 11. Configuring Allure reporter:
 #### 11.1. Configure reporter in `wdio.conf.js`:
 Add the following code under `reporters: ['dot','spec','allure'],`:
@@ -380,21 +382,50 @@ describe('Login', function () {
     $('#pass').setValue('testTest');
     $('#login').click();
     let newBug = $('#new_bug');
-    newBug.waitForDisplayed(2000);
+    newBug.waitForDisplayed(5000);
     assert.isTrue(newBug.isDisplayed());
   })
 
 });
 ````
-#### 13.1. Create folder for regression testing:
+#### 13.4. Create folder for regression testing:
 Get back to `test`folder, create `reg` folder there, and move existing test files to it:
 ````
 cd ..
 mkdir reg
 mv client.js reg/client.js
 mv login.js reg/login.js
+cd ..
 ````
-
+#### 13.5. Update the configuration:
+Open `wdio.conf.js` file and update the test specs including the new folder path:
+````
+specs: [
+        './test/reg/client.js',
+        './test/reg/login.js'
+    ],
+````
+#### 13.6. Create smoke test configuration:
+Copy and rename the existing Regression configuration (`wdio.conf.js`) to create a new configuration file (`smoke.conf.js`):
+````
+cp wdio.conf.js smoke.conf.js
+````
+#### 13.7. Update the configuration:
+Open the new configuration file `smoke.conf.js` and provide a path to the smoke test:
+````
+specs: [
+        './test/smoke/smoke.js'
+    ],
+````
+#### 13.8. Create and run `smoke` script:
+Open `package.json` and add `smoke` script:
+````
+"smoke": "npm run clean && wdio smoke.conf.js && npm run report"
+````
+Once done, run the test:
+````
+npm run smoke
+````
 
 ## xx. Working with Git:
 ## TODO:
