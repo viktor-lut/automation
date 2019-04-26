@@ -144,15 +144,6 @@ open wdio.conf.js
 maxInstances: 1,
 browserName: 'chrome'
 ````
-#### 4.2. Configure reporters:
-Add the following code under `reporters: ['dot','spec','allure'],`:
-````
-    reporterOptions: {
-        allure: {
-            outputDir: 'allure-results'
-        }
-    },
-````
 
 ## 5. Modify test script:
 Open `package.json`:
@@ -304,7 +295,18 @@ Now your code testing Client suite, Page Level and Elements Exist sub-suites, an
 More info regarding Webdriver I/O commands you can find here:
 https://webdriver.io/docs/api.html
 
-## 11. Working with Git:
+## 11. Configuring Allure reporter:
+#### 11.1. Configure reporter in `wdio.conf.js`:
+Add the following code under `reporters: ['dot','spec','allure'],`:
+````
+    reporterOptions: {
+        allure: {
+            outputDir: 'allure-results'
+        }
+    },
+````
+
+## 12. Working with Git:
 ## TODO:
 GIT
 .gitignore
