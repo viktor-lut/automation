@@ -336,15 +336,67 @@ Now your scripts should look like this:
 "report": "allure generate --clean && allure open",
 "clean": "rm -rf allure-results"
 ````
+#### 11.6. Run `npm test` to try.
+`allure-results` folder shoul be removed automatically before the test starts. Allure Report should appear once the testing finished. To kill the precess press `Ctrl+C`.
 
-## 12. Adding Smoke suite:
-#### 12.1. Create :
+## 12. Adding `chai` assertion library:
+#### 12.1. Install `chai` module:
+````
+npm i chai
+````
+#### 12.2. Import new module into your files:
+Replace the old assert import:
+````
+import assert from 'assert';
+````
+by new assert from chai:
+````
+import { assert } from 'chai';
+````
+Please make sure you replaced it in all the test files. Now you can use all the methods described here:
+https://www.npmjs.com/package/chai
 
-+ smoke
+## 13. Adding Smoke suite:
+#### 13.1. Go to `test` folder, create `smoke` folder, and open it:
+````
+cd test
+mkdir smoke
+cd smoke
+````
+#### 13.2. Create `smoke.js` file and open it:
+````
+touch smoke.js
+open smoke.js
+````
+#### 13.3. Copy and paste the following code to the file:
+````
+import assert from 'assert';
 
-+ chai
+describe('Login', function () {
 
-## 10. Working with Git:
+  it('Works', function () {
+    browser.url('/');
+    $('#email').setValue('testreacttest@gmail.com');
+    $('#pass').setValue('testTest');
+    $('#login').click();
+    let newBug = $('#new_bug');
+    newBug.waitForDisplayed(2000);
+    assert.isTrue(newBug.isDisplayed());
+  })
+
+});
+````
+#### 13.1. Create folder for regression testing:
+Get back to `test`folder, create `reg` folder there, and move existing test files to it:
+````
+cd ..
+mkdir reg
+mv client.js reg/client.js
+mv login.js reg/login.js
+````
+
+
+## xx. Working with Git:
 ## TODO:
 GIT
 .gitignore
