@@ -35,15 +35,10 @@ https://developer.apple.com/xcode/
 ===
 
 ### Additional Windows prerequisites:
-#### 1.5. Install all the required tools and configurations using Microsoft's windows-build-tools:
-Open Command Prompt **as administrator** and run the following script:
-````
-npm install --global --production windows-build-tools
-````
-#### 1.6. Install Python 2.7.
+#### 1.5. Install Python 2.7.
 https://www.python.org/downloads/release/python-2716/
 
-#### 1.7. Use Git Bash instead of using Windows Command Prompt (for WebStorm).
+#### 1.6. Use Git Bash instead of using Windows Command Prompt (for WebStorm).
 1. Open WebStorm
 2. Go to File => Settings
 3. Go to Tools => Terminal
@@ -498,7 +493,73 @@ npm run smoke
 
 
 <a name="git"></a>
-## xx. Working with Git:
-## TODO:
-GIT
-.gitignore
+## 13. Working with Git
+#### 13.1. Create GitHub account:
+https://github.com/join
+#### 13.2. Once logged in create new repository:
+https://github.com/new
+Provide `Repository name` and click `Create repository`.
+On the next page you have the instruction how to connect your local repo with the remote one.
+#### 13.3. Initialize local git repo:
+Get back to Terminal and type:
+````
+git init
+````
+#### 13.4. Create and configure `.gitignore` file:
+This file is used to list all folders and files which should be ignored by Git.
+````
+touch .gitignore
+open .gitignore
+````
+Add the following lines to the file:
+````
+node_modules
+allure-results
+allure-report
+.git
+.idea
+````
+#### 13.5. Add all files to Git and create first commit:
+````
+git add .
+git commit -m "first commit"
+````
+#### 13.6. Add all files to Git and create first commit:
+````
+git add .
+git commit -m "first commit"
+````
+#### 13.7. Connect your local git with remote GitHub repo:
+Get the link from the page you get on GitHub:
+````
+git remote add origin {link}
+````
+#### 13.8. Push your local code to the remote repo:
+````
+git push -u origin master
+````
+#### 13.9. Some git commands to use:
+1) List of branches:
+````
+git branch
+````
+2) Create branch:
+````
+git branch {name}
+````
+3) Delete branch:
+````
+git branch -D {name}
+````
+4) Switch to another branch:
+````
+git checkout {name}
+````
+5) Commiting changes:
+````
+git commit -m "commit message"
+````
+6) Pushing changes:
+````
+git push
+````
